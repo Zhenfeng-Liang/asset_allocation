@@ -25,4 +25,5 @@ drDofx = driftDer(x,1)
 % Test driftDer2 function
 drD2ofx = driftDer2(x, 1, 2)
 
-
+% Test diffDer2 function
+dD2ofx = diffDer2(x, 1, 2)

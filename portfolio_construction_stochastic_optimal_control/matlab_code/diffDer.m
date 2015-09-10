@@ -3,8 +3,9 @@ function [der] = diffDer(x, i)
 % Output: diff derivative matrix with respect to x_i
  
   # mean reverting model
-  F = 2;
-  der = zeros(F, F);
+  F = length(x);
+  p = 2;               # This needs to be fixed, hard-coded right now.
+  der = zeros(F, p);
   
 # lognormal model
 #lnVols <- c(0.33, 0.26, 0.19, 0.22, 0.31);

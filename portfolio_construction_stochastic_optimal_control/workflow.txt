@@ -1,0 +1,4 @@
+This file is including or will include the proposed workflow of this project's development.
+
+
+## All copyrights (C) reserved.

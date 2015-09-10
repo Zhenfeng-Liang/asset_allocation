@@ -6,7 +6,7 @@
 
 ### Contact:
         cliuaweit@gmail.com
-	Zhenfeng.Jose.Liang@gmail.com	
+        Zhenfeng.Jose.Liang@gmail.com	
 
 ### Description:
         This repo is including or will including materials and code for stochastic optimal control project. At this point, we are going to experiment it with Matlab or Python. We might turn this into a C++ production program as well at some point in the future.

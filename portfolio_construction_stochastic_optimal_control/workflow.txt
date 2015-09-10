@@ -7,14 +7,11 @@ Basic Logic:
 4: Integrate S0 using Phi(y) and Psi(y) we got before.
 
 
+Implementation thoughts/ideas:
 
-### I am working on the below workflow organization.
+10 Sep, 2015: 
+   Idea: We are going to repplicate the broken code in Matlab/Octave
 
-Trial workflow:
-
-For step 2:
-#1: Approximation of gradient of Phit(y), input: vector y, 
-2: Implement Newton which takes vector x, functions Ft(y) and Phit(y) as input, output vector y.
 
 ## All copyrights (C) reserved.
 

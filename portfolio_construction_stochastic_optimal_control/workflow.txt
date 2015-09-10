@@ -1,4 +1,20 @@
-This file is including or will include the proposed workflow of this project's development.
+This file is including or will include development logic and the proposed workflow of this project's development.
 
+Basic Logic:
+1: Use Leapfrop to implement a flow map Phi and Psi, given y, terminal asset price, as an input
+2: Newton method to get the specific y such that Phi(y) = x0.
+3: Plug this y back, get the real flow map we need, i.e, two vector, Phi(y), Psi(y) at each time point.
+4: Integrate S0 using Phi(y) and Psi(y) we got before.
+
+
+
+### I am working on the below workflow organization.
+
+Trial workflow:
+
+For step 2:
+#1: Approximation of gradient of Phit(y), input: vector y, 
+2: Implement Newton which takes vector x, functions Ft(y) and Phit(y) as input, output vector y.
 
 ## All copyrights (C) reserved.
+

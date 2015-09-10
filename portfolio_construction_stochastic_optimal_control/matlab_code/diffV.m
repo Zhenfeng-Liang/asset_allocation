@@ -1,7 +1,7 @@
 function [b] = diffV(x)
 % Given x, asset price, output asset dynamics diff
 % Right now, I am hard coding dimension of dZ, 3, which is p dimensions in the paper
-% Return: diff matrix
+% Return: diff matrix, whose dimension is n*p
 % Note: to get a dirty implementation, we let p=n at this point
 
   # mean reverting model

@@ -17,8 +17,12 @@ dofx = diffV(x)
 #covx = instCov(x, corrMatr) 
 
 % Test diffDer function
-ddofx = diffDer(x, 1)
-
+dDofx = diffDer(x, 1)
 
 % Test driftDer function
-drdofx = driftDer(x,1)
+drDofx = driftDer(x,1)
+
+% Test driftDer2 function
+drD2ofx = driftDer2(x, 1, 2)
+
+

@@ -1,4 +1,6 @@
 function [der] = driftDer(x, i)
+% Input: x, asset price vector, with respect to ith asset price
+% Output: drift vector derivative with respect to x_i
  
   # mean reverting model
   lambda = [21.0, 13.2];

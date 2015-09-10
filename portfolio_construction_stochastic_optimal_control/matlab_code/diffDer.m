@@ -1,4 +1,7 @@
-function [der] = diffDer(x, i) 
+function [der] = diffDer(x, i)
+% Input, x, asset price, ith direction
+% Output: diff derivative matrix with respect to x_i
+ 
   # mean reverting model
   F = 2;
   der = zeros(F, F);

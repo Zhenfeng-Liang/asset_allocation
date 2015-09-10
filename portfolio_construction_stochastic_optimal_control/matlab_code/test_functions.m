@@ -19,3 +19,6 @@ dofx = diffV(x)
 % Test diffDer function
 ddofx = diffDer(x, 1)
 
+
+% Test driftDer function
+drdofx = driftDer(x,1)

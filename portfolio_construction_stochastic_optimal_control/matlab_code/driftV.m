@@ -4,8 +4,7 @@ function [a] = driftV(x)
 % Return: drift vector
 
   # mean reverting model
-  mu = [0.4, -1.3];
-  lambda = [21.0, 13.2];
+  mu = [0.4; -1.3];
+  lambda = [21.0; 13.2];
   a = lambda .* (mu - x);  # a is the symbol on paper
-  a = a';
 end

@@ -6,7 +6,7 @@
 % The following test is assuming two dimensions asset price.
 
 # Global variables
-x = [1, 1];  % asset price vector
+x = [1; 1];  % asset price vector
 global corrMatr;
 corrMatr = [1,0.5;0.5,1];
 gamma = 0.5;
@@ -52,4 +52,4 @@ covxDij = instCovDer2(x, 1, 2)
 iCovxDij = invInstCovDer2(x, 1, 2)
 
 # Test lagr(x, p) function
-lagrval = lagr(x, p);
+lagrval = lagr(x, p)

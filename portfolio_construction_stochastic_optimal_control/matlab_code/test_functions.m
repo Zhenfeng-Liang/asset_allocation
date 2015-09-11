@@ -6,14 +6,14 @@
 % The following test is assuming two dimensions asset price.
 
 # Global variables
-x = [1; 1];  % asset price vector
 global corrMatr;
 corrMatr = [1,0.5;0.5,1];
 gamma = 0.5;
 global oneOverGamma = 1 /gamma;
 global kappa = oneOverGamma - 1;
 
-p = [1;1]; # Have to be n x 1 dim
+x = [1; 1]  # asset price vector
+p = [1;1]   # Have to be n x 1 dim
 
 % Test driftV function.
 drofx = driftV(x)
@@ -66,3 +66,5 @@ hDp = hamDp(x, p)
 % Test hamDxx(x, p) function
 hDxx = hamDxx(x, p)
 
+% Test hamDxp(x, p) function
+hDxp = hamDxp(x, p)

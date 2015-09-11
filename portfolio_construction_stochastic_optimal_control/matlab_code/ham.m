@@ -1,7 +1,7 @@
 function [val] = ham(x, p)
-  % Hamilton function
-  % Input: x, asset price vector, p, momentum vector
-  % Output: hamiltonian value
+% Hamilton function
+% Input: x, asset price vector, p, momentum vector
+% Output: hamiltonian value
 
   global oneOverGamma;
   global kappa;
@@ -12,5 +12,5 @@ function [val] = ham(x, p)
   term2 = oneOverGamma * p' * a;
   term3 = 0.5 * kappa * a' * invInstCov(x) * a;
   val = term1 + term2 + term3;
-  
+ 
 end

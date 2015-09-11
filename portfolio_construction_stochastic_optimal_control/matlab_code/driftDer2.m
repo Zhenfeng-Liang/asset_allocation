@@ -4,7 +4,7 @@ function [der2] = driftDer2(x, i, j)
 
   # mean reverting and lognormal models
   F = length(x);
-  der2 = zeros(1, F);   
+  der2 = zeros(1, F);    # check the dimension here later. I am suspecting this shoule be F x 1
   
 end
 

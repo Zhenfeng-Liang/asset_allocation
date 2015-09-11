@@ -5,7 +5,7 @@ function [der] = driftDer(x, i)
   # mean reverting model
   lambda = [21.0, 13.2];
   F = length(lambda);
-  der = zeros(1, F);
+  der = zeros(F, 1);
   der(i) = -lambda(i);
   
   # lognormal model

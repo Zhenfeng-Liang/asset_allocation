@@ -7,5 +7,5 @@ function [a] = driftV(x)
   mu = [0.4, -1.3];
   lambda = [21.0, 13.2];
   a = lambda .* (mu - x);  # a is the symbol on paper
-  
+  a = a';
 end

@@ -1,7 +1,8 @@
-function [derx] = instCovDer2(x, i, j, corrMatr)
+function [derx] = instCovDer2(x, i, j)
 % Input: x, asset price vector, with respect to ith and jth asset
 % Output: second derivative of covariance matrix with respect to ith and jth asset
 
+  global corrMatr;
   dofx = diffV(x);
   ddofxi = diffDer(x, i);
   ddofxj = diffDer(x, j);

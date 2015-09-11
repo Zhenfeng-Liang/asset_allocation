@@ -4,8 +4,16 @@
 % All copyrights(C) reserved.
 
 % The following test is assuming two dimensions asset price.
+
+# Global variables
 x = [1, 1];  % asset price vector
+global corrMatr;
 corrMatr = [1,0.5;0.5,1];
+gamma = 0.5;
+global oneOverGamma = 1 /gamma;
+global kappa = oneOverGamma - 1;
+
+p = [1;1]; # Have to be n x 1 dim
 
 % Test driftV function.
 drofx = driftV(x)
@@ -14,7 +22,7 @@ drofx = driftV(x)
 dofx = diffV(x)
 
 % Test instCov function
-covx = instCov(x, corrMatr) 
+covx = instCov(x) 
 
 % Test diffDer function
 dDofx = diffDer(x, 1)
@@ -29,16 +37,19 @@ drD2ofx = driftDer2(x, 1, 2)
 dD2ofx = diffDer2(x, 1, 2)
 
 % Test invInstCov function
-iCovx = invInstCov(x, corrMatr)
+iCovx = invInstCov(x)
 
 % Test instCovDer function
-covxDi = instCovDer(x, 1, corrMatr)
+covxDi = instCovDer(x, 1)
 
 % Test invInstCovDer function
-iCovxDi = invInstCovDer(x, 1, corrMatr)
+iCovxDi = invInstCovDer(x, 1)
 
 % Test instCovDer2 function
-covxDij = instCovDer2(x, 1, 2, corrMatr)
+covxDij = instCovDer2(x, 1, 2)
 
 % Test invInstCovDer2 function
-iCovxDij = invInstCovDer2(x, 1, 2, corrMatr)
+iCovxDij = invInstCovDer2(x, 1, 2)
+
+# Test lagr(x, p) function
+lagrval = lagr(x, p);

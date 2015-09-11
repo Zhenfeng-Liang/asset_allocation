@@ -56,3 +56,6 @@ lagrval = lagr(x, p)
 
 # Test ham(x, p) function
 hVal = ham(x, p)
+
+% Test hamDx(x, p) function
+hDx = hamDx(x, p)

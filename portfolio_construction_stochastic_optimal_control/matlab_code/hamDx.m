@@ -8,9 +8,9 @@ function [val] = hamDx(x, p)
     a = driftV(x);  
     F = length(x);
 
-    term1 = zeros(1, F);
-    term2 = zeros(1, F);
-    term2 = zeros(1, F);
+    term1 = zeros(F, 1);
+    term2 = zeros(F, 1);
+    term3 = zeros(F, 1);
     
     for i = 1:F    
       term1(i) = 0.5 * oneOverGamma * p' * instCovDer(x, i) * p;

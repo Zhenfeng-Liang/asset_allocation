@@ -51,11 +51,14 @@ covxDij = instCovDer2(x, 1, 2)
 % Test invInstCovDer2 function
 iCovxDij = invInstCovDer2(x, 1, 2)
 
-# Test lagr(x, p) function
+% Test lagr(x, p) function
 lagrval = lagr(x, p)
 
-# Test ham(x, p) function
+% Test ham(x, p) function
 hVal = ham(x, p)
 
 % Test hamDx(x, p) function
 hDx = hamDx(x, p)
+
+% Test hamDp(x, p) function
+hDp = hamDp(x, p)

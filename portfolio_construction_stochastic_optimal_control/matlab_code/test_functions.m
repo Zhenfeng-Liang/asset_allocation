@@ -68,3 +68,6 @@ hDxx = hamDxx(x, p)
 
 % Test hamDxp(x, p) function
 hDxp = hamDxp(x, p)
+
+% Test hamDpp(x, p) function
+hDpp = hamDpp(x, p)

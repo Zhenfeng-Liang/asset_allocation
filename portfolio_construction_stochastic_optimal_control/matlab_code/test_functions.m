@@ -30,3 +30,6 @@ dD2ofx = diffDer2(x, 1, 2)
 
 % Test invInstCov function
 iCovx = invInstCov(x, corrMatr)
+
+% Test instCovDer function
+covxDi = instCovDer(x, 1, corrMatr)

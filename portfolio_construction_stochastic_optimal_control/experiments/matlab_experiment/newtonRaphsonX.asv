@@ -1,0 +1,11 @@
+function x = newtonRaphsonX(tol, hamDp_h, hamDxp_h, xPrev, pPrev, h, mu, sig, gamma)
+    % Initial value for the iteration
+    xOld = x_Prev;
+    % Initial error
+    error = 1;
+    % Loop through to find implicit solution for x
+    while error>tol
+        f = xOld + 0.5*h*feval(hamDp_h, xOld, pPrev) - xPrev + 0.5*h*
+        xNew = xOld -  
+    end
+end

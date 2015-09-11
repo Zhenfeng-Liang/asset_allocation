@@ -38,4 +38,7 @@ covxDi = instCovDer(x, 1, corrMatr)
 iCovxDi = invInstCovDer(x, 1, corrMatr)
 
 % Test instCovDer2 function
-covxD2ij = instCovDer2(x, 1, 2, corrMatr)
+covxDij = instCovDer2(x, 1, 2, corrMatr)
+
+% Test invInstCovDer2 function
+iCovxDij = invInstCovDer2(x, 1, 2, corrMatr)

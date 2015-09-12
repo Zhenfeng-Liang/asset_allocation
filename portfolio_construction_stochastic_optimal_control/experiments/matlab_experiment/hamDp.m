@@ -1,4 +1,4 @@
-function y = hamDp(x, p, mu, sig, gamma)
-    y = 1/gamma * (sig*sig*x*x*p + mu*x);
+function y = hamDp(x, p, rho, mu, sig, gamma)
+    y = 1/gamma * (c(x, rho, sig)*p + a(x, mu));
 end
 

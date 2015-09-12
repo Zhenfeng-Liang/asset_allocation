@@ -13,7 +13,7 @@ global oneOverGamma = 1 /gamma;
 global kappa = oneOverGamma - 1;
 
 x = [1; 1]  # asset price vector
-p = [1;1]   # Have to be n x 1 dim
+p = [1; 1]   # Have to be n x 1 dim
 
 % Test driftV function.
 drofx = driftV(x)
@@ -71,3 +71,14 @@ hDxp = hamDxp(x, p)
 
 % Test hamDpp(x, p) function
 hDpp = hamDpp(x, p)
+
+
+% Test generateLfFlow(xT, pT, t, T, timeStep, tol, maxIter) function
+xT = [3; 4];
+pT = [0; 0];
+t = 0;
+T = 1;
+timeStep = 0.2;
+tol = 0.5;
+maxIter = 10;
+[xFlow, pFlow] = generateLfFlow(xT, pT, t, T, timeStep, tol, maxIter)

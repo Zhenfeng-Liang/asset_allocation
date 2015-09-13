@@ -6,8 +6,14 @@ pT = 0;
 T = 2;
 N = 100;
 rho = 1;
+tol = 0.0001;
 
-flows = leapfrog(T, N, xT, pT, rho, mu, sig, gamma);
+hamilton = Hamiltonian(@a, @c, mu, rho, sig, gamma);
+flows = leapfrog(T, N, xT, pT, hamilton)
+%for i = 0.1:0.1:1
+ %   newtonRaphsonP(tol, hamilton, i, 0, T/N)
+%end
+%flows = leapfrog(T, N, xT, pT, rho, mu, sig, gamma);
 %(1/gamma-1)*a(xT, mu)*cInverse(xT, rho, sig)*aDx(xT, mu)+ 0.5*(1/gamma-1)*a(xT, mu)*cInverseDx(xT, rho, sig)*a(xT,mu)
 t = 0:T/N:T;
 

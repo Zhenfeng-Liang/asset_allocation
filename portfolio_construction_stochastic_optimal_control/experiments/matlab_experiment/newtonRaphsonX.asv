@@ -5,7 +5,7 @@ function x = newtonRaphsonX(tol, hamilton, xPrev, pPrev, h)
     error = 1;
     % Loop through to find implicit solution for x
     while error>tol
-        f = xOld + 0.5*h*hamilton.hamDp(xOld, pPrev)...
+        f = xOld + 0.5*h*hamilton.hamDp(xold, pPrev)...
             - xPrev + 0.5*h*hamilton.hamDp(xPrev, pPrev);
         Df = 1 + 0.5*h*hamilton.hamDxp(xOld, pPrev);
         xNew = xOld - f/Df;

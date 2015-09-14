@@ -3,13 +3,13 @@ sig = 0.19;
 gamma = 0.01;
 xT = 0.1;
 pT = 0;
-T = 2;
+T = 1;
 N = 100;
 rho = 1;
-tol = 0.0001;
+tol = 0.001;
 
 hamilton = Hamiltonian(@a, @c, mu, rho, sig, gamma);
-flows = leapfrog(T, N, xT, pT, hamilton)
+flows = leapfrog(T, N, xT, pT, hamilton);
 %for i = 0.1:0.1:1
  %   newtonRaphsonP(tol, hamilton, i, 0, T/N)
 %end

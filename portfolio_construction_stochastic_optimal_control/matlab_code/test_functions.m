@@ -78,13 +78,15 @@ xT = [3; 4];
 pT = [0; 0];
 t = 0;
 T = 1;
-timeStep = 0.2;
+timeStep = 0.25;
 tol = 0.5;
 maxIter = 10;
 [xFlow, pFlow] = generateLfFlow(xT, pT, t, T, timeStep, tol, maxIter)
 
 
-% Test function [xT] = solveForTermX(x, t, T, timeStep, tol, maxIter) function
+% Test [xT] = solveForTermX(x, t, T, timeStep, tol, maxIter) function
 y = solveForTermX(x, t, T, timeStep, tol, maxIter)
 
 
+% Test [S] = calcS(x, t, T, timeStep, tol, maxIter) function
+S = calcS(x, t, T, timeStep, tol, maxIter) 

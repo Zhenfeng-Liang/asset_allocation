@@ -1,26 +1,30 @@
-mu = 0.05;
-sig = 0.19;
-gamma = 0.01;
-xT = 0.1;
-pT = 0;
+mu = [0.05,0.05];
+sig = [1,1];
+gamma = 10;
+xT = [0.01;0.01];
+pT = [0;0];
 T = 1;
-N = 100;
-rho = 1;
+N = 1;
+rho = [1,0;0,1];
 tol = 0.001;
 
-hamilton = Hamiltonian(@a, @c, mu, rho, sig, gamma);
-flows = leapfrog(T, N, xT, pT, hamilton);
+vlist = {'x','y'};
+
+
+hamilton = Hamiltonian(vlist,@a,@b, mu, rho, sig, gamma);
+
+[flowX, flowP] =  leapfrog(T, N, xT, pT, hamilton);
 %for i = 0.1:0.1:1
  %   newtonRaphsonP(tol, hamilton, i, 0, T/N)
 %end
-%flows = leapfrog(T, N, xT, pT, rho, mu, sig, gamma);
-%(1/gamma-1)*a(xT, mu)*cInverse(xT, rho, sig)*aDx(xT, mu)+ 0.5*(1/gamma-1)*a(xT, mu)*cInverseDx(xT, rho, sig)*a(xT,mu)
 t = 0:T/N:T;
 
-plot(t, flows(:,1));%hold on;
+plot(t, flowX(1,:));hold on;
 
 % exact merton 1d lognormal
-%x = xT*exp(-mu/gamma*(T-t));
+
+%x = xT(1,1)*exp(-mu(1)/gamma*(T-t));
+
 %plot(t, x);
 
 

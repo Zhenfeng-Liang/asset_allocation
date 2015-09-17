@@ -7,12 +7,12 @@ function [der] = diffDer(x, i)
   p = 2;               # This needs to be fixed, hard-coded right now.
   der = zeros(F, p);
   
-# lognormal model
-#lnVols <- c(0.33, 0.26, 0.19, 0.22, 0.31);
-#F <- length(lnVols);
-#vecD <- vector(mode = "double", F);
-#vecD[i] <- lnVols[i];
-#der <- diag(vecD);
+  # lognormal model
+  #lnVols = [0.33; 0.26];
+  #F = length(lnVols);
+  #vecD = zeros(F, 1);
+  #vecD(i) = lnVols(i);
+  #der = diag(vecD);
   
 end
 

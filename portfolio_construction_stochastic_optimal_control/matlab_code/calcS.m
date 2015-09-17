@@ -2,6 +2,7 @@ function [S] = calcS(x, t, T, timeStep, tol, maxIter)
 % Input: x, initial asset price vector, t: starting time, T: terminal time
 % Output: S: action from WKB approximation
 % Note: make sure (T - t) / timeStep is even, i.e. numStep is even
+% Right now I didn't include S1 term.
 
   F = length(x);
   termVal = solveForTermX(x, t, T, timeStep, tol, maxIter)

@@ -5,11 +5,11 @@ function [b] = diffV(x)
 % Note: to get a dirty implementation, we let p=n at this point
 
   # mean reverting model
-  nVols = [13.2, 23.0];        # This was hardcoded vol
+  nVols = [0.1, 0.16];        # This was hardcoded vol
   b = diag(nVols);             # b is the symbol in the paper
   
   # lognormal model
-  #lnVols <- c(0.33, 0.26, 0.19, 0.22, 0.31);
-  #d <- diag(lnVols * x);    
+  #lnVols = [0.33; 0.26];
+  #b = diag(lnVols .* x);    
   
 end

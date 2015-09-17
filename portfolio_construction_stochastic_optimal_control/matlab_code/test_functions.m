@@ -78,9 +78,9 @@ xT = [3; 4];
 pT = [0; 0];
 t = 0;
 T = 1;
-timeStep = 0.25;
-tol = 0.5;
-maxIter = 10;
+timeStep = 0.01;
+tol = 0.3;
+maxIter = 100;
 [xFlow, pFlow] = generateLfFlow(xT, pT, t, T, timeStep, tol, maxIter)
 
 
@@ -90,3 +90,11 @@ y = solveForTermX(x, t, T, timeStep, tol, maxIter)
 
 % Test [S] = calcS(x, t, T, timeStep, tol, maxIter) function
 S = calcS(x, t, T, timeStep, tol, maxIter) 
+
+
+% Test [nablaS] = calcNablaS(x, t, T, timeStep, tol, maxIter) function
+nablaS = calcNablaS(x, t, T, timeStep, tol, maxIter)
+
+
+% Test [phi] = optimalControlStrategy(xCurr, tCurr, T, timeStep, tol, maxIter) function
+phi = optimalControlStrategy(x, t, T, timeStep, tol, maxIter)

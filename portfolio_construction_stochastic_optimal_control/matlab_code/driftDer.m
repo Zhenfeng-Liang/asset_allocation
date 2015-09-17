@@ -9,10 +9,10 @@ function [der] = driftDer(x, i)
   der(i) = -lambda(i);
   
   # lognormal model
-  #mu <- c(0.4, 0.12, 0.05, 0.16, 0.02);
-  #F <- length(mu);
-  #der <- vector(mode = "double", F);
-  #der[i] <- mu[i];
+  #mu = [0.4, 0.12];
+  #F = length(mu);
+  #der = zeros(F, 1);
+  #der(i) <- mu(i);
   
 end
 

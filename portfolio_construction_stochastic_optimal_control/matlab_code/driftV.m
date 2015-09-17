@@ -4,7 +4,12 @@ function [a] = driftV(x)
 % Return: drift vector
 
   # mean reverting model
-  mu = [0.4; -1.3];
+  mu = [0.4; 1.3];
   lambda = [21.0; 13.2];
   a = lambda .* (mu - x);  # a is the symbol on paper
+
+  # lognormal model
+  #mu = [0.4; 0.12];
+  #a = mu .* x;                     
+  
 end

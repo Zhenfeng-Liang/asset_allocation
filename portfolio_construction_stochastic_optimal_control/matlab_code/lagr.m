@@ -10,8 +10,8 @@ function [val] = lagr(x, p)
   
   a = driftV(x);
   
-  term1 = 0.5 * oneOverGamma * p' * instCov(x, corrMatr) * p;
-  term2 = 0.5 * kappa * a' * invInstCov(x, corrMatr) * a;
+  term1 = 0.5 * oneOverGamma * p' * instCov(x) * p;
+  term2 = 0.5 * kappa * a' * invInstCov(x) * a;
   val = term2 - term1;
 
 end

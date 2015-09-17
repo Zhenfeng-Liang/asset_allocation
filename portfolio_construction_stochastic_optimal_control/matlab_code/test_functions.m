@@ -5,15 +5,15 @@
 
 % The following test is assuming two dimensions asset price.
 
-# Global variables
+% Global variables
 global corrMatr;
 corrMatr = [1,0.5;0.5,1];
 gamma = 0.5;
 global oneOverGamma = 1 /gamma;
 global kappa = oneOverGamma - 1;
 
-x = [1; 1]  # asset price vector
-p = [1; 1]   # Have to be n x 1 dim
+x = [1; 1]  % asset price vector
+p = [1; 1]   % Have to be n x 1 dim
 
 % Test driftV function.
 drofx = driftV(x)

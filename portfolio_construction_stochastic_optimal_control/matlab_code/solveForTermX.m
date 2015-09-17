@@ -6,7 +6,7 @@ function [xT] = solveForTermX(x, t, T, timeStep, tol, maxIter)
 
   F = length(x);
 
-  # setup the system of approximate variational equations
+  % setup the system of approximate variational equations
   zeroVec = zeros(F, 1);
   termVal = [eye(F); zeros(F)];
 
@@ -25,14 +25,14 @@ function [xT] = solveForTermX(x, t, T, timeStep, tol, maxIter)
     apprVarSol = expm((t-T) * [Q, R; -U, -Q]) * termVal;
     invDF = inv(apprVarSol(1:F, :));
 
-    z = xT - invDF * (xFlow(1:F, 1) - x);         # Note: original R code messed up dimensions here!!!
+    z = xT - invDF * (xFlow(1:F, 1) - x);         % Note: original R code messed up dimensions here!!!
     err = norm(z - xT);
     xT = z;
     ctr = ctr + 1;
 
   end
 
-  display("DONE INVERTING THE FLOW")
-#  display(xT)
+  display('DONE INVERTING THE FLOW')
+%  display(xT)
   
 end

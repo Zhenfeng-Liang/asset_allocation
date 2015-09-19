@@ -11,14 +11,14 @@ if isMeanReverting
 
   % MEAN REVERTING model parameters. 
   global MRMu;
-  MRMu = [0.4; 1.3]      % Dim: same as x, COLUMN
+  MRMu = [0.4; 1.3; 2.2; 3.5; 1.2; 4.0; 5.5; 2.0; 1.0; 4.5]      % Dim: same as x, COLUMN
   global lambda;
-  lambda = [21.0; 13.2]  % Dim: same as x, COLUMN
+  lambda = [21.0; 13.2; 11.0; 12.4; 15.6; 6; 19; 23; 10.5; 8]  % Dim: same as x, COLUMN
   global nVols;
-  nVols = [0.1; 0.16]  % We are assuming each asset have only one
-                       % Brownian motion, so this will be used to
-                       % generated a diagonal matrix b. For simplicity,
-                       % we are using n=p at this point. 
+  nVols = [0.1; 0.16; 0.3; 0.52; 0.14; 0.5; 1.0; 0.3; 0.5; 0.8]  % We are assuming each asset have only one
+                                                                 % Brownian motion, so this will be used to
+                                                                 % generated a diagonal matrix b. For simplicity,
+                                                                 % we are using n=p at this point. 
 
 else
 
@@ -33,7 +33,8 @@ else
 end
 
 global corrMatr;     
-corrMatr = [1.0,0; 0,1.0]  % correlation matrix between dZs
+corrMatr = eye(10)  % correlation matrix between dZs, assuming they are
+                   % independent. Dim: p*p
 gamma = 10;
 global oneOverGamma;
 oneOverGamma = 1 /gamma
@@ -41,7 +42,7 @@ global kappa;
 kappa = oneOverGamma - 1
 
 
-xCurr = [0.8; 0.8]  % asset price vector
+xCurr = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1]  % asset price vector
 tCurr = 0           
 T = 1               
 timeStep = 0.01

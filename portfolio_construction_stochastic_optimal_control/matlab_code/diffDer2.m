@@ -4,8 +4,7 @@ function [der2] = diffDer2(x, i, j)
 
   % mean reverting and lognormal models
   F = length(x);
-  p = length(x); % This needs to be fixed. Normally, this is not the same as n. To simplify the problem, let it equal at this point.
-
+  p = size(diffV(x), 2);
   der2 = zeros(F, p);   
   
 end

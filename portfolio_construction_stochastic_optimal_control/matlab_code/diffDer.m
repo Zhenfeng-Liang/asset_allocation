@@ -2,17 +2,24 @@ function [der] = diffDer(x, i)
 % Input, x, asset price, ith direction
 % Output: diff derivative matrix with respect to x_i
  
-  % mean reverting model
-  F = length(x);
-  p = 2;               % This needs to be fixed, hard-coded right now.
-  der = zeros(F, p);
+  global isMeanReverting;
   
-  % lognormal model
-  %lnVols = [0.33; 0.26];
-  %F = length(lnVols);
-  %vecD = zeros(F, 1);
-  %vecD(i) = lnVols(i);
-  %der = diag(vecD);
+  if isMeanReverting
+    
+    % mean reverting model
+    F = length(x);
+    p = size(diffV(x), 2);      % p is the number of column of diff
+    der = zeros(F, p);
+
+  else
+    
+    % lognormal model
+    global lnVols;
+    F = length(lnVols);
+    vecD = zeros(F, 1);
+    vecD(i) = lnVols(i);
+    der = diag(vecD);
   
+  end
 end
 

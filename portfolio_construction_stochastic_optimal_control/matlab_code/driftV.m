@@ -3,13 +3,17 @@ function [a] = driftV(x)
 % Right now, I am hard coding two dimensions drift and lambda
 % Return: drift vector
 
-  % mean reverting model
-  mu = [0.4; 1.3];
-  lambda = [21.0; 13.2];
-  a = lambda .* (mu - x);  % a is the symbol on paper
+  global isMeanReverting;
 
-  % lognormal model
-  %mu = [0.4; 0.12];
-  %a = mu .* x;                     
+  if isMeanReverting
+    % mean reverting model
+    global MRMu;
+    global lambda;
+    a = lambda .*  (MRMu - x);  % a is the symbol on paper
+  else
+    % lognormal model
+    global lnMu;
+    a = lnMu .* x;
+  end                     
   
 end

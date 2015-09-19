@@ -5,7 +5,7 @@ function [S] = calcS(x, t, T, timeStep, tol, maxIter)
 % Right now I didn't include S1 term.
 
   F = length(x);
-  termVal = solveForTermX(x, t, T, timeStep, tol, maxIter)
+  termVal = solveForTermX(x, t, T, timeStep, tol, maxIter);
   zeroVec = zeros(F, 1);
 
   [xPath, pPath] = generateLfFlow(termVal, zeroVec, t, T, timeStep, tol, maxIter);

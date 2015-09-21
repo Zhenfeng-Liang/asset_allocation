@@ -35,6 +35,13 @@ end
 global corrMatr;     
 corrMatr = eye(3)  % correlation matrix between dZs, assuming they are
                    % independent. Dim: p*p
+corrMatr(1,2) = 0.5;
+corrMatr(2,1) = 0.5;
+corrMatr(1,3) = 0.3;
+corrMatr(3,1) = 0.3;
+corrMatr(2,3) = -0.4;
+corrMatr(3,2) = -0.4;
+
 gamma = 10.0;
 global oneOverGamma;
 oneOverGamma = 1 /gamma

@@ -14,7 +14,7 @@ Implementation thoughts/ideas/log:
 
 
 21 Sep, 2015, Work to do:
-   1: Add S1 term
+   1: Add S1 term (Done)
    2: Create a function to check the solution
    3: Implement the utility functions
    4: It might be able to find a better way to initialize the parameters

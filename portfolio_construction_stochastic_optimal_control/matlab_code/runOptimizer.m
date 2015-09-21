@@ -15,7 +15,7 @@ if isMeanReverting
   global lambda;
   lambda = [21.0; 13.2; 11.0; 12.4; 15.6; 6; 19; 23; 10.5; 8]  % Dim: same as x, COLUMN
   global nVols;
-  nVols = [0.1; 0.16; 0.3; 0.52; 0.14; 0.5; 1.0; 0.3; 0.5; 0.8]  % We are assuming each asset have only one
+  nVols = [0.01; 0.016; 0.03; 0.052; 0.014; 0.05; 0.10; 0.03; 0.05; 0.08]  % We are assuming each asset have only one
                                                                  % Brownian motion, so this will be used to
                                                                  % generated a diagonal matrix b. For simplicity,
                                                                  % we are using n=p at this point. 

@@ -1,7 +1,7 @@
 function [nablaS] = calcNablaS(x, t, T, timeStep, tol, maxIter)
 % Input: x: initial asset price vector, t: starting time, T: terminal time, timeStep: time interval between points, tol: tolerance, maxIter: maximum iteration times.
 % Output: gradient of S with respect to x vector
-% Note: make sure (T - t) / timeStep is even. 
+% Note: make sure (T - t) / timeStep is odd. 
 
   F = length(x);
   S = calcS(x, t, T, timeStep, tol, maxIter);

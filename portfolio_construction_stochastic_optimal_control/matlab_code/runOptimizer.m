@@ -53,4 +53,5 @@ maxIter = 1000000000   % make it very large so the iteration conveges
 phi = optimalControlStrategy(xCurr, tCurr, T, timeStep, tol, maxIter)
 
 
-
+xT = solveForTermX(xCurr, tCurr, T, timeStep, tol, maxIter)
+expectedProfit = phi' * (xT - xCurr)

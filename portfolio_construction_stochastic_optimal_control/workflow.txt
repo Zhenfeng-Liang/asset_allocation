@@ -7,11 +7,18 @@ Basic Logic:
 4: Integrate S0 using Phi(y) and Psi(y) we got before.
 
 
-Implementation thoughts/ideas:
+Implementation thoughts/ideas/log:
 
 10 Sep, 2015: 
    Idea: We are going to repplicate the broken code in Matlab/Octave
 
 
+21 Sep, 2015, Work to do:
+   1: Add S1 term
+   2: Create a function to check the solution
+   3: Implement the utility functions
+   4: It might be able to find a better way to initialize the parameters
+   
+  
 ## All copyrights (C) reserved.
 

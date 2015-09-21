@@ -17,7 +17,7 @@ function [der] = driftDer(x, i)
     global lnMu;
     F = length(lnMu);
     der = zeros(F, 1);
-    der(i) <- lnMu(i);
+    der(i) = lnMu(i);
   end
 
 end

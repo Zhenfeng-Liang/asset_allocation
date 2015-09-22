@@ -1,7 +1,7 @@
 classdef testClass
    properties
-      num
-      day
+      num;
+      day;
    end
    methods
       function obj = testClass(val, day)

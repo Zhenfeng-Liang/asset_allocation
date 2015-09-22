@@ -21,7 +21,7 @@ classdef wkbHierarchySolver
             % Output: phi: asset allocation weight vector
             % Note: make sure (T - tCurr) / timeStep is even, i.e. numStep
             % is odd. 
-            phi_earlier_term = obj.hamSys.port.invInstCov(xCurr) * obj.hamSys.port.model.driftV(xCurr);
+
             phi = obj.hamSys.port.invInstCov(xCurr) * obj.hamSys.port.model.driftV(xCurr) ...
                 + obj.calcNablaS(xCurr, tCurr, T, timeStep, tol);
             

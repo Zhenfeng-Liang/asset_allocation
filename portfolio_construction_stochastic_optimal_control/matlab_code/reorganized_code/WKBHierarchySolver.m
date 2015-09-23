@@ -66,7 +66,7 @@ classdef WKBHierarchySolver
                 
             end
             
-            %display('DONE INVERTING THE FLOW')
+            display('DONE INVERTING THE FLOW')
         end        
     
         
@@ -205,7 +205,7 @@ classdef WKBHierarchySolver
             x_minus_1_new = x;          % Declare the vector
             
             err = 1.0;
-            iter = 0;
+            iter = 0; 
             while (err > tol)
                 
                 % The following lines uses Newton iteration
@@ -220,7 +220,7 @@ classdef WKBHierarchySolver
             
             
             err = 1.0;
-            iter = 0;
+            iter = 0; 
             while (err > tol)
                 
                 % The following lines uses Newton iteration

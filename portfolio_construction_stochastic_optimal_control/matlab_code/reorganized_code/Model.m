@@ -15,7 +15,7 @@ classdef Model
     
     methods
         function obj = Model(param)
-        % modelType: string, can be 'MeanReverting' or 'LogNormal'
+        % modelType: string, can be 'MeanReverting', 'LogNormal', 'CIR'
         % mu: mean column vector in respective models
         % vol: diffusion coeff column vector for every Brownian Motion
         % lambda: optional, for MR model, column vector, mean reverting
@@ -24,7 +24,7 @@ classdef Model
             obj.modelType = param.modelType;
             obj.mu = param.mu;
             obj.vol = param.vol;
-            if strcmp(obj.modelType, 'MeanReverting')
+            if strcmp(obj.modelType, 'MeanReverting') || strcmp(obj.modelType, 'CIR')
                 obj.lambda = param.lambda;
             end
         end
@@ -34,7 +34,7 @@ classdef Model
         % Right now, I am hard coding two dimensions drift and lambda
         % Return: drift vector
             
-            if strcmp(obj.modelType, 'MeanReverting')
+            if strcmp(obj.modelType, 'MeanReverting') || strcmp(obj.modelType, 'CIR')
                 % mean reverting model
                 a = obj.lambda .*  (obj.mu - x);  % a is the symbol on paper
             elseif strcmp(obj.modelType, 'LogNormal')
@@ -47,7 +47,7 @@ classdef Model
         % Input: x, asset price vector, with respect to ith asset price
         % Output: drift vector derivative with respect to x_i
             
-            if strcmp(obj.modelType, 'MeanReverting')
+            if strcmp(obj.modelType, 'MeanReverting') || strcmp(obj.modelType, 'CIR')
                 
                 % mean reverting model
                 F = length(obj.lambda);
@@ -87,6 +87,9 @@ classdef Model
             elseif strcmp(obj.modelType, 'LogNormal')
                 % lognormal model
                 b = diag(obj.vol .* x);
+            elseif strcmp(obj.modelType, 'CIR')
+                % CIR model
+                b = diag(obj.vol .* sqrt(x));
             end
         end
         
@@ -106,6 +109,12 @@ classdef Model
                 vecD = zeros(F, 1);
                 vecD(i) = obj.vol(i);
                 der = diag(vecD);
+                
+            elseif strcmp(obj.modelType, 'CIR')
+                F = length(obj.vol);
+                vecD = zeros(F, 1);
+                vecD(i) = obj.vol(i) * 1.0 / 2.0 * x(i)^(-0.5);
+                der = diag(vecD);                
             end
         end
         
@@ -114,11 +123,23 @@ classdef Model
         % asset derivatives 
         % Output, second derivative of diff matrix with respect to ith
         % and jth asset 
-            
-        % mean reverting and lognormal models
-            F = length(x);
-            p = size(obj.diffV(x), 2);
-            der2 = zeros(F, p);
+ 
+            if strcmp(obj.modelType, 'CIR')
+                
+                if i ~= j
+                    der2 = zeros(size(obj.diffV(x)));
+                else
+                    F = length(obj.vol);
+                    vecD = zeros(F, 1);
+                    vecD(i) = obj.vol(i) * (-1.0 / 4.0) * x(i)^(-1.5);
+                    der2 = diag(vecD);                
+                end
+                
+            else                
+                % mean reverting and lognormal models
+                der2 = zeros(size(obj.diffV(x)));
+            end
+        
         end       
     end    
 end

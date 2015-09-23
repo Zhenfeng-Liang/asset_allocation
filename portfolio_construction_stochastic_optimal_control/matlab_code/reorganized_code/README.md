@@ -1,4 +1,4 @@
 ###Usage:
         Main function: wkbOptimizer
         Main test script: testScript
-        You probably want to run the test script first. In this script, we run two model. For lognormal, we compared the wkb approximation and the exact solution for three asset dimensions. For mean reverting, we calculate the 10 dimensions asset strategy.
+        You probably want to run the test script first. In this script, we set up two functions to compare the exact solution and the wkb approximation for LogNormal model and Mean Reverting Model. We also set up two sub script to run Mean Reverting and CIR model.

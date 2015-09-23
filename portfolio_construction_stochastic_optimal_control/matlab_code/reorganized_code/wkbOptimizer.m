@@ -24,7 +24,15 @@ function [strategy] = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, T,
     portCalc = PortfolioCalculator(model, corrMatr);
     hamSys = HamiltonianSystem(portCalc, gamma);
     wkbSolver = WKBHierarchySolver(hamSys);
-    strategy = 1.0 / gamma * wkbSolver.optimalControlStrategy(xCurr, tCurr, T, timeStep, tol);
+    
+    display(['Start optimizing portfolio under ', modelParam.modelType, ...
+            ' model']);
+    
+    strategy = 1.0 / gamma * wkbSolver.optimalControlStrategy(xCurr, ...
+                                                      tCurr, T, timeStep, tol);
+    
+    display(['Finished optimizing portfolio under ', modelParam.modelType, ...
+            ' model']);
 
 end
 

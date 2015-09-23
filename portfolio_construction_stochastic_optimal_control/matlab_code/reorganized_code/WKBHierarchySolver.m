@@ -4,6 +4,7 @@ classdef WKBHierarchySolver
     
     properties
         hamSys;
+        includeS1;
     end
     
     methods
@@ -12,16 +13,18 @@ classdef WKBHierarchySolver
             % hamSys: a hanSysCalc object
             
             obj.hamSys = hamSys;
+            obj.includeS1 = true;
         end
         
         function [phi] = optimalControlStrategy(obj, xCurr, tCurr, T, timeStep, tol)
             % Input: xCurr: current asset price vector, tCurr: current
             % time, T: terminal time, timeStep: time interval between
-            % points, tol: tolerance, maxIter: maximum iteration number  
+            % points, tol: tolerance, maxIter: maximum iteration
+            % number            
             % Output: phi: asset allocation weight vector
             % Note: make sure (T - tCurr) / timeStep is even, i.e. numStep
             % is odd. 
-
+            
             phi = obj.hamSys.portCalc.invInstCov(xCurr) * obj.hamSys.portCalc.model.driftV(xCurr) ...
                 + obj.calcNablaS(xCurr, tCurr, T, timeStep, tol);
             
@@ -69,7 +72,7 @@ classdef WKBHierarchySolver
         
         function [S] = calcS(obj, x, t, T, timeStep, tol)
             % Input: x, initial asset price vector, t: starting time, T:
-            % terminal time 
+            % terminal time
             % Output: S: action from WKB approximation
             % Note: make sure (T - t) / timeStep is odd, i.e. numStep is
             % odd. Right now I didn't include S1 term.
@@ -109,8 +112,12 @@ classdef WKBHierarchySolver
             S0 = S0 * timeStep / 3;
             S1 = S1 * timeStep / 6;   % S1 have another 1/2 coeff in front of
             % the integral
-            
-            S = S0 + 1.0 * S1;
+                        
+            if obj.includeS1
+                S = S0 + 1.0 * S1;
+            else
+                S = S0;
+            end
             
         end
         
@@ -121,6 +128,7 @@ classdef WKBHierarchySolver
             % tolerance, maxIter: maximum iteration times.  
             % Output: gradient of S with respect to x vector
             % Note: make sure (T - t) / timeStep is odd.
+            
             
             F = length(x);
             S = obj.calcS(x, t, T, timeStep, tol);

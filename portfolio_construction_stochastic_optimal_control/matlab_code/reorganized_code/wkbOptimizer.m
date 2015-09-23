@@ -20,10 +20,10 @@ function [strategy] = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, T,
 %
 %       7: tol: tolerance for Newton methods
 
-    model = modelCreator(modelParam);
-    port = portConstructor(model, corrMatr);
-    hamSys = hamSysCalc(port, gamma);
-    wkbSolver = wkbHierarchySolver(hamSys);
+    model = Model(modelParam);
+    portCalc = PortfolioCalculator(model, corrMatr);
+    hamSys = HamiltonianSystem(portCalc, gamma);
+    wkbSolver = WKBHierarchySolver(hamSys);
     strategy = 1.0 / gamma * wkbSolver.optimalControlStrategy(xCurr, tCurr, T, timeStep, tol);
 
 end

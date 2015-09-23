@@ -21,10 +21,10 @@ function checkLogNormal()
 
     display('Start checking lognormal leapfrog')
     
-    model = modelCreator(modelParam);
-    port = portConstructor(model, corrMatr);
-    hamSys = hamSysCalc(port, gamma);
-    wkbSolver = wkbHierarchySolver(hamSys);
+    model = Model(modelParam);
+    portCalc = PortfolioCalculator(model, corrMatr);
+    hamSys = HamiltonianSystem(portCalc, gamma);
+    wkbSolver = WKBHierarchySolver(hamSys);
     xT = wkbSolver.solveForTermX(xCurr, tCurr, T, timeStep, tol);
     
     [xFlow, pFlow] = wkbSolver.generateLfFlow(xT, [0;0;0], tCurr, T, timeStep, tol);
@@ -67,7 +67,7 @@ function checkLogNormal()
     
     display('Calculating wkb strategy approximation and exact strategy')
     wkbStrategy = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, T, timeStep, tol)
-    exactStrategy = port.invInstCov(xCurr) * model.driftV(xCurr) / gamma
+    exactStrategy = portCalc.invInstCov(xCurr) * model.driftV(xCurr) / gamma
     diffNorm = norm(wkbStrategy - exactStrategy)
 
     

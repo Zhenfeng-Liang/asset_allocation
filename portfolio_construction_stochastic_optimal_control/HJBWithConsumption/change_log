@@ -1,0 +1,8 @@
+Sep.22.2015
+        1. Refactor the code
+        2. Added checking function for LogNormal Model.(Compare xFlow and strategy with exact solution)
+
+Sep.23.2016
+        1. Added checking function for Mean Reverting Model. (Compare xFlow and pFlow with exact solution. Compare strategy with and without S1 term)
+        2. Incorporated CIR model.
+

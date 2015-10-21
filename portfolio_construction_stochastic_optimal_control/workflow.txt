@@ -22,3 +22,13 @@ Implementation thoughts/ideas/log:
   
 ## All copyrights (C) reserved.
 
+
+21 Oct, 2015, work to do:
+   Code to be edited:   
+   1: Ham
+   2: Hp
+   3: Hx
+   4: lagr
+   5: psi, general solution
+   6: xi, particular solution
+    

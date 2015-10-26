@@ -122,6 +122,8 @@ classdef WKBHierarchySolver
             
             res = res + exp(SDiffVec(len)); % Terminal T S
                                             % difference term
+            
+            res = log(res);
         end
         
         function [tauStar, SDiffVec] = calcSVec(obj, x, t, T, timeStep, tol)        
@@ -173,9 +175,9 @@ classdef WKBHierarchySolver
             err = 1.0;
             ctr = 1;
             while err >= tol
-                
+                display('start LF')
                 [xFlow, pFlow] = obj.generateLfFlow(xT, zeroVec, t, T, timeStep, tol);
-                
+                display('done LF')
                 Q = obj.hamSys.hamDxp(xT, zeroVec);
                 R = obj.hamSys.hamDpp(xT, zeroVec);
                 U = obj.hamSys.hamDxx(xT, zeroVec);

@@ -28,7 +28,7 @@ clear;
 
 w0 = 100000;
 utilityType = 'CRRA';
-turnedOnConsumption = false;
+turnedOnConsumption = true;
 modelParam.modelType = 'MeanReverting';
 modelParam.mu = [0.4; 1.3];
 modelParam.vol = [0.01; 0.016];
@@ -39,7 +39,7 @@ xCurr = [0.8; 0.8];
 tCurr = 0;           
 T = 1;               
 timeStep = 0.01;
-tol = 0.0001;
+tol = 1e-6;
 
 strategy = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, ...
                         T, timeStep, tol, w0, utilityType, turnedOnConsumption);

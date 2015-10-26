@@ -1,5 +1,6 @@
-function [strategy] = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, T, timeStep, tol)
-% Assumed exponential utility
+function [strategy] = wkbOptimizer(modelParam, corrMatr, gamma, ...
+                                   xCurr, tCurr, T, timeStep, tol, ...
+                                   w0, utilityType, turnedOnConsumption)
 % Input:
 %       1: modelParam, struct, should include:
 %               modelParam.modelType: string, 'MeanReverting or LogNormal')
@@ -19,14 +20,19 @@ function [strategy] = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, T,
 %       6: timeStep: time step for leapfrog algorithm
 %
 %       7: tol: tolerance for Newton methods
-
-    type = 'CRRA';
-    w0 = 1000000
+%
+%       8: w0: initial wealth
+%
+%       9: utilityType: utility function type. Right now, only CRRA
+%       works for consumption part.
+%
+%       10: turnedOnConsumption: boolean, true for consumption on,
+%       otherwise off
     
     model = Model(modelParam);
     portCalc = PortfolioCalculator(model, corrMatr);
     
-    utiCalc = UtilityCalculator(gamma, type);
+    utiCalc = UtilityCalculator(gamma, utilityType);
     
     hamSys = HamiltonianSystem(portCalc, utiCalc);
     
@@ -34,10 +40,10 @@ function [strategy] = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, T,
     
     display(['Start optimizing portfolio under ', modelParam.modelType, ...
             ' model']);
-    
-    strategy = 1.0 / utiCalc.Au(w0) * wkbSolver.optimalControlStrategy(xCurr, ...
-                                                      tCurr, T, timeStep, tol);
-    
+    tic
+    strategy = wkbSolver.optimalControlStrategy(xCurr, tCurr, T, ...
+                                                timeStep, tol, w0, turnedOnConsumption);
+    toc
     display(['Finished optimizing portfolio under ', modelParam.modelType, ...
             ' model']);
 

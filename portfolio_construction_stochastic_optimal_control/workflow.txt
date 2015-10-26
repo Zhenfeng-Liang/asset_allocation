@@ -25,10 +25,16 @@ Implementation thoughts/ideas/log:
 
 21 Oct, 2015, work to do:
    Code to be edited:   
-   1: Ham
-   2: Hp
-   3: Hx
-   4: lagr
-   5: psi, general solution
-   6: xi, particular solution
-    
+   1: Ham (done)
+   2: Hp  (done)
+   3: Hx  (done)
+   4: lagr(done)
+   5: Hxx (done)
+   6: Hpp (done)
+   7: Hxp (done)
+   8: psi, general solution (changed the implementation)
+   9: xi, particular solution (changed the implementation)
+   10: strategy (done)
+
+26 Oct, 2015. work to do:
+   1: changed to the other way to implement nabla log function

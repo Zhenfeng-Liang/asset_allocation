@@ -16,20 +16,144 @@ classdef WKBHierarchySolver
             obj.includeS1 = true;
         end
         
-        function [phi] = optimalControlStrategy(obj, xCurr, tCurr, T, timeStep, tol)
-            % Input: xCurr: current asset price vector, tCurr: current
+        function [phi] = optimalControlStrategy(obj, xCurr, tCurr, ...
+                                                T, timeStep, tol, ...
+                                                w0, turnedOnConsumption)
+            % Input: 
+            % xCurr: current asset price vector, tCurr: current
             % time, T: terminal time, timeStep: time interval between
             % points, tol: tolerance, maxIter: maximum iteration
-            % number            
+            % number
+            % w0: initial wealth
+            % turnedOnConsumption: flag to turn on/off consumption, true is on, 
+            % otherwise, off
             % Output: phi: asset allocation weight vector
             % Note: make sure (T - tCurr) / timeStep is even, i.e. numStep
             % is odd. 
+
+            term1 = obj.hamSys.portCalc.invInstCov(xCurr) * ...
+                    obj.hamSys.portCalc.model.driftV(xCurr);
             
-            phi = obj.hamSys.portCalc.invInstCov(xCurr) * obj.hamSys.portCalc.model.driftV(xCurr) ...
-                + obj.calcNablaS(xCurr, tCurr, T, timeStep, tol);
+            term2 = obj.calcNablaLogSolu(xCurr, tCurr, T, timeStep, ...
+                                         tol, turnedOnConsumption);
             
+            phi = 1.0 / obj.hamSys.utiCalc.Au(w0) * (term1 + obj.hamSys.utiCalc.gamma * term2);
         end
 
+        function [res] = calcNablaLogSolu(obj, x, t, T, timeStep, ...
+                                          tol, turnedOnConsumption)
+            % Calculate nabla of log(general solution + particular
+            % solution), only for program with consumption
+            % Input: 
+            % xCurr: current asset price vector, tCurr: current
+            % time, T: terminal time, timeStep: time interval between
+            % points, tol: tolerance, maxIter: maximum iteration
+            % number
+            % Output:
+            % nabla of log(GSolu + PSolu), a vector
+                
+            if turnedOnConsumption
+                display('Consumption turned on');
+                [tauStar, SDiffVec] = obj.calcSVec(x, t, T, timeStep, ...
+                                                   tol);
+                nablaSMax = obj.calcNablaS(x, t, tauStar, timeStep, ...
+                                           tol);
+                nablaInnerLog = obj.calcNablaInnerLog(x, t, T, timeStep, ...
+                                                      tol, SDiffVec);
+                res = nablaSMax + nablaInnerLog;
+            else
+                % Turn off consumption, only have general solution
+                display('Consumption turned off');
+                res = obj.calcNablaS(x, t, T, timeStep, tol);
+            end
+        end
+
+        function [nablaInnerLog] = calcNablaInnerLog(obj, x, t, T, ...
+                                                     timeStep, tol, SDiffVec) 
+        % calculate the nabla of the log term inside the rearranged
+        % nablaLogSolution.
+        % Input:
+        % SDiffVec: cache SDiffVec 
+        % Return:
+        % nablaInnerLog, inner log nabla, a vector, same dimension
+        % with x.
+            
+            % SDiffVec is cached outside
+            innerLog = obj.calcInnerLog(x, t, T, timeStep, tol, SDiffVec); 
+            
+            F = length(x);            
+            nablaInnerLog = zeros(F, 1);
+            eps = 1e-5;
+            
+            for i = 1:F
+                xEps = x;
+                xEps(i) = xEps(i) + eps;
+                innerLogEps = obj.calcInnerLog(xEps, t, T, timeStep, tol); 
+                nablaInnerLog(i) = (innerLogEps - innerLog) / eps;
+            end           
+        end
+
+        function [res] = calcInnerLog(obj, x, t, T, timeStep, tol, SDiffVec) 
+        % Calculate the log term inside the rearranged
+        % nablaLogSolution.
+        % Input:
+        % SDiffVec: cache SDiffVec, could be missing
+        % Return:
+        % res: innerLog number, a scalar
+            
+            % If SDiffVec argument is missing, recalculate it. 
+            if nargin < 7
+                [tauStar, SDiffVec] = obj.calcSVec(x, t, T, timeStep, ...
+                                                   tol);
+            end
+            
+            len = length(SDiffVec);
+            
+            % inverse number of steps
+            steps = (len - 1) / 2;
+            
+            res = 0;
+            for i = 1:steps                       
+                res = res + exp(SDiffVec(2*i-1)) ...
+                          + 4 * exp(SDiffVec(2*i)) ... 
+                          + exp(SDiffVec(2*i+1)); 
+            end
+            res = res * (T - t) / (6*steps);                
+            
+            res = res + exp(SDiffVec(len)); % Terminal T S
+                                            % difference term
+        end
+        
+        function [tauStar, SDiffVec] = calcSVec(obj, x, t, T, timeStep, tol)        
+        % calculate a vector of S, and find the max S location,
+        % return time tauStar when S is maximum and a vector of 
+        % S - SMax
+        % Input:
+        % xCurr: current asset price vector, tCurr: current
+        % time, T: terminal time, timeStep: time interval between
+        % points, tol: tolerance, maxIter: maximum iteration
+        % number
+        % Output:
+        % tauStar, time when the S reach maximum
+        % SDiffVec, a vector of S - SMax
+            
+            steps = ceil((T - t) / timeStep);
+
+            steps = 3; % For test purpose, need to be deleted later
+            tauVec = linspace(t, T, 2 * steps + 1);
+            
+            SDiffVec = zeros(2 * steps + 1, 1);
+            
+            for i = 1:(2*steps+1)
+                SDiffVec(i) = obj.calcS(x, t, tauVec(i), timeStep, tol);
+            end
+            
+            [SMax, ind] = max(SDiffVec);
+            tauStar = t + (T - t) / (2 * steps + 1) * ind;
+            SDiffVec = SDiffVec - SMax;
+        end
+
+            
         function [xT] = solveForTermX(obj, x, t, T, timeStep, tol)
             % Invert the Hamiltonian flow (zero terminal momentum)
             % Input: x, initial asset price vector, t, starting time, T,
@@ -66,7 +190,7 @@ classdef WKBHierarchySolver
                 
             end
             
-            display('DONE INVERTING THE FLOW')
+            display('DONE INVERTING THE FLOW');
         end        
     
         
@@ -110,6 +234,7 @@ classdef WKBHierarchySolver
             end
             
             S0 = S0 * timeStep / 3;
+            S0 = -S0;                 % integrate the negative lagr
             S1 = S1 * timeStep / 6;   % S1 have another 1/2 coeff in front of
             % the integral
                         
@@ -151,9 +276,10 @@ classdef WKBHierarchySolver
             
             a = obj.hamSys.portCalc.model.driftV(x);
             
-            term1 = 0.5 * obj.hamSys.oneOverGamma * p' * obj.hamSys.portCalc.instCov(x) * p;
-            term2 = 0.5 * obj.hamSys.kappa * a' * obj.hamSys.portCalc.invInstCov(x) * a;
-            val = term2 - term1;
+            term1 = 0.5 * p' * obj.hamSys.portCalc.instCov(x) * p;
+            term2 = 0.5 * obj.hamSys.kappa * obj.hamSys.oneOverGamma ...
+                    * a' * obj.hamSys.portCalc.invInstCov(x) * a;
+            val = term1 - term2;
             
         end
 

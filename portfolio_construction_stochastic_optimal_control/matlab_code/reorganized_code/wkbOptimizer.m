@@ -27,9 +27,11 @@ function [strategy] = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, T,
     
     display(['Start optimizing portfolio under ', modelParam.modelType, ...
             ' model']);
-    
-    strategy = 1.0 / gamma * wkbSolver.optimalControlStrategy(xCurr, ...
-                                                      tCurr, T, timeStep, tol);
+    tic
+    %strategy = 1.0 / gamma * wkbSolver.optimalControlStrategy(xCurr, ...
+    %                                                  tCurr, T, timeStep, tol);
+    strategy = wkbSolver.optimalControlStrategy(xCurr, tCurr, T, timeStep, tol);
+    toc
     
     display(['Finished optimizing portfolio under ', modelParam.modelType, ...
             ' model']);

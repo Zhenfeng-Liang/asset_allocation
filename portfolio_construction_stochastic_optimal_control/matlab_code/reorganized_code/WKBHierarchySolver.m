@@ -109,7 +109,7 @@ classdef WKBHierarchySolver
                 
             end
             
-            S0 = S0 * timeStep / 3;
+            S0 = S0 * timeStep / 3
             S1 = S1 * timeStep / 6;   % S1 have another 1/2 coeff in front of
             % the integral
                         

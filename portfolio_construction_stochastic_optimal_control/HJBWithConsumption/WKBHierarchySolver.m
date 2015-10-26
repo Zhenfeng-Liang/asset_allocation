@@ -1,7 +1,6 @@
 classdef WKBHierarchySolver
     % This class implements the main part of WKB solver 
     
-    
     properties
         hamSys;
         includeS1;
@@ -54,32 +53,34 @@ classdef WKBHierarchySolver
                 
             if turnedOnConsumption
                 display('Consumption turned on');
-                [tauStar, SDiffVec] = obj.calcSVec(x, t, T, timeStep, ...
-                                                   tol);
-                nablaSMax = obj.calcNablaS(x, t, tauStar, timeStep, ...
-                                           tol);
-                nablaInnerLog = obj.calcNablaInnerLog(x, t, T, timeStep, ...
-                                                      tol, SDiffVec);
-                res = nablaSMax + nablaInnerLog;
+                res = obj.calcNablaLogSoluConsumption(x, t, T, timeStep, tol);
             else
                 % Turn off consumption, only have general solution
                 display('Consumption turned off');
                 res = obj.calcNablaS(x, t, T, timeStep, tol);
             end
         end
+        
+        function [res] = calcNablaLogSoluConsumption(obj, x, t, T, timeStep, tol) 
+            % calculate the nabla of the log term inside the rearranged
+            % nablaLogSolution.
+            % Input:
+            % SDiffVec: cache SDiffVec 
+            % Return:
+            % nablaInnerLog, inner log nabla, a vector, same dimension
+            % with x.
 
-        function [nablaInnerLog] = calcNablaInnerLog(obj, x, t, T, ...
-                                                     timeStep, tol, SDiffVec) 
-        % calculate the nabla of the log term inside the rearranged
-        % nablaLogSolution.
-        % Input:
-        % SDiffVec: cache SDiffVec 
-        % Return:
-        % nablaInnerLog, inner log nabla, a vector, same dimension
-        % with x.
+            [tauStar, SDiffVec] = obj.calcSVec(x, t, T, timeStep, ...
+                                                       tol);
+            nablaSMax = obj.calcNablaS(x, t, tauStar, timeStep, ...
+                                       tol);
             
-            % SDiffVec is cached outside
-            innerLog = obj.calcInnerLog(x, t, T, timeStep, tol, SDiffVec); 
+            % Use the SDiffVec calculated above to calculate A
+            innerLog = log(obj.calcA(x, t, T, timeStep, tol, SDiffVec));
+            
+            % lambda function, you need to recalculate SDiffVec
+            % every time
+            calcInnerLog = @(xtmp) log(obj.calcA(xtmp, t, T, timeStep, tol));
             
             F = length(x);            
             nablaInnerLog = zeros(F, 1);
@@ -88,12 +89,14 @@ classdef WKBHierarchySolver
             for i = 1:F
                 xEps = x;
                 xEps(i) = xEps(i) + eps;
-                innerLogEps = obj.calcInnerLog(xEps, t, T, timeStep, tol); 
+                innerLogEps = calcInnerLog(xEps);                 
                 nablaInnerLog(i) = (innerLogEps - innerLog) / eps;
-            end           
+            end  
+            
+            res = nablaSMax + nablaInnerLog;
         end
-
-        function [res] = calcInnerLog(obj, x, t, T, timeStep, tol, SDiffVec) 
+        
+        function [A] = calcA(obj, x, t, T, timeStep, tol, SDiffVec) 
         % Calculate the log term inside the rearranged
         % nablaLogSolution.
         % Input:
@@ -101,7 +104,7 @@ classdef WKBHierarchySolver
         % Return:
         % res: innerLog number, a scalar
             
-            % If SDiffVec argument is missing, recalculate it. 
+        % If SDiffVec argument is missing, recalculate it. 
             if nargin < 7
                 [tauStar, SDiffVec] = obj.calcSVec(x, t, T, timeStep, ...
                                                    tol);
@@ -112,20 +115,19 @@ classdef WKBHierarchySolver
             % inverse number of steps
             steps = (len - 1) / 2;
             
-            res = 0;
+            A = 0;
             for i = 1:steps                       
-                res = res + exp(SDiffVec(2*i-1)) ...
-                          + 4 * exp(SDiffVec(2*i)) ... 
-                          + exp(SDiffVec(2*i+1)); 
+                A = A + exp(SDiffVec(2*i-1)) ...
+                    + 4 * exp(SDiffVec(2*i)) ... 
+                    + exp(SDiffVec(2*i+1)); 
             end
-            res = res * (T - t) / (6*steps);                
+            A = A * (T - t) / (6*steps);                
             
-            res = res + exp(SDiffVec(len)); % Terminal T S
-                                            % difference term
-            
-            res = log(res);
+            A = A + exp(SDiffVec(len)); % Terminal T S
+                                        % difference term
         end
-        
+
+                
         function [tauStar, SDiffVec] = calcSVec(obj, x, t, T, timeStep, tol)        
         % calculate a vector of S, and find the max S location,
         % return time tauStar when S is maximum and a vector of 
@@ -175,9 +177,7 @@ classdef WKBHierarchySolver
             err = 1.0;
             ctr = 1;
             while err >= tol
-                display('start LF')
                 [xFlow, pFlow] = obj.generateLfFlow(xT, zeroVec, t, T, timeStep, tol);
-                display('done LF')
                 Q = obj.hamSys.hamDxp(xT, zeroVec);
                 R = obj.hamSys.hamDpp(xT, zeroVec);
                 U = obj.hamSys.hamDxx(xT, zeroVec);
@@ -193,8 +193,7 @@ classdef WKBHierarchySolver
             end
             
             display('DONE INVERTING THE FLOW');
-        end        
-    
+        end
         
         function [S] = calcS(obj, x, t, T, timeStep, tol)
             % Input: x, initial asset price vector, t: starting time, T:

@@ -86,12 +86,14 @@ classdef WKBHierarchySolver
             nablaInnerLog = zeros(F, 1);
             eps = 1e-5;
             
-            for i = 1:F
+            matlabpool('open', 2);
+            parfor i = 1:F
                 xEps = x;
                 xEps(i) = xEps(i) + eps;
                 innerLogEps = calcInnerLog(xEps);                 
                 nablaInnerLog(i) = (innerLogEps - innerLog) / eps;
             end  
+            matlabpool close;
             
             res = nablaSMax + nablaInnerLog;
         end

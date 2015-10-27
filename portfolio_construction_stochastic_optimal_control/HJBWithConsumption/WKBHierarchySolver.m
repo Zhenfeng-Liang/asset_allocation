@@ -4,14 +4,16 @@ classdef WKBHierarchySolver
     properties
         hamSys;
         includeS1;
+        numCores;
     end
     
     methods
     
-        function obj = WKBHierarchySolver(hamSys)
+        function obj = WKBHierarchySolver(hamSys, numCores)
             % hamSys: a hanSysCalc object
             
             obj.hamSys = hamSys;
+            obj.numCores = numCores;
             obj.includeS1 = true;
         end
         
@@ -86,7 +88,8 @@ classdef WKBHierarchySolver
             nablaInnerLog = zeros(F, 1);
             eps = 1e-5;
             
-            matlabpool('open', 2);
+            % Multi-threaded to improve performance
+            matlabpool('open', obj.numCores);
             parfor i = 1:F
                 xEps = x;
                 xEps(i) = xEps(i) + eps;

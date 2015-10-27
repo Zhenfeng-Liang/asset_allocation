@@ -1,6 +1,7 @@
 function [strategy] = wkbOptimizer(modelParam, corrMatr, gamma, ...
                                    xCurr, tCurr, T, timeStep, tol, ...
-                                   w0, utilityType, turnedOnConsumption)
+                                   w0, utilityType, turnedOnConsumption, ...
+                                   numCores)
 % Input:
 %       1: modelParam, struct, should include:
 %               modelParam.modelType: string, 'MeanReverting or LogNormal')
@@ -28,6 +29,9 @@ function [strategy] = wkbOptimizer(modelParam, corrMatr, gamma, ...
 %
 %       10: turnedOnConsumption: boolean, true for consumption on,
 %       otherwise off
+%
+%       11: numCores: number of cores to run the program, only
+%       works for consumption part.
     
     model = Model(modelParam);
     portCalc = PortfolioCalculator(model, corrMatr);
@@ -36,7 +40,7 @@ function [strategy] = wkbOptimizer(modelParam, corrMatr, gamma, ...
     
     hamSys = HamiltonianSystem(portCalc, utiCalc);
     
-    wkbSolver = WKBHierarchySolver(hamSys);
+    wkbSolver = WKBHierarchySolver(hamSys, numCores);
     
     display(['Start optimizing portfolio under ', modelParam.modelType, ...
             ' model']);

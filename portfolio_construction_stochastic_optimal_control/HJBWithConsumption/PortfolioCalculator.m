@@ -61,8 +61,8 @@ classdef PortfolioCalculator
         function [invCovx] = invInstCov(obj, x)
             % Input: x, asset price vector
             % Output: inverse matrix of the instantaneous covariance matrix
-            
-            invCovx = inv(obj.instCov(x));
+
+            invCovx = obj.instCov(x) \ eye(length(x));  % for test purpose
         end
 
         function [derx] = invInstCovDer(obj, x, i)
@@ -71,8 +71,8 @@ classdef PortfolioCalculator
             % Output: derivative of the inverse covariance matrix with
             % respect to x_i.  i.e. (partial C_inv) / (partial x_i) 
             
-            iCovx = obj.invInstCov(x);
-            derx = -1 * iCovx * obj.instCovDer(x, i) * iCovx;
+            covx = obj.instCov(x);
+            derx = -1 * covx \ obj.instCovDer(x, i) / covx;
             
         end
 
@@ -82,10 +82,10 @@ classdef PortfolioCalculator
             % Output: second derivative of inverse covariance matrix with
             % respect to ith and jth asset 
             
-            iCovx = obj.invInstCov(x);
+            covx = obj.instCov(x);
             covxdi = obj.instCovDer(x, i);
             covxdj = obj.instCovDer(x, j);
-            derx = iCovx * (covxdi * iCovx * covxdj + covxdj * iCovx * covxdi - obj.instCovDer2(x, i, j)) * iCovx; 
+            derx = covx \ (covxdi / covx * covxdj + covxdj / covx * covxdi - obj.instCovDer2(x, i, j)) / covx; 
             
         end
     

@@ -32,7 +32,7 @@ classdef WKBHierarchySolver
             % Note: make sure (T - tCurr) / timeStep is even, i.e. numStep
             % is odd. 
 
-            term1 = obj.hamSys.portCalc.invInstCov(xCurr) * ...
+            term1 = obj.hamSys.portCalc.instCov(xCurr) \ ...
                     obj.hamSys.portCalc.model.driftV(xCurr);
             
             term2 = obj.calcNablaLogSolu(xCurr, tCurr, T, timeStep, ...
@@ -188,9 +188,8 @@ classdef WKBHierarchySolver
                 U = obj.hamSys.hamDxx(xT, zeroVec);
                 
                 apprVarSol = expm((t-T) * [Q, R; -U, -Q]) * termVal;
-                invDF = inv(apprVarSol(1:F, :));
-                
-                z = xT - invDF * (xFlow(1:F, 1) - x);         % Note: original R code messed up dimensions here!!!
+                z = xT - apprVarSol(1:F, :) \ (xFlow(1:F, 1) - x);         % Note: original R code messed up dimensions here!!!
+
                 err = norm(z - xT);
                 xT = z;
                 ctr = ctr + 1;
@@ -284,7 +283,7 @@ classdef WKBHierarchySolver
             
             term1 = 0.5 * p' * obj.hamSys.portCalc.instCov(x) * p;
             term2 = 0.5 * obj.hamSys.kappa * obj.hamSys.oneOverGamma ...
-                    * a' * obj.hamSys.portCalc.invInstCov(x) * a;
+                    * a' / obj.hamSys.portCalc.instCov(x) * a;
             val = term1 - term2;
             
         end
@@ -343,7 +342,7 @@ classdef WKBHierarchySolver
                 % The following lines uses Newton iteration
                 f = p + h_over_2 * obj.hamSys.hamDx(x, p_minus_half_old) - p_minus_half_old;
                 df = h_over_2 * obj.hamSys.hamDxp(x, p_minus_half_old) - eye(length(x));
-                p_minus_half_new = p_minus_half_old - inv(df) * f;
+                p_minus_half_new = p_minus_half_old - df \ f;
                                 
                 err = norm(p_minus_half_new - p_minus_half_old);
                 p_minus_half_old = p_minus_half_new;
@@ -358,7 +357,7 @@ classdef WKBHierarchySolver
                 % The following lines uses Newton iteration
                 f = x_minus_1_old + h_over_2 * (obj.hamSys.hamDp(x, p_minus_half_new) + obj.hamSys.hamDp(x_minus_1_old, p_minus_half_new)) - x;
                 df = h_over_2 * obj.hamSys.hamDxp(x_minus_1_old, p_minus_half_new) + eye(length(x));
-                x_minus_1_new = x_minus_1_old - inv(df) * f;
+                x_minus_1_new = x_minus_1_old - df \ f;
                 
                 
                 err = norm(x_minus_1_new - x_minus_1_old);

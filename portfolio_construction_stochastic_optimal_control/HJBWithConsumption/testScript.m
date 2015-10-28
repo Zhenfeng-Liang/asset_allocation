@@ -12,6 +12,7 @@ clear;
 
 % Optimize the mean reverting model
 %diary('log')
+diary 10_asset_data.out;
 w0 = 100000;
 utilityType = 'CRRA';
 turnedOnConsumption = true;
@@ -31,8 +32,9 @@ tol = 1e-6;
 strategy = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, ...
                         T, timeStep, tol, w0, utilityType, ...
                         turnedOnConsumption, numCores);
+diary off;
 
-
+%diary 2_asset_data.out;
 %w0 = 100000;
 %utilityType = 'CRRA';
 %turnedOnConsumption = true;
@@ -52,8 +54,8 @@ strategy = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, ...
 %strategy = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, ...
 %                        T, timeStep, tol, w0, utilityType, ...
 %                        turnedOnConsumption, numCores);
+%diary off;
 %
-
 
 % Optimize the CIR model
 

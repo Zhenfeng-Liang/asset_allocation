@@ -32,7 +32,7 @@ classdef HamiltonianSystem
             
             term1 = 0.5 * p' * obj.portCalc.instCov(x) * p;
             term2 = obj.oneOverGamma * p' * a;
-            term3 = 0.5 * obj.kappa * obj.oneOverGamma * a' * obj.portCalc.invInstCov(x) * a;
+            term3 = 0.5 * obj.kappa * obj.oneOverGamma * a' * (obj.portCalc.instCov(x) \ a);
             val = term1 + term2 + term3;
             
         end
@@ -52,7 +52,7 @@ classdef HamiltonianSystem
                 term1(i) = 0.5 * p' * obj.portCalc.instCovDer(x, i) * p; 
                 term2(i) = obj.oneOverGamma * p' * obj.portCalc.model.driftDer(x, i);
                 term3(i) = obj.kappa * a' * obj.oneOverGamma * ...
-                    (obj.portCalc.invInstCov(x) * obj.portCalc.model.driftDer(x, i) + 0.5 * obj.portCalc.invInstCovDer(x, i) * a);
+                    (obj.portCalc.instCov(x) \ obj.portCalc.model.driftDer(x, i) + 0.5 * obj.portCalc.invInstCovDer(x, i) * a);
             end
             
             val = term1 + term2 + term3;
@@ -76,8 +76,8 @@ classdef HamiltonianSystem
                     term2(i,j) = obj.oneOverGamma * p' * obj.portCalc.model.driftDer2(x, i, j);
                     
                     term3(i,j) = obj.kappa * obj.oneOverGamma ...
-                        * (a' * obj.portCalc.invInstCov(x) * obj.portCalc.model.driftDer2(x, i, j) ...
-                           + obj.portCalc.model.driftDer(x, j)' * obj.portCalc.invInstCov(x) * obj.portCalc.model.driftDer(x, i) ...
+                        * (a' / obj.portCalc.instCov(x) * obj.portCalc.model.driftDer2(x, i, j) ...
+                           + obj.portCalc.model.driftDer(x, j)' / obj.portCalc.instCov(x) * obj.portCalc.model.driftDer(x, i) ...
                            + a' * obj.portCalc.invInstCovDer(x, j) * obj.portCalc.model.driftDer(x, i) ...
                            + a' * obj.portCalc.invInstCovDer(x, i) * obj.portCalc.model.driftDer(x, j) ...
                            + 0.5 * a' * obj.portCalc.invInstCovDer2(x, i, j) * a);

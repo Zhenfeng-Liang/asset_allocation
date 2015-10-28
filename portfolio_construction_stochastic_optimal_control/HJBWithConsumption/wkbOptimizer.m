@@ -33,6 +33,10 @@ function [strategy] = wkbOptimizer(modelParam, corrMatr, gamma, ...
 %       11: numCores: number of cores to run the program, only
 %       works for consumption part.
     
+    % open a log file
+    fid=fopen('./log.txt','wt');
+    
+    % optimizer set up
     model = Model(modelParam);
     portCalc = PortfolioCalculator(model, corrMatr);
     
@@ -44,12 +48,31 @@ function [strategy] = wkbOptimizer(modelParam, corrMatr, gamma, ...
     
     display(['Start optimizing portfolio under ', modelParam.modelType, ...
             ' model']);
-    tic
+    tic;
+    
+    % standard out to show optimizer set up
+    numCores
+    xCurr
+    tCurr
+    T
+    utilityType
+    
+    % Run the strategy
     strategy = wkbSolver.optimalControlStrategy(xCurr, tCurr, T, ...
                                                 timeStep, tol, w0, turnedOnConsumption)
     toc
+    ttime = toc;
+    
     display(['Finished optimizing portfolio under ', modelParam.modelType, ...
             ' model']);
-
+    
+    % Writing the result into log file
+    fprintf(fid, 'consumption turned on: %f\n', turnedOnConsumption);
+    fprintf(fid,'Number of processors (labs) used was: %d\n', numCores);
+    fprintf(fid,'Strategy is\n');
+    fprintf(fid, [repmat('%f\t', 1, size(strategy, 2)) '\n'], strategy');
+    fprintf(fid,'Time to complete the computation was: %6.6f\n', ttime);
+    
+    fclose(fid);
 end
 

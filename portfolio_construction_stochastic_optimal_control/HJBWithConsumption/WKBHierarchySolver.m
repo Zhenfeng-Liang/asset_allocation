@@ -148,7 +148,7 @@ classdef WKBHierarchySolver
             
             steps = ceil((T - t) / timeStep);
 
-            steps = 3; % For test purpose, need to be deleted later
+            %steps = 3; % For test purpose, need to be deleted later
             tauVec = linspace(t, T, 2 * steps + 1);
             
             SDiffVec = zeros(2 * steps + 1, 1);
@@ -197,7 +197,7 @@ classdef WKBHierarchySolver
                 
             end
             
-            display('DONE INVERTING THE FLOW');
+            %display('DONE INVERTING THE FLOW');
         end
         
         function [S] = calcS(obj, x, t, T, timeStep, tol)

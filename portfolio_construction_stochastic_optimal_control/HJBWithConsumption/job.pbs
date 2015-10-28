@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -q production
+#PBS -N test
+#PBS -l select=1:ncpus=2
+#PBS -l place=free
+#PBS -V
+echo "Starting..."
+
+cd $PBS_O_WORKDIR
+mkdir out
+matlab <testScript.m> out/2_assets_log
+echo "Done!"

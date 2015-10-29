@@ -19,12 +19,23 @@ function checkLogNormal()
     timeStep = 0.01;
     tol = 0.0001;
 
+    w0 = 100000;
+    numCores = 2;
+    utilityType = 'CRRA';
+    
+    turnedOnConsumption = true;
+    
     display('Start checking lognormal leapfrog')
+
     
     model = Model(modelParam);
     portCalc = PortfolioCalculator(model, corrMatr);
-    hamSys = HamiltonianSystem(portCalc, gamma);
-    wkbSolver = WKBHierarchySolver(hamSys);
+    
+    utiCalc = UtilityCalculator(gamma, utilityType);
+    hamSys = HamiltonianSystem(portCalc, utiCalc);   
+    
+    wkbSolver = WKBHierarchySolver(hamSys, numCores);
+    
     xT = wkbSolver.solveForTermX(xCurr, tCurr, T, timeStep, tol);
     
     [xFlow, pFlow] = wkbSolver.generateLfFlow(xT, [0;0;0], tCurr, T, timeStep, tol);
@@ -65,9 +76,15 @@ function checkLogNormal()
     xlabel('time') % x-axis label
     ylabel('xFlow') % y-axis label
     
-    display('Calculating wkb strategy approximation and exact strategy')
-    wkbStrategy = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, T, timeStep, tol)
-    exactStrategy = portCalc.invInstCov(xCurr) * model.driftV(xCurr) / gamma
+    display(['Calculating wkb strategy approximation and exact ' ...
+             'strategy'])
+    
+    wkbStrategy = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, ...
+                        T, timeStep, tol, w0, utilityType, ...
+                        turnedOnConsumption, numCores)
+
+    exactStrategy = 1.0 / utiCalc.Au(w0) * portCalc.invInstCov(xCurr) * model.driftV(xCurr)
+    
     diffNorm = norm(wkbStrategy - exactStrategy)
 
     

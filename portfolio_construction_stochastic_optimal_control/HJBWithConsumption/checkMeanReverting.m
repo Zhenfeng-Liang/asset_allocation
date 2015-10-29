@@ -9,14 +9,22 @@ function checkMeanReverting()
     gamma = 10.0;
     xCurr = [0.8; 0.8; 2; 4];
     tCurr = 0;           
-    T = 1;               
+    T = 1.0;               
     timeStep = 0.01;
     tol = 0.0001;
+ 
+    w0 = 100000;
+    numCores = 2;
+    utilityType = 'CRRA';
     
+    turnedOnConsumption = false;
+
     model = Model(modelParam);
-    portCalc = PortfolioCalculator(model, corrMatr);
-    hamSys = HamiltonianSystem(portCalc, gamma);
-    wkbSolver = WKBHierarchySolver(hamSys);
+    portCalc = PortfolioCalculator(model, corrMatr);    
+    utiCalc = UtilityCalculator(gamma, utilityType);
+    hamSys = HamiltonianSystem(portCalc, utiCalc);       
+    wkbSolver = WKBHierarchySolver(hamSys, numCores);
+    
     
     y = wkbSolver.solveForTermX(xCurr, tCurr, T, timeStep, tol);
 
@@ -25,13 +33,13 @@ function checkMeanReverting()
     LAMBDA = diag(modelParam.lambda);
     cov = portCalc.instCov(xCurr);
     
-    
-    A = [-hamSys.oneOverGamma * LAMBDA, hamSys.oneOverGamma * cov; ...
-         -hamSys.kappa * LAMBDA * inv(cov) * LAMBDA, hamSys.oneOverGamma ...
+    % changed due to the notation change, not the original ones
+    A = [-hamSys.oneOverGamma * LAMBDA,  cov; ...
+         -hamSys.kappa * hamSys.oneOverGamma * LAMBDA * inv(cov) * LAMBDA, hamSys.oneOverGamma ...
          * LAMBDA];
     
     m = [hamSys.oneOverGamma * LAMBDA * modelParam.mu; ...
-         hamSys.kappa * LAMBDA * inv(cov) * LAMBDA * modelParam.mu];
+         hamSys.kappa * hamSys.oneOverGamma * LAMBDA * inv(cov) * LAMBDA * modelParam.mu];
     
     [xFlowExact, pFlowExact] = calcExactMRFlow(t, A, T, y, m);
 
@@ -84,13 +92,14 @@ function checkMeanReverting()
     display(['Checking strategies with and without S1, when correlation ' ...
              'matrix is an identity matrix they should be the same']);
     
-    independentWithS1 = 1.0 / gamma * wkbSolver.optimalControlStrategy(xCurr, ...
-                                                      tCurr, T, timeStep, tol)
+    independentWithS1 = wkbSolver.optimalControlStrategy(xCurr, tCurr, T, ...
+                                                timeStep, tol, w0, turnedOnConsumption)
+    
     wkbSolver.includeS1 = false;
     
-    independentWithoutS1 = 1.0 / gamma * ...
-        wkbSolver.optimalControlStrategy(xCurr, tCurr, T, timeStep, tol)
-    
+    independentWithoutS1 = wkbSolver.optimalControlStrategy(xCurr, tCurr, T, ...
+                                                      timeStep, tol, w0, turnedOnConsumption)
+
     diff = independentWithoutS1 - independentWithS1
     diffNorm = norm(diff)
 
@@ -111,16 +120,18 @@ function checkMeanReverting()
     corrMatr(2,3) = 0.3;
     corrMatr(3,2) = 0.3;
     
-    portCalc = PortfolioCalculator(model, corrMatr);
-    hamSys = HamiltonianSystem(portCalc, gamma);
-    wkbSolver = WKBHierarchySolver(hamSys);
+    portCalc = PortfolioCalculator(model, corrMatr);    
+    utiCalc = UtilityCalculator(gamma, utilityType);
+    hamSys = HamiltonianSystem(portCalc, utiCalc);       
+    wkbSolver = WKBHierarchySolver(hamSys, numCores);
     
-    dependentWithS1 = 1.0 / gamma * wkbSolver.optimalControlStrategy(xCurr, ...
-                                                      tCurr, T, timeStep, tol)
+    dependentWithS1 = wkbSolver.optimalControlStrategy(xCurr, tCurr, T, ...
+                                                timeStep, tol, w0, turnedOnConsumption)
+
     wkbSolver.includeS1 = false;
-    
-    dependentWithoutS1 = 1.0 / gamma * ...
-        wkbSolver.optimalControlStrategy(xCurr, tCurr, T, timeStep, tol)
+        
+    dependentWithoutS1 = wkbSolver.optimalControlStrategy(xCurr, tCurr, T, ...
+                                                      timeStep, tol, w0, turnedOnConsumption)
     
     diff = dependentWithoutS1 - dependentWithS1
     diffNorm = norm(diff)

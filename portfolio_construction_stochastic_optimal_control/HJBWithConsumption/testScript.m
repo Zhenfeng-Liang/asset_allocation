@@ -12,27 +12,28 @@ clear;
 
 % Optimize the mean reverting model
 %diary('log')
-diary 10_asset_data.out;
-w0 = 100000;
-utilityType = 'CRRA';
-turnedOnConsumption = true;
-numCores = 10;
-modelParam.modelType = 'MeanReverting';
-modelParam.mu = [0.4; 1.3; 2.2; 3.5; 1.2; 4.0; 5.5; 2.0; 1.0; 4.5];
-modelParam.vol = [0.01; 0.016; 0.03; 0.052; 0.014; 0.05; 0.10; 0.03; 0.05; 0.08];
-modelParam.lambda = [21.0; 13.2; 11.0; 12.4; 15.6; 6; 19; 23; 10.5; 8];
-corrMatr = eye(10);
-gamma = 10.0;
-xCurr = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
-tCurr = 0;           
-T = 1.0;               
-timeStep = 0.01;
-tol = 1e-6;
-
-strategy = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, ...
-                        T, timeStep, tol, w0, utilityType, ...
-                        turnedOnConsumption, numCores);
-diary off;
+%diary 10_asset_data.out;
+%w0 = 100000;
+%utilityType = 'CRRA';
+%turnedOnConsumption = false;
+%numCores = 10;
+%modelParam.modelType = 'MeanReverting';
+%modelParam.mu = [0.4; 1.3; 2.2; 3.5; 1.2; 4.0; 5.5; 2.0; 1.0; 4.5];
+%modelParam.vol = [0.01; 0.016; 0.03; 0.052; 0.014; 0.05; 0.10; 0.03; 0.05; 0.08];
+%modelParam.lambda = [21.0; 13.2; 11.0; 12.4; 15.6; 6; 19; 23; 10.5; 8];
+%corrMatr = eye(10);
+%gamma = 10.0;
+%xCurr = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
+%tCurr = 0;           
+%T = 0.5;               
+%timeStep = 0.01;
+%tol = 1e-6;
+%
+%strategy = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, ...
+%                        T, timeStep, tol, w0, utilityType, ...
+%                        turnedOnConsumption, numCores);
+%diary off;
+%
 
 %diary 2_asset_data.out;
 %w0 = 100000;
@@ -47,7 +48,7 @@ diary off;
 %gamma = 10.0;
 %xCurr = [0.8; 0.8];
 %tCurr = 0;           
-%T = 1.0;               
+%T = 0.01;               
 %timeStep = 0.01;
 %tol = 1e-6;
 %
@@ -58,19 +59,25 @@ diary off;
 %
 
 % Optimize the CIR model
-
-%modelParam.modelType = 'CIR';
-%modelParam.mu = [0.4; 0.6; 18; 100];
-%modelParam.vol = [0.18; 0.16; 8; 20];
-%modelParam.lambda = [2.0; 1.5; 1.9; 1.0];
-%corrMatr = eye(4);
-%gamma = 10.0;
-%xCurr = [0.8; 0.7; 15; 94];
-%tCurr = 0;           
-%T = 1;               
-%timeStep = 0.01;
-%tol = 0.0001;
+w0 = 100000;
+utilityType = 'CRRA';
+turnedOnConsumption = true;
+numCores = 2;
+modelParam.modelType = 'CIR';
+modelParam.mu = [0.4; 0.6; 18; 100];
+modelParam.vol = [0.18; 0.16; 8; 20];
+modelParam.lambda = [2.0; 1.5; 1.9; 1.0];
+corrMatr = eye(4);
+gamma = 10.0;
+xCurr = [0.8; 0.7; 15; 94];
+tCurr = 0;           
+T = 1;               
+timeStep = 0.01;
+tol = 0.0001;
 
 %strategy = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, T, timeStep, tol)
 
 
+strategy = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, ...
+                        T, timeStep, tol, w0, utilityType, ...
+                        turnedOnConsumption, numCores);

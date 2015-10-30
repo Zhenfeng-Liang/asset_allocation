@@ -42,14 +42,7 @@ classdef UtilityCalculator
         
         function [res] = Au(obj, v)
 
-            if(strcmp(obj.type, 'CARA'))
-                res = obj.gamma;
-            elseif(strcmp(obj.type, 'CRRA'))
-                res = obj.gamma / v;
-            elseif(strcmp(obj.type, 'HARA'))
-                res = obj.b * (obj.a + obj.b / obj.gamma * v)^(-1);
-            end
-            
+            res = -obj.UDer2(v) / obj.UDer(v);
         end
         
         function [res] = U(obj, v)
@@ -62,7 +55,32 @@ classdef UtilityCalculator
                 res = obj.gamma / (1 - obj.gamma) ... 
                 * (obj.a + obj.b / obj.gamma * v)^(1 - obj.gamma);
             end           
-        end    
+        end
+        
+        function [res] =UDer(obj, v)
+
+            if(strcmp(obj.type, 'CARA'))
+                res = exp(-obj.gamma * v);
+            elseif(strcmp(obj.type, 'CRRA'))
+                res = v^(-obj.gamma);
+            elseif(strcmp(obj.type, 'HARA'))
+                res = obj.b * (obj.a + obj.b / obj.gamma * v)^(-obj.gamma);
+            end           
+            
+        end
+        
+        function [res] = UDer2(obj, v)
+    
+            if(strcmp(obj.type, 'CARA'))
+                res = -obj.gamma * exp(-obj.gamma * v);
+            elseif(strcmp(obj.type, 'CRRA'))
+                res = -obj.gamma * v^(-obj.gamma - 1);
+            elseif(strcmp(obj.type, 'HARA'))
+                res = -obj.b^2 * (obj.a + obj.b / obj.gamma * ...
+                                  v)^(-obj.gamma - 1);
+            end           
+        end
+    
     end 
     
 end

@@ -1,10 +1,11 @@
-classdef WKBHierarchySolver
+classdef WKBHierarchySolver < handle
     % This class implements the main part of WKB solver 
     
     properties
         hamSys;
         includeS1;
         numCores;
+        GAMMA;
     end
     
     methods
@@ -17,9 +18,13 @@ classdef WKBHierarchySolver
             obj.includeS1 = true;
         end
         
-        function [phi] = optimalControlStrategy(obj, xCurr, tCurr, ...
+        function obj = set.GAMMA(obj, value)
+            obj.GAMMA = value;
+        end
+        
+        function [phi, cStar] = optimalControlStrategy(obj, xCurr, tCurr, ...
                                                 T, timeStep, tol, ...
-                                                w0, turnedOnConsumption)
+                                                w, turnedOnConsumption)
             % Input: 
             % xCurr: current asset price vector, tCurr: current
             % time, T: terminal time, timeStep: time interval between
@@ -35,13 +40,22 @@ classdef WKBHierarchySolver
             term1 = obj.hamSys.portCalc.instCov(xCurr) \ ...
                     obj.hamSys.portCalc.model.driftV(xCurr);
             
-            term2 = obj.calcNablaLogSolu(xCurr, tCurr, T, timeStep, ...
-                                         tol, turnedOnConsumption);
+            [term2, GAMMA] = obj.calcNablaLogSolu(xCurr, tCurr, T, timeStep, ...
+                                                  tol, turnedOnConsumption);
             
-            phi = 1.0 / obj.hamSys.utiCalc.Au(w0) * (term1 + obj.hamSys.utiCalc.gamma * term2);
+            phi = 1.0 / obj.hamSys.utiCalc.Au(w) * (term1 + ...
+                                                    obj.hamSys.utiCalc.gamma * term2);
+            
+            cStar = 0;
+            if turnedOnConsumption
+                cStar = obj.hamSys.utiCalc.gamma / GAMMA * ...
+                        obj.hamSys.utiCalc.UDer(w)^(-1 / obj.hamSys.utiCalc.gamma);
+            end
+            
         end
 
-        function [res] = calcNablaLogSolu(obj, x, t, T, timeStep, ...
+        
+        function [res, GAMMA] = calcNablaLogSolu(obj, x, t, T, timeStep, ...
                                           tol, turnedOnConsumption)
             % Calculate nabla of log(general solution + particular
             % solution), only for program with consumption
@@ -55,7 +69,7 @@ classdef WKBHierarchySolver
                 
             if turnedOnConsumption
                 display('Consumption turned on');
-                res = obj.calcNablaLogSoluConsumption(x, t, T, timeStep, tol);
+                [res, GAMMA] = obj.calcNablaLogSoluConsumption(x, t, T, timeStep, tol);
             else
                 % Turn off consumption, only have general solution
                 display('Consumption turned off');
@@ -63,7 +77,7 @@ classdef WKBHierarchySolver
             end
         end
         
-        function [res] = calcNablaLogSoluConsumption(obj, x, t, T, timeStep, tol) 
+        function [res, GAMMA] = calcNablaLogSoluConsumption(obj, x, t, T, timeStep, tol) 
             % calculate the nabla of the log term inside the rearranged
             % nablaLogSolution.
             % Input:
@@ -72,8 +86,11 @@ classdef WKBHierarchySolver
             % nablaInnerLog, inner log nabla, a vector, same dimension
             % with x.
 
-            [tauStar, SDiffVec] = obj.calcSVec(x, t, T, timeStep, ...
+            [tauStar, SDiffVec, SMax] = obj.calcSDiffVec(x, t, T, timeStep, ...
                                                        tol);
+            
+            GAMMA = obj.calcGAMMAHelper(x, t, T, timeStep, tol, SDiffVec, SMax)
+            
             nablaSMax = obj.calcNablaS(x, t, tauStar, timeStep, ...
                                        tol);
             
@@ -101,6 +118,15 @@ classdef WKBHierarchySolver
             res = nablaSMax + nablaInnerLog;
         end
         
+        
+        
+        function [GAMMA] = calcGAMMAHelper(obj, x, t, T, timeStep, ...
+                                           tol, SDiffVec, SMax)
+            
+            GAMMA = obj.calcA(x, t, T, timeStep, tol, SDiffVec);
+            GAMMA = GAMMA * exp(SMax);
+        end
+        
         function [A] = calcA(obj, x, t, T, timeStep, tol, SDiffVec) 
         % Calculate the log term inside the rearranged
         % nablaLogSolution.
@@ -111,7 +137,7 @@ classdef WKBHierarchySolver
             
         % If SDiffVec argument is missing, recalculate it. 
             if nargin < 7
-                [tauStar, SDiffVec] = obj.calcSVec(x, t, T, timeStep, ...
+                [tauStar, SDiffVec] = obj.calcSDiffVec(x, t, T, timeStep, ...
                                                    tol);
             end
             
@@ -120,20 +146,20 @@ classdef WKBHierarchySolver
             % inverse number of steps
             steps = (len - 1) / 2;
             
-            A = 0;
-            for i = 1:steps                       
-                A = A + exp(SDiffVec(2*i-1)) ...
-                    + 4 * exp(SDiffVec(2*i)) ... 
-                    + exp(SDiffVec(2*i+1)); 
-            end
+            A = obj.simpsonInnerOptimizedSum(exp(SDiffVec));
+%            for i = 1:steps                       
+%                A = A + exp(SDiffVec(2*i-1)) ...
+%                    + 4 * exp(SDiffVec(2*i)) ... 
+%                    + exp(SDiffVec(2*i+1)); 
+%            end
+
             A = A * (T - t) / (6*steps);                
             
             A = A + exp(SDiffVec(len)); % Terminal T S
                                         % difference term
         end
-
-                
-        function [tauStar, SDiffVec] = calcSVec(obj, x, t, T, timeStep, tol)        
+        
+        function [tauStar, SDiffVec, SMax] = calcSDiffVec(obj, x, t, T, timeStep, tol)
         % calculate a vector of S, and find the max S location,
         % return time tauStar when S is maximum and a vector of 
         % S - SMax
@@ -151,7 +177,7 @@ classdef WKBHierarchySolver
             %steps = 3; % For test purpose, need to be deleted later
             tauVec = linspace(t, T, 2 * steps + 1);
             
-            SDiffVec = zeros(2 * steps + 1, 1);
+            SDiffVec = zeros(1, 2 * steps + 1);
             
             for i = 1:(2*steps+1)
                 SDiffVec(i) = obj.calcS(x, t, tauVec(i), timeStep, tol);
@@ -200,53 +226,66 @@ classdef WKBHierarchySolver
         end
         
         function [S] = calcS(obj, x, t, T, timeStep, tol)
-            % Input: x, initial asset price vector, t: starting time, T:
-            % terminal time
-            % Output: S: action from WKB approximation
-            % Note: make sure (T - t) / timeStep is odd, i.e. numStep is
-            % odd. Right now I didn't include S1 term.
+        % Input: x, initial asset price vector, t: starting time, T:
+        % terminal time
+        % Output: S: action from WKB approximation
+        % Note: make sure (T - t) / timeStep is odd, i.e. numStep is
+        % odd. Right now I didn't include S1 term.
             
-            F = length(x);
-            termVal = obj.solveForTermX(x, t, T, timeStep, tol);
-            zeroVec = zeros(F, 1);
+            S = 0;
             
-            [xPath, pPath] = obj.generateLfFlow(termVal, zeroVec, t, T, timeStep, tol);
-            
-            numSteps = size(xPath, 2) - 1;   % number of step equals to number of point minus one.
-            
-            dpDx = zeros(F, F, numSteps);
-            for i = 1:(numSteps)
+            % When T == t, get rid of every thing, it must be 0 
+            if T ~= t    
+                F = length(x);
+                termVal = obj.solveForTermX(x, t, T, timeStep, tol);
+                zeroVec = zeros(F, 1);
                 
-                one_over_dx = 1 ./ (xPath(:,i+1) - xPath(:,i));
-                dp = pPath(:,i+1) - pPath(:,i);
-                dpDx(:, :, i) = dp * one_over_dx';  % outer product
+                [xPath, pPath] = obj.generateLfFlow(termVal, zeroVec, t, T, timeStep, tol);
                 
-            end
-            
-            
-            S0 = 0.0;
-            S1 = 0.0;
-            for i = 1:(size(xPath, 2)/2 - 1)   % Note the original R code is different here
+                %            numSteps = size(xPath, 2) - 1;   % number of step equals to number of point minus one.
+                %            
+                %            dpDx = zeros(F, F, numSteps);
+                %            for i = 1:(numSteps)
+                %                
+                %                one_over_dx = 1 ./ (xPath(:,i+1) - xPath(:,i));
+                %                dp = pPath(:,i+1) - pPath(:,i);
+                %                dpDx(:, :, i) = dp * one_over_dx';  % outer product
+                %                
+                %            end
+                %            
                 
-                S0 = S0 + obj.lagr(xPath(:,2*i-1), pPath(:, 2*i-1)) ...
-                    + 4 * obj.lagr(xPath(:, 2*i), pPath(:, 2*i)) ...
-                    + obj.lagr(xPath(:, 2*i+1), pPath(:, 2*i+1));
+                S0 = 0.0;
+                S1 = 0.0;
+                lagrVec = zeros(1, size(xPath, 2) - 1);
+                for i = 1:(size(xPath, 2) - 1)
+                    % cache the lagr vector
+                    
+                    lagrVec(i) = obj.lagr(xPath(:,i), pPath(:,i));
+                end
+
+                S0 = obj.simpsonInnerOptimizedSum(lagrVec);
+                %            for i = 1:(size(xPath, 2)/2 - 1)   % Note the original R code is different here
+                %                
+                %                S0 = S0 + obj.lagr(xPath(:,2*i-1), pPath(:, 2*i-1)) ...
+                %                    + 4 * obj.lagr(xPath(:, 2*i), pPath(:, 2*i)) ...
+                %                    + obj.lagr(xPath(:, 2*i+1), pPath(:, 2*i+1));
+                %                
+                %                S1 = S1 + trace(obj.hamSys.portCalc.instCov(xPath(:,2*i-1)) * dpDx(:,:,2*i-1) ...
+                %                    + 4 * obj.hamSys.portCalc.instCov(xPath(:,2*i)) * dpDx(:,:,2*i) ...
+                %                    + obj.hamSys.portCalc.instCov(xPath(:,2*i+1)) * dpDx(:,:,2*i+1));
+                %                
+                %            end
+                %            
+                S0 = S0 * timeStep / 3;
+                S0 = -S0;                 % integrate the negative lagr
+                S1 = S1 * timeStep / 6;   % S1 have another 1/2 coeff in front of
+                                          % the integral
                 
-                S1 = S1 + trace(obj.hamSys.portCalc.instCov(xPath(:,2*i-1)) * dpDx(:,:,2*i-1) ...
-                    + 4 * obj.hamSys.portCalc.instCov(xPath(:,2*i)) * dpDx(:,:,2*i) ...
-                    + obj.hamSys.portCalc.instCov(xPath(:,2*i+1)) * dpDx(:,:,2*i+1));
-                
-            end
-            
-            S0 = S0 * timeStep / 3;
-            S0 = -S0;                 % integrate the negative lagr
-            S1 = S1 * timeStep / 6;   % S1 have another 1/2 coeff in front of
-            % the integral
-                        
-            if obj.includeS1
-                S = S0 + 1.0 * S1;
-            else
-                S = S0;
+                if obj.includeS1
+                    S = S0 + 1.0 * S1;
+                else
+                    S = S0;
+                end
             end
             
         end
@@ -294,7 +333,7 @@ classdef WKBHierarchySolver
             % tolerance for leapfrog implicit equation, maxIter: maximum
             % iteration for implicit iteration   
             % Output: x(t) and p(t) flow map given xT and pT
-            
+
             numSteps = ceil((T - t) / timeStep);
             
             % Note: original R code doesn't have t here. I suspect that the
@@ -370,8 +409,23 @@ classdef WKBHierarchySolver
             
         end
 
-        
-    end
+        function [res] = simpsonInnerOptimizedSum(obj, fVec)
+        % fVec: have to have odd number of elements
+        % We write simpson as \sum_1^{M} (f(2i - 1) + 4f(2i) + f(2i+1))    
+        % To simplify, we let S = \sum_1^{2M+1} f(j)
+        % So the original simpson formula will be rewritten as following:
+        % 2S - f(1) - f(2M + 1) + 2\sum_1^{2M}(f(2i))
+            
+            allSum = sum(fVec);
+
+            % Take the odd index as a flag vec, calculate the
+            % difference to get the even index sum
+            len = length(fVec);
+            evenIndSum = allSum - sum(fVec .* mod(1:len,2));
+
+            res = 2 * allSum - fVec(1) - fVec(len) + 2 * evenIndSum;
+        end
     
+    end    
 end
 

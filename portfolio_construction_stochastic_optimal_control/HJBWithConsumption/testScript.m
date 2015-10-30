@@ -35,49 +35,46 @@ clear;
 %diary off;
 %
 
-%diary 2_asset_data.out;
-%w0 = 100000;
-%utilityType = 'CRRA';
-%turnedOnConsumption = true;
-%numCores = 2;
-%modelParam.modelType = 'MeanReverting';
-%modelParam.mu = [0.4; 1.3];
-%modelParam.vol = [0.01; 0.016];
-%modelParam.lambda = [21.0; 13.2];
-%corrMatr = eye(2.0);
-%gamma = 10.0;
-%xCurr = [0.8; 0.8];
-%tCurr = 0;           
-%T = 0.01;               
-%timeStep = 0.01;
-%tol = 1e-6;
-%
-%strategy = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, ...
-%                        T, timeStep, tol, w0, utilityType, ...
-%                        turnedOnConsumption, numCores);
-%diary off;
-%
-
-% Optimize the CIR model
+diary 2_asset_data.out;
 w0 = 100000;
 utilityType = 'CRRA';
 turnedOnConsumption = true;
 numCores = 2;
-modelParam.modelType = 'CIR';
-modelParam.mu = [0.4; 0.6; 18; 100];
-modelParam.vol = [0.18; 0.16; 8; 20];
-modelParam.lambda = [2.0; 1.5; 1.9; 1.0];
-corrMatr = eye(4);
+modelParam.modelType = 'MeanReverting';
+modelParam.mu = [0.4; 1.3];
+modelParam.vol = [0.01; 0.016];
+modelParam.lambda = [21.0; 13.2];
+corrMatr = eye(2.0);
 gamma = 10.0;
-xCurr = [0.8; 0.7; 15; 94];
+xCurr = [0.8; 0.8];
 tCurr = 0;           
-T = 1;               
-timeStep = 0.01;
-tol = 0.0001;
-
-%strategy = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, T, timeStep, tol)
-
+T = 0.1;               
+timeStep = 0.02;
+tol = 1e-6;
 
 strategy = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, ...
                         T, timeStep, tol, w0, utilityType, ...
                         turnedOnConsumption, numCores);
+diary off;
+
+
+% Optimize the CIR model
+%w0 = 100000;
+%utilityType = 'CRRA';
+%turnedOnConsumption = true;
+%numCores = 2;
+%modelParam.modelType = 'CIR';
+%modelParam.mu = [0.4; 0.6; 18; 100];
+%modelParam.vol = [0.18; 0.16; 8; 20];
+%modelParam.lambda = [2.0; 1.5; 1.9; 1.0];
+%corrMatr = eye(4);
+%gamma = 10.0;
+%xCurr = [0.8; 0.7; 15; 94];
+%tCurr = 0;           
+%T = 1;               
+%timeStep = 0.01;
+%tol = 0.0001;
+%
+%strategy = wkbOptimizer(modelParam, corrMatr, gamma, xCurr, tCurr, ...
+%                        T, timeStep, tol, w0, utilityType, ...
+%                        turnedOnConsumption, numCores);

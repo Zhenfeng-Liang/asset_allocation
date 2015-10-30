@@ -16,12 +16,9 @@ classdef WKBHierarchySolver < handle
             obj.hamSys = hamSys;
             obj.numCores = numCores;
             obj.includeS1 = true;
+            obj.GAMMA = 0;
         end
-        
-        function obj = set.GAMMA(obj, value)
-            obj.GAMMA = value;
-        end
-        
+                
         function [phi, cStar] = optimalControlStrategy(obj, xCurr, tCurr, ...
                                                 T, timeStep, tol, ...
                                                 w, turnedOnConsumption)
@@ -37,25 +34,25 @@ classdef WKBHierarchySolver < handle
             % Note: make sure (T - tCurr) / timeStep is even, i.e. numStep
             % is odd. 
 
+            obj.GAMMA = 0;
             term1 = obj.hamSys.portCalc.instCov(xCurr) \ ...
                     obj.hamSys.portCalc.model.driftV(xCurr);
             
-            [term2, GAMMA] = obj.calcNablaLogSolu(xCurr, tCurr, T, timeStep, ...
+            term2 = obj.calcNablaLogSolu(xCurr, tCurr, T, timeStep, ...
                                                   tol, turnedOnConsumption);
             
             phi = 1.0 / obj.hamSys.utiCalc.Au(w) * (term1 + ...
                                                     obj.hamSys.utiCalc.gamma * term2);
-            
             cStar = 0;
             if turnedOnConsumption
-                cStar = obj.hamSys.utiCalc.gamma / GAMMA * ...
+                cStar = obj.hamSys.utiCalc.gamma / obj.GAMMA * ...
                         obj.hamSys.utiCalc.UDer(w)^(-1 / obj.hamSys.utiCalc.gamma);
             end
             
         end
 
         
-        function [res, GAMMA] = calcNablaLogSolu(obj, x, t, T, timeStep, ...
+        function [res] = calcNablaLogSolu(obj, x, t, T, timeStep, ...
                                           tol, turnedOnConsumption)
             % Calculate nabla of log(general solution + particular
             % solution), only for program with consumption
@@ -69,7 +66,7 @@ classdef WKBHierarchySolver < handle
                 
             if turnedOnConsumption
                 display('Consumption turned on');
-                [res, GAMMA] = obj.calcNablaLogSoluConsumption(x, t, T, timeStep, tol);
+                res = obj.calcNablaLogSoluConsumption(x, t, T, timeStep, tol);
             else
                 % Turn off consumption, only have general solution
                 display('Consumption turned off');
@@ -77,7 +74,7 @@ classdef WKBHierarchySolver < handle
             end
         end
         
-        function [res, GAMMA] = calcNablaLogSoluConsumption(obj, x, t, T, timeStep, tol) 
+        function [res] = calcNablaLogSoluConsumption(obj, x, t, T, timeStep, tol) 
             % calculate the nabla of the log term inside the rearranged
             % nablaLogSolution.
             % Input:
@@ -88,8 +85,8 @@ classdef WKBHierarchySolver < handle
 
             [tauStar, SDiffVec, SMax] = obj.calcSDiffVec(x, t, T, timeStep, ...
                                                        tol);
-            
-            GAMMA = obj.calcGAMMAHelper(x, t, T, timeStep, tol, SDiffVec, SMax)
+
+            obj.calcGAMMAHelper(x, t, T, timeStep, tol, SDiffVec, SMax);
             
             nablaSMax = obj.calcNablaS(x, t, tauStar, timeStep, ...
                                        tol);
@@ -120,11 +117,11 @@ classdef WKBHierarchySolver < handle
         
         
         
-        function [GAMMA] = calcGAMMAHelper(obj, x, t, T, timeStep, ...
+        function calcGAMMAHelper(obj, x, t, T, timeStep, ...
                                            tol, SDiffVec, SMax)
             
             GAMMA = obj.calcA(x, t, T, timeStep, tol, SDiffVec);
-            GAMMA = GAMMA * exp(SMax);
+            obj.GAMMA = GAMMA * exp(SMax);
         end
         
         function [A] = calcA(obj, x, t, T, timeStep, tol, SDiffVec) 
@@ -147,14 +144,11 @@ classdef WKBHierarchySolver < handle
             steps = (len - 1) / 2;
             
             A = obj.simpsonInnerOptimizedSum(exp(SDiffVec));
-%            for i = 1:steps                       
-%                A = A + exp(SDiffVec(2*i-1)) ...
-%                    + 4 * exp(SDiffVec(2*i)) ... 
-%                    + exp(SDiffVec(2*i+1)); 
-%            end
 
             A = A * (T - t) / (6*steps);                
             
+            % Comment out the terminal term in order to match with
+            % Merton original paper terminal value equal to 0
             A = A + exp(SDiffVec(len)); % Terminal T S
                                         % difference term
         end

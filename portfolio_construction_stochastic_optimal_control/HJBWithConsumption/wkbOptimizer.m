@@ -58,8 +58,8 @@ function [strategy] = wkbOptimizer(modelParam, corrMatr, gamma, ...
     utilityType
     
     % Run the strategy
-    strategy = wkbSolver.optimalControlStrategy(xCurr, tCurr, T, ...
-                                                timeStep, tol, w0, turnedOnConsumption)
+    [strategy, consumingStrategy] = wkbSolver.optimalControlStrategy(xCurr, tCurr, T, ...
+                                                      timeStep, tol, w0, turnedOnConsumption)
     toc
     ttime = toc;
     

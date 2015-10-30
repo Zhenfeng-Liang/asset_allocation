@@ -15,7 +15,7 @@ function checkLogNormal()
     gamma = 10.0;
     xCurr = [1.0; 0.8; 1.5];
     tCurr = 0;
-    T = 1;
+    T = 0.25;
     timeStep = 0.01;
     tol = 0.0001;
 

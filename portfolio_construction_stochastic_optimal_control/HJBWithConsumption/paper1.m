@@ -178,8 +178,8 @@ function runMR()
     numCores = 1;
     modelParam.modelType = 'MeanReverting';
     modelParam.mu = [0.4; 1.3; 2.2; 3.5; 1.2; 4.0; 5.5; 2.0; 1.0; 4.5];
-    modelParam.vol = [0.01; 0.016; 0.03; 0.052; 0.014; 0.05; 0.10; 0.03; 0.05; 0.08];
-    modelParam.lambda = [21.0; 13.2; 11.0; 12.4; 15.6; 6; 19; 23; 10.5; 8];
+    modelParam.vol = [0.1; 0.16; 0.3; 0.52; 0.14; 0.5; 1.0; 0.3; 0.5; 0.8];
+    modelParam.lambda = [2.10; 1.32; 1.10; 1.24; 1.56; 0.6; 1.9; 2.3; 1.05; 0.8];
     corrMatr = eye(10);
     
     gamma = 10.0;

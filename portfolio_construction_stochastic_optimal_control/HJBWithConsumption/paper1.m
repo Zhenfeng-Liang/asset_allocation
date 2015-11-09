@@ -17,7 +17,7 @@ function runLN()
     display('Start checking lognormal model');
         
     modelParam.modelType = 'LogNormal';
-    modelParam.mu = [-0.1];
+    modelParam.mu = [0.3];
     modelParam.vol = [0.33];
     
     pT = [0];
@@ -143,17 +143,20 @@ function runLN()
 
     
     t = btST:rebTS:btET; 
-    posChg = [0, phiMat(1,2:(m-1)) - phiMat(1,1:(m-2)), 0];
+    pos = [phiMat(1,:), 0];
     figure;
-    [ax, h1, h2] = plotyy(t, simData(1,:), t, posChg, 'plot', 'stem');    
-    set(ax(1), 'AxeOrigin', [0,0]);
+    [ax, h1, h2] = plotyy(t, simData(1,:), t, pos, 'plot', 'stairs');    
+    set(h1, 'linewidth', 2, 'color', 'red');
+    set(h2,  'linewidth', 2, 'color', 'blue');
     
+    title('Simulated Stock Price and WKB approximate position', ...
+          'FontSize', 20);
+    xlabel('rebalance time', 'FontSize', 20) % x-axis label
+    ylabel(ax(1), 'simulated stock price($)', 'color', 'red', 'FontSize', 20);
+    ylabel(ax(2), 'position', 'color', 'blue', 'FontSize', 20);
     
-    title('Simulated Stock Price');
-    xlabel('rebalance time') % x-axis label
-    ylabel('price') % y-axis label    
-                    %hold on
-    
+    h = legend('simulated stock price','wkb strategy', 'Location', 'southeast');
+    set(h, 'FontSize', 16);
 
     % bar(t, [0,posChg,0]);
     

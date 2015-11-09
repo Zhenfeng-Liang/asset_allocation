@@ -4,16 +4,16 @@ function paper1()
     clc;
     clear;
 
-    runLN();
+    %runLN();
+    runMR();
 
 end
-
-
 
 
 function runLN()
 % run all the lognormal stuff
 
+    tic
     display('Start checking lognormal model');
         
     modelParam.modelType = 'LogNormal';
@@ -63,7 +63,7 @@ function runLN()
     hold on;
     plot(t, x_exact_1, 'Color', 'blue');
     
-    title('Asset 1: Lognormal wkb approximate xFlow and exact xFlow');
+    title('Lognormal wkb approximate xFlow and exact xFlow');
     xlabel('time') % x-axis label
     ylabel('xFlow') % y-axis label    
     legend('Numerical','Exact');
@@ -84,9 +84,9 @@ function runLN()
     subplot(1,2,2);
     plot(t, pFlow(1,:), 'Color', 'red');
     hold on;
-    plot(t, 0, 'Color', 'blue');
+    plot(t, t * 0, 'Color', 'blue');
     
-    title(['Asset 2: Lognormal wkb approximate pFlow and exact ' ...
+    title(['Lognormal wkb approximate pFlow and exact ' ...
            'pFlow, should be zero'])
     xlabel('time') % x-axis label
     ylabel('pFlow') % y-axis label
@@ -158,8 +158,6 @@ function runLN()
     h = legend('simulated stock price','wkb strategy', 'Location', 'southeast');
     set(h, 'FontSize', 16);
 
-    % bar(t, [0,posChg,0]);
-    
     
     figure;
     plot(t, wVec(1,:), 'Color', 'red');    
@@ -167,5 +165,55 @@ function runLN()
     xlabel('rebalance time') % x-axis label
     ylabel('PnL') % y-axis label    
     
+    toc
 end
 
+function runMR()
+
+    tic
+    
+    w0 = 100000;
+    utilityType = 'HARA';
+    turnedOnConsumption = false;
+    numCores = 1;
+    modelParam.modelType = 'MeanReverting';
+    modelParam.mu = [0.4; 1.3; 2.2; 3.5; 1.2; 4.0; 5.5; 2.0; 1.0; 4.5];
+    modelParam.vol = [0.01; 0.016; 0.03; 0.052; 0.014; 0.05; 0.10; 0.03; 0.05; 0.08];
+    modelParam.lambda = [21.0; 13.2; 11.0; 12.4; 15.6; 6; 19; 23; 10.5; 8];
+    corrMatr = eye(10);
+    
+    gamma = 10.0;
+    xCurr = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
+
+    turnedOnConsumption = false;
+        
+    btST = 0;           
+    btET = 1.0;               
+    rebTS = 0.01;
+
+    model = Model(modelParam);
+    portCalc = PortfolioCalculator(model, corrMatr);    
+    utiCalc = UtilityCalculator(gamma, utilityType);
+    hamSys = HamiltonianSystem(portCalc, utiCalc);       
+    wkbSolver = WKBHierarchySolver(hamSys, numCores);
+
+    simulator = ModelEvolver();
+    simData = simulator.EvolveEuler(xCurr, btST, btET, rebTS, corrMatr, ...
+                                     model);
+
+    constr = Constraint(0.3, -0.2, false);
+    bte = BtEngine(btST, btET, rebTS, constr);
+
+    [wVec, phiMat, cVec] = bte.runBackTest(simData, wkbSolver, w0, ...
+                                           turnedOnConsumption);
+
+    t = btST:rebTS:btET;
+    figure;
+    plot(t, wVec(1,:), 'Color', 'red');    
+    title('Cumulative PnL');
+    xlabel('rebalance time') % x-axis label
+    ylabel('PnL') % y-axis label    
+    
+    toc
+
+end

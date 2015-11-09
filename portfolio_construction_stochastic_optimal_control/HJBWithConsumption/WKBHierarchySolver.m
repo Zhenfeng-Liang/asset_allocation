@@ -236,17 +236,16 @@ classdef WKBHierarchySolver < handle
                 
                 [xPath, pPath] = obj.generateLfFlow(termVal, zeroVec, t, T, timeStep, tol);
                 
-                %            numSteps = size(xPath, 2) - 1;   % number of step equals to number of point minus one.
-                %            
-                %            dpDx = zeros(F, F, numSteps);
-                %            for i = 1:(numSteps)
-                %                
-                %                one_over_dx = 1 ./ (xPath(:,i+1) - xPath(:,i));
-                %                dp = pPath(:,i+1) - pPath(:,i);
-                %                dpDx(:, :, i) = dp * one_over_dx';  % outer product
-                %                
-                %            end
-                %            
+                numSteps = size(xPath, 2) - 1;    %number of step equals to number of point minus one.                
+                dpDx = zeros(F, F, numSteps);
+                for i = 1:(numSteps)
+                    
+                    one_over_dx = 1 ./ (xPath(:,i+1) - xPath(:,i));
+                    dp = pPath(:,i+1) - pPath(:,i);
+                    dpDx(:, :, i) = dp * one_over_dx';   %outer product
+                    
+                end
+                            
                 
                 S0 = 0.0;
                 S1 = 0.0;
@@ -258,18 +257,18 @@ classdef WKBHierarchySolver < handle
                 end
 
                 S0 = obj.simpsonInnerOptimizedSum(lagrVec);
-                %            for i = 1:(size(xPath, 2)/2 - 1)   % Note the original R code is different here
-                %                
-                %                S0 = S0 + obj.lagr(xPath(:,2*i-1), pPath(:, 2*i-1)) ...
-                %                    + 4 * obj.lagr(xPath(:, 2*i), pPath(:, 2*i)) ...
-                %                    + obj.lagr(xPath(:, 2*i+1), pPath(:, 2*i+1));
-                %                
-                %                S1 = S1 + trace(obj.hamSys.portCalc.instCov(xPath(:,2*i-1)) * dpDx(:,:,2*i-1) ...
-                %                    + 4 * obj.hamSys.portCalc.instCov(xPath(:,2*i)) * dpDx(:,:,2*i) ...
-                %                    + obj.hamSys.portCalc.instCov(xPath(:,2*i+1)) * dpDx(:,:,2*i+1));
-                %                
-                %            end
-                %            
+                for i = 1:(size(xPath, 2)/2 - 1)    %Note the original R code is different here
+                    
+                %    S0 = S0 + obj.lagr(xPath(:,2*i-1), pPath(:, 2*i-1)) ...
+                %         + 4 * obj.lagr(xPath(:, 2*i), pPath(:, 2*i)) ...
+                %         + obj.lagr(xPath(:, 2*i+1), pPath(:, 2*i+1));
+                %    
+                    S1 = S1 + trace(obj.hamSys.portCalc.instCov(xPath(:,2*i-1)) * dpDx(:,:,2*i-1) ...
+                                    + 4 * obj.hamSys.portCalc.instCov(xPath(:,2*i)) * dpDx(:,:,2*i) ...
+                                    + obj.hamSys.portCalc.instCov(xPath(:,2*i+1)) * dpDx(:,:,2*i+1));
+                    
+                end
+                
                 S0 = S0 * timeStep / 3;
                 S0 = -S0;                 % integrate the negative lagr
                 S1 = S1 * timeStep / 6;   % S1 have another 1/2 coeff in front of

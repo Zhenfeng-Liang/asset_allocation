@@ -4,16 +4,17 @@ function paper1()
     clc;
     clear;
 
-    %runLN();
-    %runMR();
-    runCIR();
+    outdir = 'figures';
+    runLN(outdir);
+    runMR(outdir);
+    runCIR(outdir);
     
 end
 
 
-function runLN()
+function runLN(outdir)
 % run all the lognormal stuff
-
+    
     tic
     display('Start checking lognormal model');
         
@@ -95,6 +96,11 @@ function runLN()
     ylabel('pFlow', 'FontSize', 20) % y-axis label
     h = legend('Numerical','Exact');
     set(h, 'FontSize', 16);
+
+    str = sprintf('%s/LNFlow.png', outdir);
+    set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 ...
+                       20]);
+    saveas(gcf, str);
     
     btST = 0;           
     btET = 1.0;               
@@ -145,6 +151,11 @@ function runLN()
     xlabel('rebalance time', 'FontSize', 20) % x-axis label
     ylabel('difference', 'FontSize', 20) % y-axis label    
 
+    str = sprintf('%s/LNStrategy.png', outdir);
+    set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 ...
+                       20]);
+    saveas(gcf, str);
+    
     % Ploting strategy and stock price
     t = btST:rebTS:btET; 
     pos = [phiMat(1,:), 0];
@@ -162,17 +173,27 @@ function runLN()
     h = legend('simulated stock price','wkb strategy', 'Location', 'southeast');
     set(h, 'FontSize', 16);
 
+    str = sprintf('%s/LNPnPos.png', outdir);
+    set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 ...
+                       20]);
+    saveas(gcf, str);
+    
     % Plotting PnL
     figure;
     plot(t, wVec(1,:), 'Color', 'red', 'linewidth', 2);    
     title('Cumulative PnL', 'FontSize', 20);
     xlabel('rebalance time', 'FontSize', 20) % x-axis label
     ylabel('PnL', 'FontSize', 20) % y-axis label    
+
+    str = sprintf('%s/LNPnL.png', outdir);
+    set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 ...
+                       20]);
+    saveas(gcf, str);
     
     toc
 end
 
-function runMR()
+function runMR(outdir)
 
     tic
     
@@ -256,9 +277,13 @@ function runMR()
         set(h, 'FontSize', 16);
     end
     
+    str = sprintf('%s/MRFlow.png', outdir);
+    set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 ...
+                       20]);
+    saveas(gcf, str);
 
     btST = 0;           
-    btET = 0.05;               
+    btET = 1.0;               
     rebTS = 0.01;
 
     simulator = ModelEvolver();
@@ -295,6 +320,11 @@ function runMR()
         set(h, 'FontSize', 16);
 
     end
+
+    str = sprintf('%s/MRPnPos.png', outdir);
+    set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 ...
+                       20]);
+    saveas(gcf, str);
     
     % Ploting PnL
     figure;
@@ -302,13 +332,18 @@ function runMR()
     title('Cumulative PnL, Mean Reverting', 'FontSize', 20);
     xlabel('rebalance time', 'FontSize', 20); 
     ylabel('PnL', 'FontSize', 20);  
+
+    str = sprintf('%s/MRPnL.png', outdir);
+    set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 ...
+                       20]);
+    saveas(gcf, str);
     
     toc
 
 end
 
 
-function runCIR()
+function runCIR(outdir)
 
     tic
     
@@ -371,6 +406,10 @@ function runCIR()
         ylabel('pFlow', 'FontSize', 20) % y-axis label        
     end
     
+    str = sprintf('%s/CIRFlow.png', outdir);
+    set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 ...
+                       20]);
+    saveas(gcf, str);
 
     btST = 0;           
     btET = 1.0;               
@@ -410,6 +449,11 @@ function runCIR()
         set(h, 'FontSize', 16);
 
     end
+
+    str = sprintf('%s/CIRPnPos.png', outdir);
+    set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 ...
+                       20]);
+    saveas(gcf, str);
     
     % Ploting PnL
     figure;
@@ -417,6 +461,11 @@ function runCIR()
     title('Cumulative PnL, CIR', 'FontSize', 20);
     xlabel('rebalance time', 'FontSize', 20); 
     ylabel('PnL', 'FontSize', 20);  
+
+    str = sprintf('%s/CIRPnL.png', outdir);
+    set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 ...
+                       20]);    
+    saveas(gcf, str);
     
     toc
 

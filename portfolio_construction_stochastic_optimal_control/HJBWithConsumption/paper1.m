@@ -1,6 +1,6 @@
 function paper1()
 
-    outdir = 'figures';
+    outdir = 'corrFigures';
     runLN(outdir);
     runMR(outdir);
     runCIR(outdir);
@@ -62,7 +62,7 @@ function runLN(outdir)
     hold on;
     plot(t, x_exact_1, 'Color', 'blue', 'linewidth', 2);
     
-    title('Lognormal wkb approximate xFlow and exact xFlow', ...
+    title('LN numerical xFlow and exact xFlow', ...
           'FontSize', 20);
     xlabel('time', 'FontSize', 20) % x-axis label
     ylabel('xFlow', 'FontSize', 20) % y-axis label    
@@ -86,7 +86,7 @@ function runLN(outdir)
     hold on;
     plot(t, t * 0, 'Color', 'blue', 'linewidth', 2);
     
-    title(['Lognormal wkb approximate pFlow and exact ' ...
+    title(['LN numerical pFlow and exact ' ...
            'pFlow'], 'FontSize', 20)
     xlabel('time', 'FontSize', 20) % x-axis label
     ylabel('pFlow', 'FontSize', 20) % y-axis label
@@ -131,7 +131,7 @@ function runLN(outdir)
     hold on;
     plot(t, exactStrategy(1,:), 'Color', 'blue', 'linewidth', 2);
     
-    title('LogNormal numerical and exact strategies', 'FontSize', 20);
+    title('LN numerical and exact strategies', 'FontSize', 20);
     xlabel('rebalance time', 'FontSize', 20) % x-axis label
     ylabel('phi*', 'FontSize', 20) % y-axis label    
     h =legend('Numerical','Exact');
@@ -177,7 +177,7 @@ function runLN(outdir)
     % Plotting PnL
     figure;
     plot(t, wVec(1,:), 'Color', 'red', 'linewidth', 2);    
-    title('Cumulative PnL', 'FontSize', 20);
+    title('Cumulative PnL, LN', 'FontSize', 20);
     xlabel('rebalance time', 'FontSize', 20) % x-axis label
     ylabel('PnL', 'FontSize', 20) % y-axis label    
 
@@ -202,7 +202,19 @@ function runMR(outdir)
     modelParam.mu = [0.4; 1.3; 2.2; 3.5; 1.2; 4.0; 5.5; 2.0; 1.0; 4.5];
     modelParam.vol = [0.1; 0.16; 0.3; 0.52; 0.14; 0.5; 1.0; 0.3; 0.5; 0.8];
     modelParam.lambda = [2.10; 1.32; 1.10; 1.24; 1.56; 0.6; 1.9; 2.3; 1.05; 0.8];
-    corrMatr = eye(10);
+
+    F = length(modelParam.mu);
+
+    d = -1;
+    corrMatr = eye(F);
+    while d <= 0
+        a = 1 - rand(F) * 2;
+        ata = a' * a;
+        corrMatr = corrcov(ata);
+        d = det(corrMatr);
+    end
+    
+    corrMatr    
 
     turnedOnConsumption = false;
 
@@ -252,7 +264,7 @@ function runMR(outdir)
         hold on;
         plot(t, xFlowExact(i,:), 'Color', 'blue', 'linewidth', 2);
         
-        str1 = sprintf('Asset %d mean reverting wkb approximate xFlow and exact xFlow', i);
+        str1 = sprintf('Asset %d OU numerical xFlow and exact xFlow', i);
         title(str1, 'FontSize', 20);
         
         xlabel('time', 'FontSize', 20) % x-axis label
@@ -265,7 +277,7 @@ function runMR(outdir)
         hold on;
         plot(t, pFlowExact(i,:), 'Color', 'blue', 'linewidth', 2);
         
-        str2 = sprintf('Asset %d mean reverting wkb approximate pFlow and exact pFlow', i);
+        str2 = sprintf('Asset %d OU numerical pFlow and exact pFlow', i);
         title(str2, 'FontSize', 20);
         xlabel('time', 'FontSize', 20) % x-axis label
         ylabel('pFlow', 'FontSize', 20) % y-axis label        
@@ -325,7 +337,7 @@ function runMR(outdir)
     % Ploting PnL
     figure;
     plot(t, wVec(1,:), 'Color', 'red', 'linewidth', 2);    
-    title('Cumulative PnL, Mean Reverting', 'FontSize', 20);
+    title('Cumulative PnL, OU', 'FontSize', 20);
     xlabel('rebalance time', 'FontSize', 20); 
     ylabel('PnL', 'FontSize', 20);  
 
@@ -351,14 +363,37 @@ function runCIR(outdir)
     modelParam.modelType = 'CIR';
     modelParam.mu = [0.4; 1.3; 2.2; 3.5; 1.2; 4.0; 5.5; 2.0; 1.0; 4.5];
     modelParam.vol = [0.1; 0.16; 0.3; 0.52; 0.14; 0.5; 1.0; 0.3; 0.5; 0.8];
-    modelParam.vol = modelParam.vol ./ sqrt(modelParam.mu); % For CIR
+    modelParam.vol = modelParam.vol ./ sqrt(modelParam.mu); 
     modelParam.lambda = [2.10; 1.32; 1.10; 1.24; 1.56; 0.6; 1.9; 2.3; 1.05; 0.8];
-    corrMatr = eye(10);
+    xCurr = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
+    
+    F = length(modelParam.mu);
 
+    d = -1;
+    feller = 0;
+    corrMatr = eye(F);
+    while feller < 1 
+        a = 1 - rand(F) * 2;
+        ata = a' * a;
+               
+        corrMatr = corrcov(ata);
+        
+        d = det(corrMatr);
+        
+        if(d <= 0)
+            continue;
+        end
+        
+        C = diag(modelParam.vol) * corrMatr * diag(modelParam.vol)';
+        
+        feller = 2 * modelParam.lambda' * (C \ modelParam.mu); 
+    end    
+    
+    corrMatr
+    
     turnedOnConsumption = false;
 
     gamma = 10.0;
-    xCurr = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
     pT = zeros(length(xCurr),1);
         
     tCurr = 0;
@@ -387,7 +422,7 @@ function runCIR(outdir)
         subplot(numAsset,2,2*i-1);
         plot(t, xFlow(i,:), 'Color', 'red', 'linewidth', 2);
         
-        str1 = sprintf('Asset %d CIR wkb approximate xFlow', i);
+        str1 = sprintf('Asset %d CIR numerical xFlow', i);
         title(str1, 'FontSize', 20);
         
         xlabel('time', 'FontSize', 20) % x-axis label
@@ -396,7 +431,7 @@ function runCIR(outdir)
         subplot(numAsset,2,2*i);
         plot(t, pFlow(i,:), 'Color', 'red', 'linewidth', 2);
         
-        str2 = sprintf('Asset %d CIR wkb approximate pFlow', i);
+        str2 = sprintf('Asset %d CIR numericla pFlow', i);
         title(str2, 'FontSize', 20);
         xlabel('time', 'FontSize', 20) % x-axis label
         ylabel('pFlow', 'FontSize', 20) % y-axis label        
@@ -417,7 +452,7 @@ function runCIR(outdir)
 
     constr = Constraint(0.3, -0.2, false);
     bte = BtEngine(btST, btET, rebTS, constr);
-
+    simData
     [wVec, phiMat, cVec] = bte.runBackTest(simData, wkbSolver, w0, ...
                                            turnedOnConsumption);
 

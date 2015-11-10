@@ -1,9 +1,5 @@
 function paper1()
 
-    close all;
-    clc;
-    clear;
-
     outdir = 'figures';
     runLN(outdir);
     runMR(outdir);

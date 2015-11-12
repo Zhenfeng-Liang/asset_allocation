@@ -1,7 +1,7 @@
 function paper1()
 
-    outdir = 'corrFigures';
-    runLN(outdir);
+    outdir = 'corrNew';
+    %runLN(outdir);
     runMR(outdir);
     runCIR(outdir);
     
@@ -109,8 +109,10 @@ function runLN(outdir)
 
     F = size(simData, 1);
     m = size(simData, 2);
-        
-    constr = Constraint(0.3, -0.2, false);
+
+    maxRet = 0.02;
+    maxDrawDown = -0.1;    
+    constr = Constraint(maxRet, maxDrawDown, false);
     bte = BtEngine(btST, btET, rebTS, constr);
 
     [wVec, phiMat, cVec] = bte.runBackTest(simData, wkbSolver, w0, ...
@@ -205,17 +207,28 @@ function runMR(outdir)
 
     F = length(modelParam.mu);
 
-    d = -1;
-    corrMatr = eye(F);
-    while d <= 0
-        a = 1 - rand(F) * 2;
-        ata = a' * a;
-        corrMatr = corrcov(ata);
-        d = det(corrMatr);
-    end
-    
-    corrMatr    
+%    d = -1;
+%    corrMatr = eye(F);
+%    while d <= 0
+%        a = 1 - rand(F) * 2;
+%        ata = a' * a;
+%        corrMatr = corrcov(ata);
+%        d = det(corrMatr);
+%    end
+%
 
+    tmp = randn(F, F);
+    C = tmp * tmp';
+    D = zeros(F, F);
+    for i = 1:F
+        D(i,i) = sqrt(C(i,i));
+    end
+    D
+    corrMatr = inv(D) * C * inv(D)
+    rankofCorr = rank(corrMatr)
+    eigenV = eig(corrMatr)
+    inverseCorr = inv(corrMatr)
+    
     turnedOnConsumption = false;
 
     gamma = 10.0;
@@ -298,7 +311,10 @@ function runMR(outdir)
     simData = simulator.EvolveEuler(xCurr, btST, btET, rebTS, corrMatr, ...
                                      model);
 
-    constr = Constraint(0.3, -0.2, false);
+    maxRet = 0.2;
+    maxDrawDown = -0.1;    
+    constr = Constraint(maxRet, maxDrawDown, false);
+
     bte = BtEngine(btST, btET, rebTS, constr);
 
     [wVec, phiMat, cVec] = bte.runBackTest(simData, wkbSolver, w0, ...
@@ -369,27 +385,39 @@ function runCIR(outdir)
     
     F = length(modelParam.mu);
 
-    d = -1;
-    feller = 0;
-    corrMatr = eye(F);
-    while feller < 1 
-        a = 1 - rand(F) * 2;
-        ata = a' * a;
-               
-        corrMatr = corrcov(ata);
-        
-        d = det(corrMatr);
-        
-        if(d <= 0)
-            continue;
-        end
-        
-        C = diag(modelParam.vol) * corrMatr * diag(modelParam.vol)';
-        
-        feller = 2 * modelParam.lambda' * (C \ modelParam.mu); 
-    end    
-    
-    corrMatr
+%    d = -1;
+%    feller = 0;
+%    corrMatr = eye(F);
+%    while feller < 1 
+%        a = 1 - rand(F) * 2;
+%        ata = a' * a;
+%               
+%        corrMatr = corrcov(ata);
+%        
+%        d = det(corrMatr);
+%        
+%        if(d <= 0)
+%            continue;
+%        end
+%        
+%        C = diag(modelParam.vol) * corrMatr * diag(modelParam.vol)';
+%        
+%        feller = 2 * modelParam.lambda' * (C \ modelParam.mu); 
+%    end    
+%    
+%    corrMatr
+%
+    tmp = randn(F, F);
+    C = tmp * tmp';
+    D = zeros(F, F);
+    for i = 1:F
+        D(i,i) = sqrt(C(i,i));
+    end
+    D
+    corrMatr = inv(D) * C * inv(D)
+    rankofCorr = rank(corrMatr)
+    eigenV = eig(corrMatr)
+    inverseCorr = inv(corrMatr)
     
     turnedOnConsumption = false;
 

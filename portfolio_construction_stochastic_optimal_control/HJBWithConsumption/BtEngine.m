@@ -58,15 +58,12 @@ classdef BtEngine
                 cumRetVec(i) = (wVec(i) - w0) / w0;
                 
                 obj.constraint.impose(cumRetVec(i));
-                
                 if obj.constraint.getOff
                     
                     wVec(i+1 : obj.numSteps+1) = wVec(i);
                     cumRetVec(i+1 : obj.numSteps+1) = cumRetVec(i);                    
                     break;                        
-                end
-                
-                
+                end                                
             end
             
             totConsumptionMinusTotCost = sum(cVec) * obj.rebTimeStep ...

@@ -51,13 +51,18 @@ classdef BtEngine
                 
                 tCurr = tCurr + obj.rebTimeStep;
                 
+                phiMat(:, i - 1) = obj.constraint.imposeLeverage(wVec(i - 1), ...
+                                                                 phiMat(:, i - 1), histData(:, i - 1));
+
                 wVec(i) = wVec(i - 1) - cVec(i - 1) * ...
                           obj.rebTimeStep + phiMat(:, i-1)' * ...
                           (histData(:, i) - histData(:, i-1)); 
 
                 cumRetVec(i) = (wVec(i) - w0) / w0;
                 
+                
                 obj.constraint.impose(cumRetVec(i));
+
                 if obj.constraint.getOff
                     
                     wVec(i+1 : obj.numSteps+1) = wVec(i);

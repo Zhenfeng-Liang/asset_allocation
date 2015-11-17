@@ -42,7 +42,13 @@ classdef UtilityCalculator
         
         function [res] = Au(obj, v)
 
-            res = -obj.UDer2(v) / obj.UDer(v);
+            if(strcmp(obj.type, 'CARA'))
+                res = obj.gamma;
+            elseif(strcmp(obj.type, 'CRRA'))
+                res = obj.gamma * v^(-1);
+            elseif(strcmp(obj.type, 'HARA'))
+                res = obj.b * (obj.a + obj.b / obj.gamma * v)^(-1);
+            end           
         end
         
         function [res] = U(obj, v)

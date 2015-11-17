@@ -1,9 +1,9 @@
 function paper1()
 
-    outdir = 'corrNew';
+    outdir = '11.17.LR';
     %runLN(outdir);
     runMR(outdir);
-    runCIR(outdir);
+    %runCIR(outdir);
     
 end
 
@@ -112,7 +112,9 @@ function runLN(outdir)
 
     maxRet = 0.02;
     maxDrawDown = -0.1;    
-    constr = Constraint(maxRet, maxDrawDown, false);
+    maxLR = 2.0;
+    constr = Constraint(maxRet, maxDrawDown, maxLR, false);
+    
     bte = BtEngine(btST, btET, rebTS, constr);
 
     [wVec, phiMat, cVec] = bte.runBackTest(simData, wkbSolver, w0, ...
@@ -223,7 +225,6 @@ function runMR(outdir)
     for i = 1:F
         D(i,i) = sqrt(C(i,i));
     end
-    D
     corrMatr = inv(D) * C * inv(D)
     rankofCorr = rank(corrMatr)
     eigenV = eig(corrMatr)
@@ -313,7 +314,8 @@ function runMR(outdir)
 
     maxRet = 0.2;
     maxDrawDown = -0.1;    
-    constr = Constraint(maxRet, maxDrawDown, false);
+    maxLR = 2.0;
+    constr = Constraint(maxRet, maxDrawDown, maxLR, true);
 
     bte = BtEngine(btST, btET, rebTS, constr);
 
@@ -478,7 +480,11 @@ function runCIR(outdir)
     simData = simulator.EvolveEuler(xCurr, btST, btET, rebTS, corrMatr, ...
                                      model);
 
-    constr = Constraint(0.3, -0.2, false);
+    maxRet = 0.2;
+    maxDrawDown = -0.1;    
+    maxLR = 2.0;
+    constr = Constraint(maxRet, maxDrawDown, maxLR, true);
+    
     bte = BtEngine(btST, btET, rebTS, constr);
     simData
     [wVec, phiMat, cVec] = bte.runBackTest(simData, wkbSolver, w0, ...

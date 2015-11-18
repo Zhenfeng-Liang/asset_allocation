@@ -2,8 +2,8 @@ function paper1()
 
     outdir = '11.17.LR';
     %runLN(outdir);
-    runMR(outdir);
-    %runCIR(outdir);
+    %runMR(outdir);
+    runCIR(outdir);
     
 end
 
@@ -306,7 +306,7 @@ function runMR(outdir)
 
     btST = 0;           
     btET = 1.0;               
-    rebTS = 0.01;
+    rebTS = 0.02;
 
     simulator = ModelEvolver();
     simData = simulator.EvolveEuler(xCurr, btST, btET, rebTS, corrMatr, ...
@@ -474,7 +474,7 @@ function runCIR(outdir)
 
     btST = 0;           
     btET = 1.0;               
-    rebTS = 0.01;
+    rebTS = 0.02;
 
     simulator = ModelEvolver();
     simData = simulator.EvolveEuler(xCurr, btST, btET, rebTS, corrMatr, ...

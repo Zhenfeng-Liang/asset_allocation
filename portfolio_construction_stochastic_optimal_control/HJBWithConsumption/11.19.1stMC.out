@@ -1,0 +1,2235 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2014 The MathWorks, Inc.
+                    R2014a (8.3.0.532) 64-bit (glnxa64)
+                             February 11, 2014
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> >> >> 
+str =
+
+Monte Carlo back test, MeanReverting
+
+
+str =
+
+Running model MeanReverting path 1
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.3040
+
+Elapsed time is 861.653705 seconds.
+
+str =
+
+Running model MeanReverting path 2
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2047
+
+Elapsed time is 574.579589 seconds.
+
+str =
+
+Running model MeanReverting path 3
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0710
+
+Elapsed time is 1541.603884 seconds.
+
+str =
+
+Running model MeanReverting path 4
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2129
+
+Elapsed time is 1086.914080 seconds.
+
+str =
+
+Running model MeanReverting path 5
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2294
+
+Elapsed time is 1084.178372 seconds.
+
+str =
+
+Running model MeanReverting path 6
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2090
+
+Elapsed time is 991.344909 seconds.
+
+str =
+
+Running model MeanReverting path 7
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2064
+
+Elapsed time is 1609.027533 seconds.
+
+str =
+
+Running model MeanReverting path 8
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2336
+
+Elapsed time is 990.857737 seconds.
+
+str =
+
+Running model MeanReverting path 9
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2079
+
+Elapsed time is 1101.072490 seconds.
+
+str =
+
+Running model MeanReverting path 10
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2091
+
+Elapsed time is 522.224331 seconds.
+
+str =
+
+Running model MeanReverting path 11
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2165
+
+Elapsed time is 955.296823 seconds.
+
+str =
+
+Running model MeanReverting path 12
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0866
+
+Elapsed time is 340.467652 seconds.
+
+str =
+
+Running model MeanReverting path 13
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2035
+
+Elapsed time is 831.129157 seconds.
+
+str =
+
+Running model MeanReverting path 14
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2100
+
+Elapsed time is 1270.581966 seconds.
+
+str =
+
+Running model MeanReverting path 15
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2059
+
+Elapsed time is 974.495165 seconds.
+
+str =
+
+Running model MeanReverting path 16
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2124
+
+Elapsed time is 513.509560 seconds.
+
+str =
+
+Running model MeanReverting path 17
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2358
+
+Elapsed time is 779.973893 seconds.
+
+str =
+
+Running model MeanReverting path 18
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2102
+
+Elapsed time is 661.723496 seconds.
+
+str =
+
+Running model MeanReverting path 19
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2098
+
+Elapsed time is 641.599106 seconds.
+
+str =
+
+Running model MeanReverting path 20
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2104
+
+Elapsed time is 1198.542617 seconds.
+
+str =
+
+Running model MeanReverting path 21
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2063
+
+Elapsed time is 723.392407 seconds.
+
+str =
+
+Running model MeanReverting path 22
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0346
+
+Elapsed time is 894.624721 seconds.
+
+str =
+
+Running model MeanReverting path 23
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2014
+
+Elapsed time is 1037.437199 seconds.
+
+str =
+
+Running model MeanReverting path 24
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2240
+
+Elapsed time is 666.855694 seconds.
+
+str =
+
+Running model MeanReverting path 25
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2246
+
+Elapsed time is 718.611977 seconds.
+
+str =
+
+Running model MeanReverting path 26
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0061
+
+Elapsed time is 1088.605377 seconds.
+
+str =
+
+Running model MeanReverting path 27
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2180
+
+Elapsed time is 657.460364 seconds.
+
+str =
+
+Running model MeanReverting path 28
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2373
+
+Elapsed time is 735.414744 seconds.
+
+str =
+
+Running model MeanReverting path 29
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2233
+
+Elapsed time is 574.012283 seconds.
+
+str =
+
+Running model MeanReverting path 30
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2208
+
+Elapsed time is 571.411953 seconds.
+
+str =
+
+Running model MeanReverting path 31
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2186
+
+Elapsed time is 800.341196 seconds.
+
+str =
+
+Running model MeanReverting path 32
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2141
+
+Elapsed time is 758.247427 seconds.
+
+str =
+
+Running model MeanReverting path 33
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2103
+
+Elapsed time is 793.399801 seconds.
+
+str =
+
+Running model MeanReverting path 34
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0398
+
+Elapsed time is 647.851975 seconds.
+
+str =
+
+Running model MeanReverting path 35
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2043
+
+Elapsed time is 720.123798 seconds.
+
+str =
+
+Running model MeanReverting path 36
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2200
+
+Elapsed time is 1023.482027 seconds.
+
+str =
+
+Running model MeanReverting path 37
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2103
+
+Elapsed time is 1181.511467 seconds.
+
+str =
+
+Running model MeanReverting path 38
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2092
+
+Elapsed time is 575.508256 seconds.
+
+str =
+
+Running model MeanReverting path 39
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2032
+
+Elapsed time is 779.994799 seconds.
+
+str =
+
+Running model MeanReverting path 40
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2223
+
+Elapsed time is 1322.533712 seconds.
+
+str =
+
+Running model MeanReverting path 41
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2508
+
+Elapsed time is 840.449427 seconds.
+
+str =
+
+Running model MeanReverting path 42
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2286
+
+Elapsed time is 588.338223 seconds.
+
+str =
+
+Running model MeanReverting path 43
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2084
+
+Elapsed time is 804.253584 seconds.
+
+str =
+
+Running model MeanReverting path 44
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2218
+
+Elapsed time is 1021.856585 seconds.
+
+str =
+
+Running model MeanReverting path 45
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2370
+
+Elapsed time is 815.912830 seconds.
+
+str =
+
+Running model MeanReverting path 46
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2074
+
+Elapsed time is 588.022247 seconds.
+
+str =
+
+Running model MeanReverting path 47
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2173
+
+Elapsed time is 510.731475 seconds.
+
+str =
+
+Running model MeanReverting path 48
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2072
+
+Elapsed time is 797.682990 seconds.
+
+str =
+
+Running model MeanReverting path 49
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2128
+
+Elapsed time is 668.518299 seconds.
+
+str =
+
+Running model MeanReverting path 50
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2156
+
+Elapsed time is 675.104007 seconds.
+
+str =
+
+Running model MeanReverting path 51
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2140
+
+Elapsed time is 597.226547 seconds.
+
+str =
+
+Running model MeanReverting path 52
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2338
+
+Elapsed time is 597.708366 seconds.
+
+str =
+
+Running model MeanReverting path 53
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2050
+
+Elapsed time is 1273.194169 seconds.
+
+str =
+
+Running model MeanReverting path 54
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2276
+
+Elapsed time is 826.138727 seconds.
+
+str =
+
+Running model MeanReverting path 55
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2346
+
+Elapsed time is 1089.667143 seconds.
+
+str =
+
+Running model MeanReverting path 56
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0315
+
+Elapsed time is 649.549125 seconds.
+
+str =
+
+Running model MeanReverting path 57
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2052
+
+Elapsed time is 928.690625 seconds.
+
+str =
+
+Running model MeanReverting path 58
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2186
+
+Elapsed time is 656.456254 seconds.
+
+str =
+
+Running model MeanReverting path 59
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2257
+
+Elapsed time is 727.146313 seconds.
+
+str =
+
+Running model MeanReverting path 60
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2254
+
+Elapsed time is 820.446795 seconds.
+
+str =
+
+Running model MeanReverting path 61
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2025
+
+Elapsed time is 579.263797 seconds.
+
+str =
+
+Running model MeanReverting path 62
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2220
+
+Elapsed time is 523.572293 seconds.
+
+str =
+
+Running model MeanReverting path 63
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2009
+
+Elapsed time is 870.739836 seconds.
+
+str =
+
+Running model MeanReverting path 64
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2161
+
+Elapsed time is 864.319204 seconds.
+
+str =
+
+Running model MeanReverting path 65
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2145
+
+Elapsed time is 822.211010 seconds.
+
+str =
+
+Running model MeanReverting path 66
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2118
+
+Elapsed time is 759.806798 seconds.
+
+str =
+
+Running model MeanReverting path 67
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0424
+
+Elapsed time is 1192.272551 seconds.
+
+str =
+
+Running model MeanReverting path 68
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0502
+
+Elapsed time is 1079.330231 seconds.
+
+str =
+
+Running model MeanReverting path 69
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2246
+
+Elapsed time is 791.240770 seconds.
+
+str =
+
+Running model MeanReverting path 70
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2307
+
+Elapsed time is 750.789596 seconds.
+
+str =
+
+Running model MeanReverting path 71
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2432
+
+Elapsed time is 755.895960 seconds.
+
+str =
+
+Running model MeanReverting path 72
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2006
+
+Elapsed time is 1325.050753 seconds.
+
+str =
+
+Running model MeanReverting path 73
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0793
+
+Elapsed time is 774.298411 seconds.
+
+str =
+
+Running model MeanReverting path 74
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2048
+
+Elapsed time is 904.699044 seconds.
+
+str =
+
+Running model MeanReverting path 75
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0853
+
+Elapsed time is 865.375047 seconds.
+
+str =
+
+Running model MeanReverting path 76
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2125
+
+Elapsed time is 884.140215 seconds.
+
+str =
+
+Running model MeanReverting path 77
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0165
+
+Elapsed time is 1006.683782 seconds.
+
+str =
+
+Running model MeanReverting path 78
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2099
+
+Elapsed time is 834.187366 seconds.
+
+str =
+
+Running model MeanReverting path 79
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0256
+
+Elapsed time is 839.234423 seconds.
+
+str =
+
+Running model MeanReverting path 80
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2136
+
+Elapsed time is 1195.054194 seconds.
+
+str =
+
+Running model MeanReverting path 81
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2170
+
+Elapsed time is 804.260734 seconds.
+
+str =
+
+Running model MeanReverting path 82
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2136
+
+Elapsed time is 1040.386180 seconds.
+
+str =
+
+Running model MeanReverting path 83
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2061
+
+Elapsed time is 493.105442 seconds.
+
+str =
+
+Running model MeanReverting path 84
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2050
+
+Elapsed time is 663.036947 seconds.
+
+str =
+
+Running model MeanReverting path 85
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2092
+
+Elapsed time is 1037.426449 seconds.
+
+str =
+
+Running model MeanReverting path 86
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0132
+
+Elapsed time is 582.461958 seconds.
+
+str =
+
+Running model MeanReverting path 87
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2290
+
+Elapsed time is 995.441166 seconds.
+
+str =
+
+Running model MeanReverting path 88
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2017
+
+Elapsed time is 920.765033 seconds.
+
+str =
+
+Running model MeanReverting path 89
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2156
+
+Elapsed time is 972.828176 seconds.
+
+str =
+
+Running model MeanReverting path 90
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2076
+
+Elapsed time is 974.892063 seconds.
+
+str =
+
+Running model MeanReverting path 91
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2086
+
+Elapsed time is 843.489820 seconds.
+
+str =
+
+Running model MeanReverting path 92
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2116
+
+Elapsed time is 744.306981 seconds.
+
+str =
+
+Running model MeanReverting path 93
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2205
+
+Elapsed time is 2247.501437 seconds.
+
+str =
+
+Running model MeanReverting path 94
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2015
+
+Elapsed time is 976.223951 seconds.
+
+str =
+
+Running model MeanReverting path 95
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2171
+
+Elapsed time is 1815.223048 seconds.
+
+str =
+
+Running model MeanReverting path 96
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2006
+
+Elapsed time is 857.263686 seconds.
+
+str =
+
+Running model MeanReverting path 97
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2165
+
+Elapsed time is 649.544821 seconds.
+
+str =
+
+Running model MeanReverting path 98
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2136
+
+Elapsed time is 568.848865 seconds.
+
+str =
+
+Running model MeanReverting path 99
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2629
+
+Elapsed time is 494.444627 seconds.
+
+str =
+
+Running model MeanReverting path 100
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0065
+
+Elapsed time is 1112.933129 seconds.
+
+averageWT =
+
+   1.1879e+05
+
+
+averageUT =
+
+  -3.2558e-37
+
+
+str =
+
+Monte Carlo back test, CIR
+
+
+str =
+
+Running model CIR path 1
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off

@@ -1,11 +1,13 @@
 function paper1()
 
-    outdir = '11.19.LR';
+    outdir = 'MC2WithoutCT';
     %runLN(outdir);
     %runMR(outdir);
     %runCIR(outdir);
 
-    numPaths = 100;
+    fromPaths = 1
+    endPaths = 100    
+    MCNumCores = 20
     
     modelParam.modelType = 'MeanReverting';
     modelParam.mu = [0.4; 1.3; 2.2; 3.5; 1.2; 4.0; 5.5; 2.0; 1.0; 4.5];
@@ -13,8 +15,10 @@ function paper1()
     modelParam.lambda = [2.10; 1.32; 1.10; 1.24; 1.56; 0.6; 1.9; 2.3; 1.05; 0.8];
     xCurr = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
 
-    runMonteCarlo(numPaths, modelParam, xCurr);
-
+    %tic
+    %runMonteCarlo(fromPaths, endPaths, modelParam, xCurr, outdir, MCNumCores)
+    %display('Total time to run MC for MeanReverting is below: ');
+    %toc
 
     modelParam2.modelType = 'CIR';
     modelParam2.mu = [0.4; 1.3; 2.2; 3.5; 1.2; 4.0; 5.5; 2.0; 1.0; 4.5];
@@ -23,7 +27,10 @@ function paper1()
     modelParam2.lambda = [2.10; 1.32; 1.10; 1.24; 1.56; 0.6; 1.9; 2.3; 1.05; 0.8];
     xCurr2 = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
 
-    runMonteCarlo(numPaths, modelParam2, xCurr2);
+    tic
+    runMonteCarlo(fromPaths, endPaths, modelParam, xCurr, outdir, MCNumCores)
+    display('Total time to run MC for CIR is below: ');
+    toc
 
 end
 
@@ -558,7 +565,8 @@ function [xFlow, pFlow] = calcExactMRFlow(sVec, A, T, y, m)
 end
 
 
-function runMonteCarlo(numPaths, modelParam, xCurr)
+function runMonteCarlo(fromPaths, endPaths, modelParam, xCurr, outdir, ...
+                       MCNumCores)
 
     str = sprintf('Monte Carlo back test, %s', modelParam.modelType);
     display(str);
@@ -589,12 +597,16 @@ function runMonteCarlo(numPaths, modelParam, xCurr)
     hamSys = HamiltonianSystem(portCalc, utiCalc);       
     wkbSolver = WKBHierarchySolver(hamSys, numCores);
 
-    wTVec = zeros(1, numPaths);
-    UTVec = zeros(1, numPaths);
-    
-    for path = 1:numPaths
+    wTVec = zeros(1, endPaths - fromPaths + 1);
+    UTVec = zeros(1, endPaths - fromPaths + 1);
+
+    corrMatr = corrMatr;  % Do this declaration so that the body
+                          % text in the parloop can see the corrMatr
+    matlabpool('open', MCNumCores);
+    parfor path = fromPaths:endPaths
         
         tic
+        
         str = sprintf('Running model %s path %d', modelParam.modelType, ...
                       path);
         display(str);
@@ -603,13 +615,15 @@ function runMonteCarlo(numPaths, modelParam, xCurr)
         simData = simulator.EvolveEuler(xCurr, btST, btET, rebTS, corrMatr, ...
                                         model);
 
-        constr = Constraint(maxRet, maxDrawDown, maxLR, true);
+        constr = Constraint(maxRet, maxDrawDown, maxLR, false);
         
         bte = BtEngine(btST, btET, rebTS, constr);
         
         [wVec, phiMat, cVec] = bte.runBackTest(simData, wkbSolver, w0, ...
                                                turnedOnConsumption);
         
+        %wTVec(path - fromPaths + 1) = wVec(end);
+        %UTVec(path - fromPaths + 1) = utiCalc.U( wVec(end) );
         wTVec(path) = wVec(end);
         UTVec(path) = utiCalc.U( wVec(end) );
 
@@ -639,7 +653,7 @@ function runMonteCarlo(numPaths, modelParam, xCurr)
 
         end
 
-        str = sprintf('MC/%sPnPosPath%d.png', modelParam.modelType, ...
+        str = sprintf('%s/%sPnPosPath%d.png', outdir, modelParam.modelType, ...
                       path);
         
         set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 ...
@@ -655,7 +669,7 @@ function runMonteCarlo(numPaths, modelParam, xCurr)
         xlabel('rebalance time', 'FontSize', 20); 
         ylabel('PnL', 'FontSize', 20);  
 
-        str = sprintf('MC/%sPnLPath%d.png', modelParam.modelType, path);
+        str = sprintf('%s/%sPnLPath%d.png', outdir, modelParam.modelType, path);
         set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 ...
                             20]);    
         saveas(gcf, str);
@@ -663,9 +677,10 @@ function runMonteCarlo(numPaths, modelParam, xCurr)
         toc
     
     end
+    matlabpool close;
     
-    averageWT = sum(wTVec) / numPaths
-    averageUT = sum(UTVec) / numPaths
+    averageWT = mean(wTVec)
+    averageUT = mean(UTVec)
     
     hist(wTVec)
     str = sprintf('MC WT distribution %s', modelParam.modelType);
@@ -673,7 +688,8 @@ function runMonteCarlo(numPaths, modelParam, xCurr)
     xlabel('WT($)', 'FontSize', 20); 
     ylabel('Frequency', 'FontSize', 20);  
 
-    str = sprintf('MC/%sWTHist.png', modelParam.modelType);
+    str = sprintf('%s/%sWTHist%dTo%d.png', outdir, modelParam.modelType, ...
+                  fromPaths, endPaths);
     set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 20]);    
     saveas(gcf, str);
     
@@ -683,14 +699,17 @@ function runMonteCarlo(numPaths, modelParam, xCurr)
     xlabel('UT($)', 'FontSize', 20); 
     ylabel('Frequency', 'FontSize', 20);  
 
-    str = sprintf('MC/%sUTHist.png', modelParam.modelType);
+    str = sprintf('%s/%sUTHist%dTo%d.png', outdir, modelParam.modelType, ...
+                  fromPaths, endPaths);
     set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 20]);    
     saveas(gcf, str);
     
-    str = sprintf('MC/%sWTVec.mat', modelParam.modelType);
+    str = sprintf('%s/%sWTVec%dTo%d.mat', outdir, modelParam.modelType, ...
+                  fromPaths, endPaths);
     save(str, 'wTVec');
 
-    str = sprintf('MC/%sUTVec.mat', modelParam.modelType);    
+    str = sprintf('%s/%sUTVec%dTo%d.mat', outdir, modelParam.modelType, ...
+                  fromPaths, endPaths);    
     save(str, 'UTVec');
 
 end

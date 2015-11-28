@@ -1,0 +1,6183 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2014 The MathWorks, Inc.
+                    R2014a (8.3.0.532) 64-bit (glnxa64)
+                             February 11, 2014
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> >> >> 
+fromPaths =
+
+     1
+
+
+endPaths =
+
+   100
+
+
+MCNumCores =
+
+    20
+
+
+str =
+
+Monte Carlo back test, MeanReverting
+
+
+corrMatr =
+
+  Columns 1 through 7
+
+    1.0000   -0.0145    0.1848    0.1358   -0.0337   -0.0342    0.0622
+   -0.0145    1.0000   -0.3016   -0.1501    0.0580    0.3424   -0.0108
+    0.1848   -0.3016    1.0000    0.2149   -0.0653   -0.2611   -0.0907
+    0.1358   -0.1501    0.2149    1.0000   -0.0948   -0.2658   -0.1084
+   -0.0337    0.0580   -0.0653   -0.0948    1.0000    0.2261   -0.1728
+   -0.0342    0.3424   -0.2611   -0.2658    0.2261    1.0000    0.0118
+    0.0622   -0.0108   -0.0907   -0.1084   -0.1728    0.0118    1.0000
+    0.2555    0.1151   -0.0439    0.1514    0.0338    0.0520   -0.1263
+   -0.1129    0.0650    0.0363    0.1296    0.1649    0.0560   -0.0992
+   -0.1504   -0.0243    0.1333    0.0709    0.2184    0.0593   -0.1259
+
+  Columns 8 through 10
+
+    0.2555   -0.1129   -0.1504
+    0.1151    0.0650   -0.0243
+   -0.0439    0.0363    0.1333
+    0.1514    0.1296    0.0709
+    0.0338    0.1649    0.2184
+    0.0520    0.0560    0.0593
+   -0.1263   -0.0992   -0.1259
+    1.0000    0.1684   -0.0614
+    0.1684    1.0000    0.4023
+   -0.0614    0.4023    1.0000
+
+[Warning: matlabpool will be removed in a future release.
+Use parpool instead.] 
+Starting matlabpool using the 'local' profile ... connected to 20 workers.
+
+str =
+
+Running model MeanReverting path 67
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 61
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 58
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 28
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 32
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 65
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 36
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 55
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 16
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 63
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 8
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 12
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 49
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 40
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 24
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 46
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 43
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 4
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 20
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 52
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.1601
+
+Consumption turned off
+Consumption turned off
+Elapsed time is 1947.455190 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.1173
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Elapsed time is 1956.068073 seconds.
+Consumption turned off
+
+annualizedRet =
+
+    0.0440
+
+Consumption turned off
+Consumption turned off
+Elapsed time is 1959.056264 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.1841
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Elapsed time is 2006.714140 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.2673
+
+Consumption turned off
+
+annualizedRet =
+
+    0.1102
+
+Consumption turned off
+Consumption turned off
+Elapsed time is 2017.041027 seconds.
+Elapsed time is 2017.654387 seconds.
+Consumption turned off
+
+annualizedRet =
+
+   -0.0613
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Elapsed time is 2022.659428 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.2474
+
+
+str =
+
+Running model MeanReverting path 54
+
+Consumption turned off
+Consumption turned off
+Elapsed time is 2032.546811 seconds.
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.1771
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Elapsed time is 2037.876203 seconds.
+Consumption turned off
+
+annualizedRet =
+
+    0.2391
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 23
+
+Consumption turned off
+Consumption turned off
+Elapsed time is 2041.710964 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 62
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.4106
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Elapsed time is 2066.387036 seconds.
+Consumption turned off
+
+annualizedRet =
+
+   -0.1799
+
+Consumption turned off
+Elapsed time is 2071.714613 seconds.
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0460
+
+
+annualizedRet =
+
+    0.2379
+
+Elapsed time is 2075.311360 seconds.
+Elapsed time is 2076.632004 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.2309
+
+Consumption turned off
+Elapsed time is 2088.241681 seconds.
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 35
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.7159
+
+Consumption turned off
+Elapsed time is 2098.883949 seconds.
+
+annualizedRet =
+
+   -0.0570
+
+Consumption turned off
+Elapsed time is 2103.329621 seconds.
+
+str =
+
+Running model MeanReverting path 64
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 60
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 27
+
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.4003
+
+Consumption turned off
+Consumption turned off
+Elapsed time is 2114.916896 seconds.
+
+str =
+
+Running model MeanReverting path 66
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 11
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 57
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 45
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 31
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 19
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 51
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 48
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 42
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.3230
+
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 15
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Elapsed time is 2193.185393 seconds.
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 7
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 3
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0354
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Elapsed time is 2343.201357 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 39
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.1023
+
+Elapsed time is 1976.635754 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0574
+
+Elapsed time is 1996.575749 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.1812
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Elapsed time is 2039.573577 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0866
+
+Consumption turned off
+Elapsed time is 2005.253210 seconds.
+
+annualizedRet =
+
+   -0.0793
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 53
+
+Consumption turned off
+Consumption turned off
+Elapsed time is 1990.851548 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.4539
+
+Consumption turned off
+Elapsed time is 1998.204781 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 69
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.2020
+
+Consumption turned off
+Elapsed time is 1956.214569 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.1290
+
+Consumption turned off
+Elapsed time is 2030.944303 seconds.
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2236
+
+Consumption turned off
+Elapsed time is 2053.266627 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 22
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.1517
+
+Consumption turned off
+Elapsed time is 2010.011231 seconds.
+
+str =
+
+Running model MeanReverting path 26
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 34
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 10
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.1378
+
+Elapsed time is 2073.158202 seconds.
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 41
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 71
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.1962
+
+Elapsed time is 2139.912051 seconds.
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0502
+
+Elapsed time is 2117.940207 seconds.
+
+str =
+
+Running model MeanReverting path 59
+
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2012
+
+Elapsed time is 2046.237659 seconds.
+
+annualizedRet =
+
+   -0.2313
+
+Consumption turned off
+Elapsed time is 2088.849147 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0260
+
+Elapsed time is 2109.304757 seconds.
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 47
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.3459
+
+Consumption turned off
+Elapsed time is 2144.449402 seconds.
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 44
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 73
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 6
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 56
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 18
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 30
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 50
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0119
+
+Elapsed time is 2131.606848 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 2
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.1270
+
+Consumption turned off
+Elapsed time is 2139.360831 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 38
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2206
+
+Elapsed time is 2546.017604 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 14
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0633
+
+Consumption turned off
+Elapsed time is 1988.539932 seconds.
+
+str =
+
+Running model MeanReverting path 68
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.4304
+
+Elapsed time is 1969.142471 seconds.
+
+str =
+
+Running model MeanReverting path 25
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0013
+
+Consumption turned off
+Elapsed time is 2067.764588 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0779
+
+Elapsed time is 1991.978652 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0772
+
+Elapsed time is 1988.306916 seconds.
+
+annualizedRet =
+
+    0.0011
+
+Consumption turned off
+Elapsed time is 1980.637896 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.3764
+
+Elapsed time is 2053.839313 seconds.
+
+str =
+
+Running model MeanReverting path 21
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 75
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 33
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0693
+
+Elapsed time is 2058.458435 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0391
+
+Consumption turned off
+Consumption turned off
+Elapsed time is 2005.842654 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 70
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 77
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0114
+
+Elapsed time is 2086.991097 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 9
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.4550
+
+Elapsed time is 2031.659319 seconds.
+
+str =
+
+Running model MeanReverting path 72
+
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 79
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0255
+
+Consumption turned off
+
+annualizedRet =
+
+   -0.0960
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 81
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0138
+
+Elapsed time is 2107.812293 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Elapsed time is 2031.097350 seconds.
+
+str =
+
+Running model MeanReverting path 17
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Elapsed time is 2038.413467 seconds.
+
+str =
+
+Running model MeanReverting path 5
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.1022
+
+Elapsed time is 2155.527229 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 82
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 83
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.3175
+
+Consumption turned off
+Elapsed time is 2188.156574 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.4423
+
+Elapsed time is 2244.494982 seconds.
+
+str =
+
+Running model MeanReverting path 29
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 84
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.5870
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0201
+
+Consumption turned off
+Elapsed time is 2251.182989 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Elapsed time is 2067.272039 seconds.
+
+str =
+
+Running model MeanReverting path 37
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 1
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.3478
+
+Elapsed time is 2024.455798 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 13
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0807
+
+Elapsed time is 1974.764893 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 85
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0623
+
+Elapsed time is 1971.851825 seconds.
+
+annualizedRet =
+
+    0.0963
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Elapsed time is 2025.927444 seconds.
+
+str =
+
+Running model MeanReverting path 74
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2760
+
+Elapsed time is 2057.118954 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.1771
+
+Elapsed time is 2054.015749 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2887
+
+Elapsed time is 2020.630081 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 76
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.6835
+
+Consumption turned off
+Consumption turned off
+Elapsed time is 2072.943929 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 86
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 87
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.1830
+
+Consumption turned off
+Elapsed time is 2056.413226 seconds.
+
+str =
+
+Running model MeanReverting path 78
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 88
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.2169
+
+Elapsed time is 2051.685035 seconds.
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 89
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0798
+
+Elapsed time is 2121.730175 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.1695
+
+Elapsed time is 2076.983659 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 80
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 90
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0276
+
+Elapsed time is 2040.710885 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0254
+
+Elapsed time is 2119.456156 seconds.
+Consumption turned off
+
+annualizedRet =
+
+   -0.1652
+
+Consumption turned off
+Consumption turned off
+Elapsed time is 2122.216676 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 91
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 92
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 93
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 94
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.1182
+
+Consumption turned off
+Elapsed time is 2184.493042 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0526
+
+Elapsed time is 1965.413014 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.3794
+
+Elapsed time is 2111.481350 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.1137
+
+Elapsed time is 2160.432338 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 95
+
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 96
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 97
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 98
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.1729
+
+Elapsed time is 2182.005975 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.1002
+
+Elapsed time is 2143.851198 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 99
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+str =
+
+Running model MeanReverting path 100
+
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0637
+
+Elapsed time is 2004.376846 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2051
+
+Elapsed time is 2033.990344 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0057
+
+Elapsed time is 2025.745274 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.2352
+
+Consumption turned off
+Elapsed time is 2055.158359 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0950
+
+Consumption turned off
+Elapsed time is 2078.799964 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0701
+
+Consumption turned off
+Elapsed time is 2131.193398 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0841
+
+Consumption turned off
+Elapsed time is 2060.594552 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.3306
+
+Elapsed time is 2106.872767 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.7240
+
+Elapsed time is 2022.094230 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0326
+
+Elapsed time is 2087.964247 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0233
+
+Elapsed time is 1998.623150 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.3429
+
+Elapsed time is 2022.258689 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.1028
+
+Elapsed time is 2076.086359 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.0828
+
+Elapsed time is 2233.396853 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.1186
+
+Consumption turned off
+Elapsed time is 2089.101230 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.8307
+
+Elapsed time is 2125.980864 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+   -0.0425
+
+Consumption turned off
+
+annualizedRet =
+
+    0.3165
+
+Elapsed time is 2096.946073 seconds.
+Elapsed time is 2187.531168 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.1884
+
+Elapsed time is 2002.006466 seconds.
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+Consumption turned off
+
+annualizedRet =
+
+    0.1862
+
+Elapsed time is 2176.055250 seconds.
+[Warning: matlabpool will be removed in a future release.
+To shutdown a parallel pool use 'delete(gcp('nocreate'))' instead.] 
+Parallel pool using the 'local' profile is shutting down.
+
+averageWT =
+
+   1.1020e+05
+
+
+averageUT =
+
+  -2.2898e-36
+
+Total time to run MC for MeanReverting is below: 
+Elapsed time is 10953.642370 seconds.
+>> >> [Warning: Objects of datamanager.linkbehavior class exist - not clearing this
+class or any of its superclasses] 
+[Warning: Objects of datamanager.brushbehavior class exist - not clearing this
+class or any of its superclasses] 
+[Warning: Objects of graphics.datacursorbehavior class exist - not clearing this
+class or any of its superclasses] 

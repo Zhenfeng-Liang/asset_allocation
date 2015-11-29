@@ -1,6 +1,6 @@
 function paper1()
 
-    outdir = 'MC2CIRNoCT';
+    outdir = 'MC2MRNoCT';
     %runLN(outdir);
     %runMR(outdir);
     %runCIR(outdir);
@@ -9,29 +9,40 @@ function paper1()
     endPaths = 100    
     MCNumCores = 20
     
-    %modelParam.modelType = 'MeanReverting';
-    %modelParam.mu = [0.4; 1.3; 2.2; 3.5; 1.2; 4.0; 5.5; 2.0; 1.0; 4.5];
-    %modelParam.vol = [0.1; 0.16; 0.3; 0.52; 0.14; 0.5; 1.0; 0.3; 0.5; 0.8];
-    %modelParam.lambda = [2.10; 1.32; 1.10; 1.24; 1.56; 0.6; 1.9; 2.3; 1.05; 0.8];
-    %xCurr = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
-
-    %tic
-    %runMonteCarlo(fromPaths, endPaths, modelParam, xCurr, outdir, MCNumCores)
-    %display('Total time to run MC for MeanReverting is below: ');
-    %toc
-
-    modelParam2.modelType = 'CIR';
-    modelParam2.mu = [0.4; 1.3; 2.2; 3.5; 1.2; 4.0; 5.5; 2.0; 1.0; 4.5];
-    modelParam2.vol = [0.1; 0.16; 0.3; 0.52; 0.14; 0.5; 1.0; 0.3; 0.5; 0.8];
-    modelParam2.vol = modelParam2.vol ./ sqrt(modelParam2.mu); 
-    modelParam2.lambda = [2.10; 1.32; 1.10; 1.24; 1.56; 0.6; 1.9; 2.3; 1.05; 0.8];
-    xCurr2 = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
+    modelParam.modelType = 'MeanReverting';
+    modelParam.mu = [0.4; 1.3; 2.2; 3.5; 1.2; 4.0; 5.5; 2.0; 1.0; 4.5];
+    modelParam.vol = [0.1; 0.16; 0.3; 0.52; 0.14; 0.5; 1.0; 0.3; 0.5; 0.8];
+    modelParam.lambda = [2.10; 1.32; 1.10; 1.24; 1.56; 0.6; 1.9; 2.3; 1.05; 0.8];
+    xCurr = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
 
     tic
-    runMonteCarlo(fromPaths, endPaths, modelParam2, xCurr2, outdir, MCNumCores)
-    display('Total time to run MC for CIR is below: ');
+    runMonteCarlo(fromPaths, endPaths, modelParam, xCurr, outdir, MCNumCores)
+    display('Total time to run MC for MeanReverting is below: ');
     toc
 
+    %modelParam2.modelType = 'CIR';
+    %modelParam2.mu = [0.4; 1.3; 2.2; 3.5; 1.2; 4.0; 5.5; 2.0; 1.0; 4.5];
+    %modelParam2.vol = [0.1; 0.16; 0.3; 0.52; 0.14; 0.5; 1.0; 0.3; 0.5; 0.8];
+    %modelParam2.vol = modelParam2.vol ./ sqrt(modelParam2.mu); 
+    %modelParam2.lambda = [2.10; 1.32; 1.10; 1.24; 1.56; 0.6; 1.9; 2.3; 1.05; 0.8];
+    %xCurr2 = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
+
+    %tic
+    %runMonteCarlo(fromPaths, endPaths, modelParam2, xCurr2, outdir, MCNumCores)
+    %display('Total time to run MC for CIR is below: ');
+    %toc
+
+
+    %modelParam3.modelType = 'LogNormal';
+    %modelParam3.mu = [-0.5; 0.5; 0.1; -0.125; 0.2; 0.33; -0.083; 0.33; -0.583; -0.12];
+    %modelParam3.vol = [0.1; 0.16; 0.3; 0.52; 0.14; 0.5; 1.0; 0.3; 0.5; 0.8];
+    %xCurr3 = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
+    %modelParam3.vol = modelParam3.vol ./ xCurr3;
+
+    %tic
+    %runMonteCarlo(fromPaths, endPaths, modelParam3, xCurr3, outdir, MCNumCores)
+    %display('Total time to run MC for LogNormal is below: ');
+    %toc
 end
 
 
@@ -591,6 +602,11 @@ function runMonteCarlo(fromPaths, endPaths, modelParam, xCurr, outdir, ...
     corrMatrFile = strcat(modelParam.modelType, 'corr.mat');
     load(corrMatrFile);
     
+    corrMatr = corrMatr;  % Do this declaration so that the body
+                          % text in the parloop can see the corrMatr
+    
+    %corrMatr = diag(ones(1, length(xCurr))) % For independent correlated matrix, you may delete this later
+    
     model = Model(modelParam);
     portCalc = PortfolioCalculator(model, corrMatr);    
     utiCalc = UtilityCalculator(gamma, utilityType);
@@ -600,8 +616,10 @@ function runMonteCarlo(fromPaths, endPaths, modelParam, xCurr, outdir, ...
     wTVec = zeros(1, endPaths - fromPaths + 1);
     UTVec = zeros(1, endPaths - fromPaths + 1);
 
-    corrMatr = corrMatr;  % Do this declaration so that the body
+    %corrMatr = corrMatr;  % Do this declaration so that the body
                           % text in the parloop can see the corrMatr
+    %corrMatr = diag(ones(1, length(xCurr))) % For independent correlated matrix, you may delete this later
+    corrMatr
     matlabpool('open', MCNumCores);
     parfor path = fromPaths:endPaths
         

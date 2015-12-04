@@ -1,50 +1,72 @@
 function paper1()
 
-    outdir = 'MCLR6LNInd';
-    %runLN(outdir);
-    %runMR(outdir);
-    %runCIR(outdir);
+    outdir = 'MCLR2RBTS001LNInd';
 
-    fromPaths = 1
-    endPaths = 100    
-    MCNumCores = 20
+    numPaths = 100    
+    MCNumCores = 25
     independent = true;
     
-    %modelParam.modelType = 'MeanReverting';
-    %modelParam.mu = [0.4; 1.3; 2.2; 3.5; 1.2; 4.0; 5.5; 2.0; 1.0; 4.5];
-    %modelParam.vol = [0.1; 0.16; 0.3; 0.52; 0.14; 0.5; 1.0; 0.3; 0.5; 0.8];
-    %modelParam.lambda = [2.10; 1.32; 1.10; 1.24; 1.56; 0.6; 1.9; 2.3; 1.05; 0.8];
-    %xCurr = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
+    runLNTest = false
+    runMRTest = false
+    runCIRTest = false
 
-    %tic
-    %runMonteCarlo(fromPaths, endPaths, modelParam, xCurr, outdir, ...
-    %              MCNumCores, independent)
-    %display('Total time to run MC for MeanReverting is below: ');
-    %toc
+    runLNMC = true
+    runMRMC = false
+    runCIRMC = false
 
-    %modelParam2.modelType = 'CIR';
-    %modelParam2.mu = [0.4; 1.3; 2.2; 3.5; 1.2; 4.0; 5.5; 2.0; 1.0; 4.5];
-    %modelParam2.vol = [0.1; 0.16; 0.3; 0.52; 0.14; 0.5; 1.0; 0.3; 0.5; 0.8];
-    %modelParam2.vol = modelParam2.vol ./ sqrt(modelParam2.mu); 
-    %modelParam2.lambda = [2.10; 1.32; 1.10; 1.24; 1.56; 0.6; 1.9; 2.3; 1.05; 0.8];
-    %xCurr2 = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
+    if runLNTest
+    	runLN(outdir);
+    end
 
-    %tic
-    %runMonteCarlo(fromPaths, endPaths, modelParam2, xCurr2, outdir, MCNumCores, independent)
-    %display('Total time to run MC for CIR is below: ');
-    %toc
+    if runMRTest
+    	runMR(outdir);
+    end
 
+    if runCIRTest
+    	runCIR(outdir);
+    end
+ 
+    if runLNMC   
+    	modelParam3.modelType = 'LogNormal';
+    	modelParam3.mu = [-0.5; 0.5; 0.1; -0.125; 0.2; 0.33; -0.083; 0.33; -0.583; -0.12];
+    	modelParam3.vol = [0.1; 0.16; 0.3; 0.52; 0.14; 0.5; 1.0; 0.3; 0.5; 0.8];
+    	xCurr3 = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
+    	modelParam3.vol = modelParam3.vol ./ xCurr3;
 
-    modelParam3.modelType = 'LogNormal';
-    modelParam3.mu = [-0.5; 0.5; 0.1; -0.125; 0.2; 0.33; -0.083; 0.33; -0.583; -0.12];
-    modelParam3.vol = [0.1; 0.16; 0.3; 0.52; 0.14; 0.5; 1.0; 0.3; 0.5; 0.8];
-    xCurr3 = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
-    modelParam3.vol = modelParam3.vol ./ xCurr3;
+    	tic
+    	runMonteCarlo(1, numPaths, modelParam3, xCurr3, outdir, MCNumCores, independent) % by default, start from 1 path
+    	display('Total time to run MC for LogNormal is below: ');
+    	toc
+    end
 
-    tic
-    runMonteCarlo(fromPaths, endPaths, modelParam3, xCurr3, outdir, MCNumCores, independent)
-    display('Total time to run MC for LogNormal is below: ');
-    toc
+    if runMRMC
+    	modelParam.modelType = 'MeanReverting';
+    	modelParam.mu = [0.4; 1.3; 2.2; 3.5; 1.2; 4.0; 5.5; 2.0; 1.0; 4.5];
+    	modelParam.vol = [0.1; 0.16; 0.3; 0.52; 0.14; 0.5; 1.0; 0.3; 0.5; 0.8];
+    	modelParam.lambda = [2.10; 1.32; 1.10; 1.24; 1.56; 0.6; 1.9; 2.3; 1.05; 0.8];
+    	xCurr = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
+
+    	tic
+    	runMonteCarlo(1, numPaths, modelParam, xCurr, outdir, ...
+    	              MCNumCores, independent) % by default, start from 1 path
+    	display('Total time to run MC for MeanReverting is below: ');
+    	toc
+    end
+
+    if runCIRMC
+    	modelParam2.modelType = 'CIR';
+    	modelParam2.mu = [0.4; 1.3; 2.2; 3.5; 1.2; 4.0; 5.5; 2.0; 1.0; 4.5];
+    	modelParam2.vol = [0.1; 0.16; 0.3; 0.52; 0.14; 0.5; 1.0; 0.3; 0.5; 0.8];
+    	modelParam2.vol = modelParam2.vol ./ sqrt(modelParam2.mu); 
+    	modelParam2.lambda = [2.10; 1.32; 1.10; 1.24; 1.56; 0.6; 1.9; 2.3; 1.05; 0.8];
+    	xCurr2 = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
+
+    	tic
+    	runMonteCarlo(1, numPaths, modelParam2, xCurr2, outdir, MCNumCores, independent) % by default, start from 1 path
+    	display('Total time to run MC for CIR is below: ');
+    	toc
+    end
+
 end
 
 
@@ -592,11 +614,11 @@ function runMonteCarlo(fromPaths, endPaths, modelParam, xCurr, outdir, ...
     
     btST = 0;           
     btET = 1.0;               
-    rebTS = 0.02;
+    rebTS = 0.01;
 
     maxRet = 0.2;
     maxDrawDown = -0.1;    
-    maxLR = 6.0;
+    maxLR = 2.0;
 
     % number of asset to plot the simulated stock price and pos
     numAsset = 2;

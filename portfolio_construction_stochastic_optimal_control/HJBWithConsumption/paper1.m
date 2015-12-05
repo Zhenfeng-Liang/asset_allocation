@@ -1,6 +1,6 @@
 function paper1()
 
-    outdir = 'MCLR2RBTS001LNInd';
+    outdir = 'LNIndConLR2Reb004';
 
     numPaths = 100    
     MCNumCores = 25
@@ -13,6 +13,7 @@ function paper1()
     runLNMC = true
     runMRMC = false
     runCIRMC = false
+    
 
     if runLNTest
     	runLN(outdir);
@@ -25,7 +26,10 @@ function paper1()
     if runCIRTest
     	runCIR(outdir);
     end
- 
+
+    turnedOnConsumption = true
+    utilityType = 'CRRA';
+    
     if runLNMC   
     	modelParam3.modelType = 'LogNormal';
     	modelParam3.mu = [-0.5; 0.5; 0.1; -0.125; 0.2; 0.33; -0.083; 0.33; -0.583; -0.12];
@@ -34,7 +38,9 @@ function paper1()
     	modelParam3.vol = modelParam3.vol ./ xCurr3;
 
     	tic
-    	runMonteCarlo(1, numPaths, modelParam3, xCurr3, outdir, MCNumCores, independent) % by default, start from 1 path
+        % by default, start from 1 path
+    	runMonteCarlo(1, numPaths, modelParam3, xCurr3, outdir, ...
+                      MCNumCores, independent, turnedOnConsumption, utilityType) 
     	display('Total time to run MC for LogNormal is below: ');
     	toc
     end
@@ -47,8 +53,10 @@ function paper1()
     	xCurr = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
 
     	tic
+        % by default, start from 1 path
     	runMonteCarlo(1, numPaths, modelParam, xCurr, outdir, ...
-    	              MCNumCores, independent) % by default, start from 1 path
+    	              MCNumCores, independent, turnedOnConsumption, ...
+                      utilityType) 
     	display('Total time to run MC for MeanReverting is below: ');
     	toc
     end
@@ -62,7 +70,10 @@ function paper1()
     	xCurr2 = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
 
     	tic
-    	runMonteCarlo(1, numPaths, modelParam2, xCurr2, outdir, MCNumCores, independent) % by default, start from 1 path
+        % by default, start from 1 path        
+    	runMonteCarlo(1, numPaths, modelParam2, xCurr2, outdir, ...
+                      MCNumCores, independent, turnedOnConsumption, ...
+                      utilityType) 
     	display('Total time to run MC for CIR is below: ');
     	toc
     end
@@ -601,20 +612,19 @@ end
 
 
 function runMonteCarlo(fromPaths, endPaths, modelParam, xCurr, outdir, ...
-                       MCNumCores, independent)
+                       MCNumCores, independent, turnedOnConsumption, ...
+                       utilityType)
 
     str = sprintf('Monte Carlo back test, %s', modelParam.modelType);
     display(str);
     
     w0 = 100000;
-    utilityType = 'HARA';
-    turnedOnConsumption = false;
     numCores = 1;
     gamma = 10;
     
     btST = 0;           
     btET = 1.0;               
-    rebTS = 0.01;
+    rebTS = 0.04;
 
     maxRet = 0.2;
     maxDrawDown = -0.1;    
@@ -641,10 +651,9 @@ function runMonteCarlo(fromPaths, endPaths, modelParam, xCurr, outdir, ...
 
     wTVec = zeros(1, endPaths - fromPaths + 1);
     UTVec = zeros(1, endPaths - fromPaths + 1);
-
-    %corrMatr = corrMatr;  % Do this declaration so that the body
-                          % text in the parloop can see the corrMatr
-    %corrMatr = diag(ones(1, length(xCurr))) % For independent correlated matrix, you may delete this later
+    JTVec = zeros(1, endPaths - fromPaths + 1);
+    WIndCVec = zeros(1, endPaths - fromPaths + 1);
+    
     corrMatr
     matlabpool('open', MCNumCores);
     parfor path = fromPaths:endPaths
@@ -665,12 +674,27 @@ function runMonteCarlo(fromPaths, endPaths, modelParam, xCurr, outdir, ...
         
         [wVec, phiMat, cVec] = bte.runBackTest(simData, wkbSolver, w0, ...
                                                turnedOnConsumption);
-        
-        %wTVec(path - fromPaths + 1) = wVec(end);
-        %UTVec(path - fromPaths + 1) = utiCalc.U( wVec(end) );
+
+        % The right flexible code should be the commented ones, but
+        % parloop cant take this formula as index. So the
+        % uncommented one is assuming fromPaths = 1
+        % wTVec(path - fromPaths + 1) = wVec(end);
+        % UTVec(path - fromPaths + 1) = utiCalc.U( wVec(end) );
         wTVec(path) = wVec(end);
         UTVec(path) = utiCalc.U( wVec(end) );
-
+        
+        if turnedOnConsumption
+            n = length(cVec);
+            CUVec = zeros(1, n);
+            
+            for i=1:n
+                CUVec(i) = utiCalc.U( cVec(i) );
+            end
+            
+            JTVec(path) = sum(CUVec) * rebTS + UTVec(path);
+            WIndCVec(path) = sum(cVec) * rebTS + wVec(end);
+        end
+        
         % Start to plot the back-test result
         t = btST:rebTS:btET;    
         
@@ -703,6 +727,25 @@ function runMonteCarlo(fromPaths, endPaths, modelParam, xCurr, outdir, ...
         set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 ...
                             20]);
         saveas(gcf, str);
+
+        if turnedOnConsumption
+            
+            figure
+            cTmp = [cVec, 0];
+
+            stairs(t, cTmp, 'linewidth', 2);
+            
+            str = sprintf(['Consumption rate %s'], modelParam.modelType);
+            title(str,'FontSize', 20);
+            
+            xlabel('rebalance time', 'FontSize', 20);
+            ylabel('Consumption rate ($/T)', 'color', 'red', 'FontSize', 20);
+            
+            str = sprintf('%s/%sCRPath%d.png', outdir, modelParam.modelType, path);
+            set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 ...
+                            20]);    
+            saveas(gcf, str);            
+        end
         
         % Ploting PnL
         figure;
@@ -756,4 +799,40 @@ function runMonteCarlo(fromPaths, endPaths, modelParam, xCurr, outdir, ...
                   fromPaths, endPaths);    
     save(str, 'UTVec');
 
+    if turnedOnConsumption
+        averageJT = mean(JTVec)
+        averageWIndCVec = mean(WIndCVec)
+        
+        hist(JTVec)
+        str = sprintf('Value function (J) distribution %s', modelParam.modelType);
+        title(str, 'FontSize', 20);
+        xlabel('J', 'FontSize', 20); 
+        ylabel('Frequency', 'FontSize', 20);  
+
+        str = sprintf('%s/%sJTHist%dTo%d.png', outdir, modelParam.modelType, ...
+                      fromPaths, endPaths);
+        set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 20]);    
+        saveas(gcf, str);
+
+        str = sprintf('%s/%sJTVec%dTo%d.mat', outdir, modelParam.modelType, ...
+                      fromPaths, endPaths);
+        save(str, 'JTVec');
+        
+        hist(WIndCVec)
+        str = sprintf('Total wealth distribution %s', modelParam.modelType);
+        title(str, 'FontSize', 20);
+        xlabel('Wealth including consumption', 'FontSize', 20); 
+        ylabel('Frequency', 'FontSize', 20);  
+
+        str = sprintf('%s/%sTotWealthHist%dTo%d.png', outdir, modelParam.modelType, ...
+                      fromPaths, endPaths);
+        set(gcf,'PaperUnits','centimeters','PaperPosition',[0 0 45 20]);    
+        saveas(gcf, str);
+
+        str = sprintf('%s/%sWIndCVec%dTo%d.mat', outdir, modelParam.modelType, ...
+                      fromPaths, endPaths);
+        save(str, 'WIndCVec');
+        
+    end
+    
 end

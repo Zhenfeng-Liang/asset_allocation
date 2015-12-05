@@ -103,14 +103,14 @@ classdef WKBHierarchySolver < handle
             eps = 1e-5;
             
             % Multi-threaded to improve performance
-            matlabpool('open', obj.numCores);
-            parfor i = 1:F
+            %matlabpool('open', obj.numCores);
+            for i = 1:F
                 xEps = x;
                 xEps(i) = xEps(i) + eps;
                 innerLogEps = calcInnerLog(xEps);                 
                 nablaInnerLog(i) = (innerLogEps - innerLog) / eps;
             end  
-            matlabpool close;
+            %matlabpool close;
             
             res = nablaSMax + nablaInnerLog;
         end

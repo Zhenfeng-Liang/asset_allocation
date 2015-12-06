@@ -1,0 +1,2223 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2014 The MathWorks, Inc.
+                    R2014a (8.3.0.532) 64-bit (glnxa64)
+                             February 11, 2014
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> >> >> 
+numPaths =
+
+   100
+
+
+MCNumCores =
+
+    25
+
+
+runLNTest =
+
+     0
+
+
+runMRTest =
+
+     0
+
+
+runCIRTest =
+
+     0
+
+
+runLNMC =
+
+     1
+
+
+runMRMC =
+
+     0
+
+
+runCIRMC =
+
+     0
+
+
+turnedOnConsumption =
+
+     1
+
+
+str =
+
+Monte Carlo back test, LogNormal
+
+
+corrMatr =
+
+  Columns 1 through 7
+
+    1.0000   -0.0145    0.1848    0.1358   -0.0337   -0.0342    0.0622
+   -0.0145    1.0000   -0.3016   -0.1501    0.0580    0.3424   -0.0108
+    0.1848   -0.3016    1.0000    0.2149   -0.0653   -0.2611   -0.0907
+    0.1358   -0.1501    0.2149    1.0000   -0.0948   -0.2658   -0.1084
+   -0.0337    0.0580   -0.0653   -0.0948    1.0000    0.2261   -0.1728
+   -0.0342    0.3424   -0.2611   -0.2658    0.2261    1.0000    0.0118
+    0.0622   -0.0108   -0.0907   -0.1084   -0.1728    0.0118    1.0000
+    0.2555    0.1151   -0.0439    0.1514    0.0338    0.0520   -0.1263
+   -0.1129    0.0650    0.0363    0.1296    0.1649    0.0560   -0.0992
+   -0.1504   -0.0243    0.1333    0.0709    0.2184    0.0593   -0.1259
+
+  Columns 8 through 10
+
+    0.2555   -0.1129   -0.1504
+    0.1151    0.0650   -0.0243
+   -0.0439    0.0363    0.1333
+    0.1514    0.1296    0.0709
+    0.0338    0.1649    0.2184
+    0.0520    0.0560    0.0593
+   -0.1263   -0.0992   -0.1259
+    1.0000    0.1684   -0.0614
+    0.1684    1.0000    0.4023
+   -0.0614    0.4023    1.0000
+
+[Warning: matlabpool will be removed in a future release.
+Use parpool instead.] 
+Starting matlabpool using the 'local' profile ... connected to 25 workers.
+
+str =
+
+Running model LogNormal path 51
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 53
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 27
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 42
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 48
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 55
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 24
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 6
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 33
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 18
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 45
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 9
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 65
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 12
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 67
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 61
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 36
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 57
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 63
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 21
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 15
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 59
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 3
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 30
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 39
+
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.7490
+
+Consumption turned on
+Elapsed time is 1093.115225 seconds.
+Consumption turned on
+
+annualizedRet =
+
+    0.3740
+
+Consumption turned on
+
+annualizedRet =
+
+    0.4448
+
+Elapsed time is 1095.937743 seconds.
+
+annualizedRet =
+
+    0.4521
+
+
+annualizedRet =
+
+    0.4215
+
+
+annualizedRet =
+
+    0.6124
+
+Elapsed time is 1097.472649 seconds.
+Elapsed time is 1097.704177 seconds.
+Elapsed time is 1098.730861 seconds.
+Elapsed time is 1100.509798 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.4392
+
+
+annualizedRet =
+
+    0.6108
+
+Elapsed time is 1105.950578 seconds.
+Elapsed time is 1106.033831 seconds.
+Consumption turned on
+
+annualizedRet =
+
+    0.5705
+
+Consumption turned on
+
+annualizedRet =
+
+    0.5506
+
+Elapsed time is 1120.614195 seconds.
+Elapsed time is 1122.848292 seconds.
+Consumption turned on
+
+annualizedRet =
+
+    0.3814
+
+Consumption turned on
+
+annualizedRet =
+
+    0.5165
+
+Elapsed time is 1125.418252 seconds.
+
+annualizedRet =
+
+    0.5817
+
+
+annualizedRet =
+
+    0.3749
+
+
+annualizedRet =
+
+    0.5074
+
+Consumption turned on
+Elapsed time is 1132.088337 seconds.
+
+annualizedRet =
+
+    0.4637
+
+
+annualizedRet =
+
+    0.4706
+
+
+annualizedRet =
+
+    0.4821
+
+Consumption turned on
+Consumption turned on
+Elapsed time is 1143.720573 seconds.
+Elapsed time is 1143.964679 seconds.
+Elapsed time is 1143.521341 seconds.
+Elapsed time is 1144.817604 seconds.
+Elapsed time is 1144.849987 seconds.
+Elapsed time is 1144.810930 seconds.
+
+annualizedRet =
+
+    0.5149
+
+Elapsed time is 1155.220628 seconds.
+
+annualizedRet =
+
+    0.5295
+
+
+annualizedRet =
+
+    0.6065
+
+Elapsed time is 1160.295219 seconds.
+Elapsed time is 1161.368027 seconds.
+Consumption turned on
+
+annualizedRet =
+
+    0.3742
+
+Elapsed time is 1167.987620 seconds.
+
+annualizedRet =
+
+    0.5670
+
+Elapsed time is 1175.581828 seconds.
+
+annualizedRet =
+
+    0.6494
+
+Elapsed time is 1192.031422 seconds.
+
+annualizedRet =
+
+    0.4866
+
+Elapsed time is 1204.065670 seconds.
+
+str =
+
+Running model LogNormal path 50
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 41
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 26
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 5
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 52
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 47
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 54
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 23
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 17
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 44
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 32
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 11
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 8
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 64
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 60
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 35
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 56
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 66
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 20
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 62
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 14
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 58
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 29
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 2
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 38
+
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.5543
+
+Consumption turned on
+Elapsed time is 1088.757319 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.6207
+
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.4951
+
+Elapsed time is 1110.579397 seconds.
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.4498
+
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Elapsed time is 1118.049923 seconds.
+
+annualizedRet =
+
+    0.4494
+
+Elapsed time is 1111.699017 seconds.
+Consumption turned on
+
+annualizedRet =
+
+    0.3770
+
+Elapsed time is 1125.027489 seconds.
+
+annualizedRet =
+
+    0.3862
+
+Elapsed time is 1123.567336 seconds.
+Consumption turned on
+Elapsed time is 1098.488398 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.4653
+
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Elapsed time is 1149.181384 seconds.
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.6221
+
+Elapsed time is 1142.485066 seconds.
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.5837
+
+Elapsed time is 1126.215853 seconds.
+
+annualizedRet =
+
+    0.6599
+
+
+annualizedRet =
+
+    0.5847
+
+Elapsed time is 1156.756915 seconds.
+Elapsed time is 1137.005006 seconds.
+Consumption turned on
+
+annualizedRet =
+
+    0.4671
+
+
+annualizedRet =
+
+    0.6340
+
+
+annualizedRet =
+
+    0.5143
+
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.3872
+
+Consumption turned on
+
+annualizedRet =
+
+    0.5168
+
+Consumption turned on
+
+annualizedRet =
+
+    0.7186
+
+Elapsed time is 1163.830291 seconds.
+
+annualizedRet =
+
+    0.4822
+
+Elapsed time is 1159.573587 seconds.
+Elapsed time is 1148.604911 seconds.
+Elapsed time is 1158.902231 seconds.
+Elapsed time is 1159.199309 seconds.
+Elapsed time is 1160.755294 seconds.
+Elapsed time is 1144.324002 seconds.
+Consumption turned on
+
+annualizedRet =
+
+    0.6291
+
+Elapsed time is 1157.393682 seconds.
+
+annualizedRet =
+
+    0.5152
+
+Elapsed time is 1154.106401 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.5508
+
+Elapsed time is 1178.584619 seconds.
+
+annualizedRet =
+
+    0.5087
+
+
+annualizedRet =
+
+    0.5524
+
+Elapsed time is 1184.041474 seconds.
+Elapsed time is 1173.829731 seconds.
+
+annualizedRet =
+
+    0.4627
+
+
+str =
+
+Running model LogNormal path 49
+
+Consumption turned on
+Consumption turned on
+Elapsed time is 1300.677217 seconds.
+
+str =
+
+Running model LogNormal path 40
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 46
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 16
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 4
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 69
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 25
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 22
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 31
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 71
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 43
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 7
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 76
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 77
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 19
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 73
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 75
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 34
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 13
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 10
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 78
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 28
+
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 1
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 37
+
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 79
+
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.5154
+
+Elapsed time is 1124.921578 seconds.
+
+annualizedRet =
+
+    0.4374
+
+Consumption turned on
+Consumption turned on
+Elapsed time is 1094.618787 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.4939
+
+Consumption turned on
+Consumption turned on
+Elapsed time is 1106.856748 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.6405
+
+Consumption turned on
+Elapsed time is 1116.240344 seconds.
+Consumption turned on
+
+annualizedRet =
+
+    0.6741
+
+Consumption turned on
+Elapsed time is 1138.447462 seconds.
+Consumption turned on
+
+annualizedRet =
+
+    0.5125
+
+Elapsed time is 1124.208813 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.4889
+
+Elapsed time is 1107.582006 seconds.
+
+annualizedRet =
+
+    0.5727
+
+Elapsed time is 1149.518527 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.4443
+
+
+annualizedRet =
+
+    0.3950
+
+Elapsed time is 1110.246106 seconds.
+Elapsed time is 1119.093820 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.5184
+
+Elapsed time is 1117.306193 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.4712
+
+
+annualizedRet =
+
+    0.3671
+
+Consumption turned on
+Elapsed time is 1116.200602 seconds.
+Elapsed time is 1139.537912 seconds.
+
+annualizedRet =
+
+    0.6767
+
+Elapsed time is 1119.289295 seconds.
+
+annualizedRet =
+
+    0.5944
+
+Elapsed time is 1123.970868 seconds.
+Consumption turned on
+
+annualizedRet =
+
+    0.4469
+
+Consumption turned on
+Elapsed time is 1124.500041 seconds.
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.4846
+
+Elapsed time is 1144.568544 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.6587
+
+
+annualizedRet =
+
+    0.5310
+
+Consumption turned on
+Elapsed time is 1175.662686 seconds.
+Elapsed time is 1180.240199 seconds.
+
+annualizedRet =
+
+    0.4065
+
+Elapsed time is 1167.598244 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.6433
+
+Elapsed time is 1211.669616 seconds.
+
+str =
+
+Running model LogNormal path 80
+
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.3856
+
+
+annualizedRet =
+
+    0.7193
+
+
+str =
+
+Running model LogNormal path 81
+
+Consumption turned on
+Consumption turned on
+Elapsed time is 1157.947136 seconds.
+
+annualizedRet =
+
+    0.5142
+
+Elapsed time is 1185.555173 seconds.
+Elapsed time is 1163.639512 seconds.
+
+str =
+
+Running model LogNormal path 82
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 83
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 68
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 84
+
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.5115
+
+Elapsed time is 1167.082426 seconds.
+
+str =
+
+Running model LogNormal path 86
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 85
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 87
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 70
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 88
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 90
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 91
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 89
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 92
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 72
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 74
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 94
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 95
+
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 96
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 93
+
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 98
+
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 97
+
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 99
+
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+str =
+
+Running model LogNormal path 100
+
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.5293
+
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.3778
+
+Elapsed time is 1143.413390 seconds.
+Elapsed time is 1106.520312 seconds.
+Consumption turned on
+
+annualizedRet =
+
+    0.4383
+
+Elapsed time is 1128.432505 seconds.
+Consumption turned on
+
+annualizedRet =
+
+    0.5641
+
+Elapsed time is 1158.610997 seconds.
+Consumption turned on
+
+annualizedRet =
+
+    0.4665
+
+Elapsed time is 1126.943915 seconds.
+Consumption turned on
+
+annualizedRet =
+
+    0.6788
+
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Elapsed time is 1121.890624 seconds.
+
+annualizedRet =
+
+    0.5317
+
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Elapsed time is 1155.129915 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.6281
+
+Elapsed time is 1091.333984 seconds.
+
+annualizedRet =
+
+    0.5420
+
+Elapsed time is 1135.324962 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.3837
+
+Elapsed time is 1165.726673 seconds.
+
+annualizedRet =
+
+    0.4766
+
+
+annualizedRet =
+
+    0.5535
+
+
+annualizedRet =
+
+    0.5365
+
+Elapsed time is 1152.233428 seconds.
+Elapsed time is 1113.687113 seconds.
+Elapsed time is 1137.024171 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.5145
+
+Consumption turned on
+Elapsed time is 1125.700972 seconds.
+
+annualizedRet =
+
+    0.5532
+
+Elapsed time is 1136.670440 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.4844
+
+Consumption turned on
+Elapsed time is 1143.700757 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.4281
+
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.6453
+
+
+annualizedRet =
+
+    0.5807
+
+Elapsed time is 1167.938691 seconds.
+Elapsed time is 1163.777658 seconds.
+Elapsed time is 1175.655225 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.5072
+
+Elapsed time is 1166.990600 seconds.
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.5629
+
+Elapsed time is 1155.578329 seconds.
+
+annualizedRet =
+
+    0.6637
+
+Elapsed time is 1130.679276 seconds.
+
+annualizedRet =
+
+    0.5444
+
+Elapsed time is 1182.412489 seconds.
+
+annualizedRet =
+
+    0.5958
+
+Elapsed time is 1187.927693 seconds.
+Consumption turned on
+Consumption turned on
+Consumption turned on
+
+annualizedRet =
+
+    0.5824
+
+Elapsed time is 1445.644931 seconds.
+[Warning: matlabpool will be removed in a future release.
+To shutdown a parallel pool use 'delete(gcp('nocreate'))' instead.] 
+Parallel pool using the 'local' profile is shutting down.
+
+averageWT =
+
+   1.7039e+03
+
+
+averageUT =
+
+  -1.5885e-24
+
+
+averageJT =
+
+  -1.5885e-24
+
+
+averageWIndCVec =
+
+   1.5239e+05
+
+Total time to run MC for LogNormal is below: 
+Elapsed time is 4945.372690 seconds.
+>> >> [Warning: Objects of datamanager.linkbehavior class exist - not clearing this
+class or any of its superclasses] 
+[Warning: Objects of datamanager.brushbehavior class exist - not clearing this
+class or any of its superclasses] 
+[Warning: Objects of graphics.datacursorbehavior class exist - not clearing this
+class or any of its superclasses] 

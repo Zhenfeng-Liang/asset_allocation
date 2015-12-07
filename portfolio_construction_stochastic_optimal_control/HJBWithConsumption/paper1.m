@@ -1,6 +1,6 @@
 function paper1()
 
-    outdir = 'LNIndConLR2Reb004';
+%outdir = 'tmpInd';
 
     numPaths = 100    
     MCNumCores = 25
@@ -11,8 +11,8 @@ function paper1()
     runCIRTest = false
 
     runLNMC = true
-    runMRMC = false
-    runCIRMC = false
+    runMRMC = true
+    runCIRMC = true
     
 
     if runLNTest
@@ -36,7 +36,8 @@ function paper1()
     	modelParam3.vol = [0.1; 0.16; 0.3; 0.52; 0.14; 0.5; 1.0; 0.3; 0.5; 0.8];
     	xCurr3 = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
     	modelParam3.vol = modelParam3.vol ./ xCurr3;
-
+        
+        outdir = 'LNIndLR2CR005reb004';
     	tic
         % by default, start from 1 path
     	runMonteCarlo(1, numPaths, modelParam3, xCurr3, outdir, ...
@@ -52,6 +53,7 @@ function paper1()
     	modelParam.lambda = [2.10; 1.32; 1.10; 1.24; 1.56; 0.6; 1.9; 2.3; 1.05; 0.8];
     	xCurr = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
 
+        outdir = 'MRIndLR2CR005reb004';
     	tic
         % by default, start from 1 path
     	runMonteCarlo(1, numPaths, modelParam, xCurr, outdir, ...
@@ -69,6 +71,7 @@ function paper1()
     	modelParam2.lambda = [2.10; 1.32; 1.10; 1.24; 1.56; 0.6; 1.9; 2.3; 1.05; 0.8];
     	xCurr2 = [0.8; 0.8; 2; 4; 1; 3; 6; 1.5; 2.4; 5.1];
 
+        outdir = 'CIRIndLR2CR005reb004';
     	tic
         % by default, start from 1 path        
     	runMonteCarlo(1, numPaths, modelParam2, xCurr2, outdir, ...

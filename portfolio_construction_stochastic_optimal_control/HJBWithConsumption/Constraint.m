@@ -13,6 +13,7 @@ classdef Constraint < handle
         on;
         
         maxLR; % maximum leverage ratio
+        maxCR; % maximum consumption ratio
     end
         
     methods
@@ -25,6 +26,7 @@ classdef Constraint < handle
             obj.peakRet = 0;
             obj.on = on;
             obj.maxLR = maxLR;
+            obj.maxCR = 0.05; % by default 5% maximum consumption ratio
         end
         
         function phi = imposeLeverage(obj, currW, phi, currX)
@@ -36,6 +38,14 @@ classdef Constraint < handle
                 
                 phi = phi * (obj.maxLR / LR);
             end        
+        end
+
+        function cRate = imposeConsumptionConstraint(obj, cRate, ...
+                                                     rebTimeStep, currW)
+            
+            cRate = min(cRate * rebTimeStep, currW * obj.maxCR) / ...
+                    rebTimeStep; 
+            
         end
         
         function impose(obj, currRet)

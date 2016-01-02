@@ -38,3 +38,19 @@ Implementation thoughts/ideas/log:
 
 26 Oct, 2015. work to do:
    1: changed to the other way to implement nabla log function
+
+
+02 Nov, 2015, questions for Andrew.
+   1: what is the right time step to rebalance? (fixed time step? or some criterion when the phi deviate the optimal phi?)
+   2: what is the right time horizon we need to use for the optimizer? the whole holding period? or just the rebalance time step?
+   3: what is the right way to calibrate the underlying model parameters? what is the right way to get cleaned data? 
+
+
+02 Jan, 2016, changes need to be made in paper without consumption.
+   1: page 17, numerical test, add explanation the time consumption is for each thread, multi-thread can reduce the time for MC test
+   2: page 21, top, we tracked PnL? Do we need to change into total wealth? or use cumulative return?
+   3: page 21, Test on 10-asset portfolios, cumulative PnL
+   4: page 18, specify L_max for all the plots generated
+   5: create a form for all the parameters
+
+

@@ -51,22 +51,15 @@ classdef BtEngine
                 
                 tCurr = tCurr + obj.rebTimeStep;
                 
-                phiMat(:, i - 1) = obj.constraint.imposeLeverage(wVec(i - 1), ...
-                                                                 phiMat(:, i - 1), histData(:, i - 1));
+                %phiMat(:, i - 1) = obj.constraint.imposeLeverage(wVec(i - 1), ...
+                %                                                 phiMat(:, i - 1), histData(:, i - 1));
                 
-                if turnedOnConsumtion
-                    cVec(i - 1) = obj.constraint.imposeConsumptionConstraint( ...
-                        cVec(i - 1), obj.rebTimeStep,wVec(i - 1) ...
-                        );
-                end
-                
-                % The following impose consumption constraint to
-                % make sure the wealth will not be negative. This
-                % should be added into the constraint class
-                %maxCR = 1.0 / (obj.numSteps - i + 2);
-                %cVec(i - 1) = min(cVec(i - 1) * obj.rebTimeStep, ...
-                %                  wVec(i - 1) * maxCR) / obj.rebTimeStep;
-                
+                %if turnedOnConsumtion
+                %    cVec(i - 1) = obj.constraint.imposeConsumptionConstraint( ...
+                %        cVec(i - 1), obj.rebTimeStep,wVec(i - 1) ...
+                %        );
+                %end
+                                
                 wVec(i) = wVec(i - 1) - cVec(i - 1) * ...
                           obj.rebTimeStep + phiMat(:, i-1)' * ...
                           (histData(:, i) - histData(:, i-1)); 

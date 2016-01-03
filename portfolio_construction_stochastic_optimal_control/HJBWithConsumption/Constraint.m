@@ -43,8 +43,9 @@ classdef Constraint < handle
         function cRate = imposeConsumptionConstraint(obj, cRate, ...
                                                      rebTimeStep, currW)
             
-            cRate = min(cRate * rebTimeStep, currW * obj.maxCR) / ...
-                    rebTimeStep; 
+            %cRate = min(cRate * rebTimeStep, currW * obj.maxCR) / ...
+            %        rebTimeStep;
+            cRate = min(cRate * 1.0, currW * obj.maxCR) / 1.0;             
             
         end
         

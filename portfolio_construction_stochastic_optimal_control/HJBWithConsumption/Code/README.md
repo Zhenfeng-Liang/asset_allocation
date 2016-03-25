@@ -44,3 +44,8 @@ This is a MATLAB program for stochastic optimal control problem. This folder inc
 ### Model.m
 
 #### This is a class implementing different models related intermediate results.
+
+
+### Questions???
+
+#### Any questions about the code, please contact: Zhenfeng.Jose.Liang@gmail.com

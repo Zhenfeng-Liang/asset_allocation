@@ -45,7 +45,10 @@ This is a MATLAB program for stochastic optimal control problem. This folder inc
 
 #### This is a class implementing different models related intermediate results.
 
+### LogNormalcorr.mat, MeanRevertingcorr.mat, CIRcorr.mat
 
+#### The default correlation matrix used in the paper
+ 
 ### Questions???
 
 #### Any questions about the code, please contact: Zhenfeng.Jose.Liang@gmail.com
